@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewData["Title"] = "_NavbarLoginRegister";
+}
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/Navbar1.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light  header " aria-label="Eighth navbar example">
+        <div class="container">
+
+            <button class="btn hamburger-button " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions">
+                <img src="~/Images/hamburger.jpg">
+            </button>
+
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                 aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h2>CI-PLATFORM</h2>
+                    <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body navbar-nav me-auto mb-2 mb-lg-0 align-self-center">
+
+                    <div class=" dropdown text-end ms-3">
+                        <a asp-action="Login" asp-controller="User"> <button type="button" class="btn btn-outline-primary me-3">Login</button> </a>
+                        <a asp-action="Registration" asp-controller="User"><button type="button" class="btn btn-outline-success">Register</button></a>
+
+
+                    </div>
+
+                    <li class="nav-item mt-3 ms-3">
+                        <a class="nav-link active" aria-current="page" href="#">Story</a>
+                    </li>
+
+                    <li class="nav-item dropdown ms-3">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                           aria-expanded="false">Policy</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+            <h2 class="nav-brand ms-3 me-auto"><img src="../CI Platform Assets/logo.png" alt=""></h2>
+            <ul class="navbar-nav  navbar1  me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Story</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                       aria-expanded="false">Policy</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="dropdown text-end userprofile ">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    <img src="~/Images/user-img.png" alt="mdo" width="40" height="40"
+                         class="rounded-circle">
+                    <span class="txt text-dark">@Accessor.HttpContext.Session.GetString("username")</span>
+                </a>
+                <ul class="dropdown-menu text-small">
+                    <li><a class="dropdown-item" href="#">Dashbord</a></li>
+                    <li><a class="dropdown-item" href="#">My Account</a></li>
+                    <li><a class="dropdown-item" href="#">Help Center</a></li>
+                    <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">Logout</a></li>
+                </ul>
+            </div>
+
+        </div>
+        @RenderBody();
+    </nav>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    @*<script src="~/js/LandingPage.js"></script>*@
+
+
+</body>
+
+</html>
+

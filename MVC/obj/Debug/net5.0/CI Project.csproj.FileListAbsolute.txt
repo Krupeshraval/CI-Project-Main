@@ -1,0 +1,93 @@
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\appsettings.Development.json
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\appsettings.json
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.exe
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.deps.json
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.runtimeconfig.json
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.runtimeconfig.dev.json
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.dll
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.pdb
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.Views.dll
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.Views.pdb
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.csproj.AssemblyReference.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.AssemblyInfoInputs.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.AssemblyInfo.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.csproj.CoreCompileInputs.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.MvcApplicationPartsAssemblyInfo.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.RazorAssemblyInfo.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.RazorAssemblyInfo.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\staticwebassets\CI Project.StaticWebAssets.Manifest.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\scopedcss\bundle\CI Project.styles.css
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.TagHelpers.input.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.TagHelpers.output.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.RazorCoreGenerate.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.RazorTargetAssemblyInfo.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.RazorTargetAssemblyInfo.cs
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.Views.pdb
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.dll
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\ref\CI Project.dll
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.pdb
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.genruntimeconfig.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\CI Project.csproj.CopyComplete
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\Razor\Views\Home\ForgotPassword.cshtml.g.cs
+C:\Tatvasoft CI\CI Project\bin\Debug\net5.0\CI Project.StaticWebAssets.xml
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\staticwebassets\CI Project.StaticWebAssets.Pack.cache
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\staticwebassets\msbuild.CI Project.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\staticwebassets\msbuild.build.CI Project.props
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.CI Project.props
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.CI Project.props
+C:\Tatvasoft CI\CI Project\obj\Debug\net5.0\refint\CI Project.dll
+F:\Project\CI Project\MVC\bin\Debug\net5.0\appsettings.Development.json
+F:\Project\CI Project\MVC\bin\Debug\net5.0\appsettings.json
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.exe
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.deps.json
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.runtimeconfig.json
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.runtimeconfig.dev.json
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.dll
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.pdb
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.Views.dll
+F:\Project\CI Project\MVC\bin\Debug\net5.0\CI Project.Views.pdb
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.csproj.AssemblyReference.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.GeneratedMSBuildEditorConfig.editorconfig
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.AssemblyInfoInputs.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.AssemblyInfo.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.csproj.CoreCompileInputs.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.MvcApplicationPartsAssemblyInfo.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.RazorAssemblyInfo.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.RazorAssemblyInfo.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\scopedcss\bundle\CI Project.styles.css
+F:\Project\CI Project\MVC\obj\Debug\net5.0\staticwebassets\CI Project.StaticWebAssets.Manifest.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\staticwebassets\CI Project.StaticWebAssets.Pack.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\staticwebassets\msbuild.CI Project.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Project\CI Project\MVC\obj\Debug\net5.0\staticwebassets\msbuild.build.CI Project.props
+F:\Project\CI Project\MVC\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.CI Project.props
+F:\Project\CI Project\MVC\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.CI Project.props
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.TagHelpers.input.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.TagHelpers.output.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.RazorCoreGenerate.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Home\ForgotPassword.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.RazorTargetAssemblyInfo.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.RazorTargetAssemblyInfo.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.Views.pdb
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.dll
+F:\Project\CI Project\MVC\obj\Debug\net5.0\refint\CI Project.dll
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.pdb
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.genruntimeconfig.cache
+F:\Project\CI Project\MVC\obj\Debug\net5.0\ref\CI Project.dll
+F:\Project\CI Project\MVC\obj\Debug\net5.0\CI Project.csproj.CopyComplete
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Home\ReSetPassword.cshtml.g.cs
+F:\Project\CI Project\MVC\obj\Debug\net5.0\Razor\Views\Home\Registration.cshtml.g.cs

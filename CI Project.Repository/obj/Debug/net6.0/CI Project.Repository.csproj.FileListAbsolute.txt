@@ -1,0 +1,30 @@
+F:\CI Project-dummy\CI Project.Repository\bin\Debug\net6.0\CI Project.Repository.deps.json
+F:\CI Project-dummy\CI Project.Repository\bin\Debug\net6.0\CI Project.Repository.dll
+F:\CI Project-dummy\CI Project.Repository\bin\Debug\net6.0\CI Project.Repository.pdb
+F:\CI Project-dummy\CI Project.Repository\bin\Debug\net6.0\CI Entities.dll
+F:\CI Project-dummy\CI Project.Repository\bin\Debug\net6.0\CI Entities.pdb
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.csproj.AssemblyReference.cache
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.GeneratedMSBuildEditorConfig.editorconfig
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.AssemblyInfoInputs.cache
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.AssemblyInfo.cs
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.csproj.CoreCompileInputs.cache
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.csproj.CopyComplete
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.dll
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\refint\CI Project.Repository.dll
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.pdb
+F:\CI Project-dummy\CI Project.Repository\obj\Debug\net6.0\ref\CI Project.Repository.dll
+F:\CI Project main\CI Project.Repository\bin\Debug\net6.0\CI Project.Repository.deps.json
+F:\CI Project main\CI Project.Repository\bin\Debug\net6.0\CI Project.Repository.dll
+F:\CI Project main\CI Project.Repository\bin\Debug\net6.0\CI Project.Repository.pdb
+F:\CI Project main\CI Project.Repository\bin\Debug\net6.0\CI Entities.dll
+F:\CI Project main\CI Project.Repository\bin\Debug\net6.0\CI Entities.pdb
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.csproj.AssemblyReference.cache
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.GeneratedMSBuildEditorConfig.editorconfig
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.AssemblyInfoInputs.cache
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.AssemblyInfo.cs
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.csproj.CoreCompileInputs.cache
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.csproj.CopyComplete
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.dll
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\refint\CI Project.Repository.dll
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\CI Project.Repository.pdb
+F:\CI Project main\CI Project.Repository\obj\Debug\net6.0\ref\CI Project.Repository.dll

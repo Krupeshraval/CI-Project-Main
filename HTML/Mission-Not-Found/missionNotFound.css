@@ -1,0 +1,84 @@
+
+.header{
+    border-bottom: 1px solid gray;
+}
+.form-control{
+    border: none !important;
+}
+.div{
+    border: 1px solid gray;
+}
+.ham{
+    height: 50%;
+    width: 50%;
+    padding: 0 !important;
+}
+.filterdiv{
+    border-left: 1px solid gray;
+    border-right: 1px solid grey;
+}
+.header2{
+    border-bottom: 1px solid gray;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+.sort{
+    width: 11rem;
+    margin-left: auto;
+}
+.sortby{
+    margin-left:auto;
+}
+
+  .cardbtn {
+    border: 1px solid #fd7e14;
+    border-radius: 22px;
+}
+
+    .cardbtn span {
+        color: #fd7e14;
+    }
+    .apply{
+        border-radius: 25px;
+        width: fit-content;
+        margin: 1rem;
+        margin-left:auto ;
+        margin-right:auto ;
+        border: 1px solid #F88634;
+        color: #F88634;
+        background: transparent;
+      }
+@media (max-width: 575.98px) {
+    .list-view .card {
+      flex-direction: column;
+    }
+  }
+  .list-view .card > .card-img-top {
+    width: auto;
+  }
+  .list-view .card .card-body {
+    display: inline-block;
+  }
+
+@media  screen and (min-width:767px) {
+    .btn , #offcanvasWithBothOptions{
+           display: none;
+    }
+    .nav-brand{
+        display: none;
+    }
+
+}
+
+@media  screen and (max-width:767px){
+    .navbar1{
+       display:none;
+    }
+    .userprofile{
+       display: none;
+    }
+    .seconddiv{
+       display: none;
+   }
+}

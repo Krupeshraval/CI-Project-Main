@@ -1,0 +1,391 @@
+
+.header{
+    border-bottom: 1px solid gray;
+}
+.form-control{
+    border: none !important;
+}
+.div{
+    border: 1px solid gray;
+}
+.ham{
+    height: 50%;
+    width: 50%;
+    padding: 0 !important;
+}
+.filterdiv{
+    border-left: 1px solid gray;
+    border-right: 1px solid grey;
+}
+.header2{
+    border-bottom: 1px solid gray;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+.sort{
+    width: 11rem;
+    margin-left: auto;
+}
+.sortby{
+    margin-left:auto;
+}
+
+.c1{
+    position: relative;
+}
+
+.c1-content{
+    position: absolute;
+    margin-left: auto !important;
+    background-color: rgb(0,0,0, 0.511);
+    border-radius: 20px;
+}
+.card {
+    margin-bottom: 1rem;
+  }
+  
+  .list-view .row > [class*=col-] {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .list-view .card {
+    flex-direction: row;
+  }
+
+  .date-detail{
+    border: 1px solid #c5c3c3;
+    border-radius: 20px;
+    padding: 3px 10px;
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+    width: fit-content;
+  }
+  
+  .apply{
+    border-radius: 25px;
+    width: fit-content;
+    margin: 1.5rem;
+    margin-bottom: 0;
+    margin-left:auto ;
+    margin-right:auto ;
+    border: 1px solid #F88634;
+    color: #F88634;
+    background: transparent;
+  }
+
+.card-img{
+    position: relative;
+}
+
+.pin{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.514);
+    border-radius: 50px;
+    top: 15px;
+    right: 10px;
+}
+
+.heart{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.514);
+    border-radius: 50%;
+    top: 100px;
+    right: 12px;
+}
+
+.share{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.514);
+    border-radius: 50%;
+    top: 150px;
+    right: 12px;
+}
+
+.env{
+    position: absolute;
+    color: #7d7d7d;
+    background-color: white;
+    border-radius: 40px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    bottom: -16px;
+}
+.l-1{
+    height: 0.5px;
+    background-color: #e1dada;
+    width: 242px;
+}
+
+.l-2{
+    height: 0.5px;
+    background-color: #c5c3c3;
+    width: 132px;
+}
+.l-3{
+    height: 0.5px;
+    background-color: #c5c3c3;
+    width: 132px;
+}
+
+.l-4 {
+    height: 0.5px;
+    background-color: #e1dada;
+    width: 280px;
+}
+.info-txt{
+    color: #757575;
+}
+
+.info-txt-2{
+    color: #414141;
+}
+
+.filter-list {
+     /* padding:6px 10px;  */
+    background-color: white;
+    border: 1px solid #808080;
+    border-radius: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.filter-close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+    color: #888;
+}
+
+.filters-section {
+    margin-top: 2%;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+  .progress{
+    margin-top: 5px;
+    height: 15px;
+    width: 135px;
+    margin-left: 1rem;
+  }
+
+  .csr{
+    color: #434242;
+    font-family: 'Noto Sans', sans-serif;
+   font-weight: 300; 
+  }
+  .desc{
+    color: #414141;
+  }
+
+  .add-fav{
+    border-radius: 25px;
+    margin: 1rem;
+    margin-left:auto ;
+    margin-right:auto ;
+    border: 1px solid #757575;
+    color: #757575;
+    background: transparent;
+  }
+.fourbox img{
+  margin-bottom: 2rem;
+}
+  .box{
+    border: 1px solid #e1dada;
+    width: 22%;
+    padding: .5rem;
+    margin-bottom: 0 !important;
+  }
+  .section-1{
+    height: 37rem !important;
+  }
+
+  .involveduserprofile {
+    border-radius: 50px;
+    height: 55%;
+    width: 90%;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+      border-bottom: 3px solid #F88634;
+    /* border: 0px, 0px, 3px, 0px; */
+    border-top: 0;
+    border-right: 0; 
+    border-left: 0;
+}
+a{
+  color: #000 !important;
+}
+
+.nav-link{
+  color: #000 !important;
+}
+.Addfavourite{
+  border:1px solid black;
+  padding-top:5px;
+  padding-bottom:5px;
+  width: fit-content;
+}
+
+.trees {
+  margin: 1rem 0;
+  background-color: black !important;
+  border: 2px !important;
+  opacity: .25;
+  width: 100% !important;
+}
+
+.foursquer{
+ border: 1px solid #e1dada;
+}
+
+.comments{
+  margin-top: 1rem;
+  padding-left: 1rem;
+  height: 11vh;
+}
+
+.post-btn{
+  border: 1px solid #F88634 !important;
+  border-radius: 18px !important;
+  color: #F88634 !important;
+}
+
+.dngbtn{
+  border-radius: 22px !important;
+  padding: 6px 25px 6px 25px !important;
+}
+
+.comment-display{
+  background-color: #ebe9e9;
+  height: 30rem;
+  width: 100%;
+  overflow-y: scroll;
+}
+.comment-text{
+  background-color: #fff;
+}
+
+  @media (max-width: 575.98px) {
+    .list-view .card {
+      flex-direction: column;
+    }
+  }
+  .list-view .card > .card-img-top {
+    width: auto;
+  }
+  .list-view .card .card-body {
+    display: inline-block;
+  }
+
+@media  screen and (min-width:767px) {
+    .menu-icon , #offcanvasWithBothOptions{
+           display: none;
+    }
+    .nav-brand{
+        display: none;
+    }
+
+}
+
+@media  screen and (max-width:767px){
+    .navbar1{
+       display:none;
+    }
+    .userprofile{
+       display: none;
+    }
+    .seconddiv{
+       display: none;
+   }
+}

@@ -1,0 +1,200 @@
+﻿
+.header {
+    border - bottom: 1px solid gray;
+}
+
+.form - control {
+    border: none !important;
+}
+
+.div {
+    border: 1px solid gray;
+}
+
+.ham {
+    height: 50 %;
+    width: 50 %;
+    padding: 0 !important;
+}
+
+.filterdiv {
+    border - left: 1px solid gray;
+    border - right: 1px solid grey;
+}
+
+.header2 {
+    border-bottom: 1px solid gray;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+.sort {
+    width: 11rem;
+    margin-left: auto;
+}
+
+.sortby {
+    margin-left: auto;
+}
+
+.c1 {
+    position: relative;
+}
+
+    .c1-content {
+        position: absolute;
+        margin - left: auto !important;
+        background - color: rgb(0, 0, 0, 0.511);
+        border - radius: 20px;
+    }
+
+.card {
+    margin - bottom: 1rem;
+}
+
+.list - view.row > [class*= col -] {
+    max - width: 100 %;
+    flex: 0 0 100 %;
+}
+
+.list - view.card {
+    flex - direction: row;
+}
+
+.date - detail {
+    border: 1px solid #c5c3c3;
+    border - radius: 20px;
+    padding: 3px 10px;
+    margin: auto;
+    margin - top: 1rem;
+    text - align: center;
+    width: fit - content;
+}
+
+.apply {
+    border - radius: 25px;
+    width: fit - content;
+    margin: 1.5rem;
+    margin-bottom: 0;
+    margin - left: auto;
+    margin - right: auto;
+    border: 1px solid #F88634;
+    color: #F88634;
+    background: transparent;
+}
+
+.card - img {
+    position: relative;
+}
+
+.pin {
+    position: absolute;
+    background - color: rgba(0, 0, 0, 0.514);
+    border - radius: 50px;
+    top: 15px;
+    right: 10px;
+}
+
+.heart {
+    position: absolute;
+    background - color: rgba(0, 0, 0, 0.514);
+    border - radius: 50 %;
+    top: 100px;
+    right: 12px;
+}
+
+.share {
+    position: absolute;
+    background - color: rgba(0, 0, 0, 0.514);
+    border - radius: 50 %;
+    top: 150px;
+    right: 12px;
+}
+
+.env {
+    position: absolute;
+    color: #7d7d7d;
+    background-color: white;
+    border-radius: 40px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    bottom: -16px;
+}
+
+.l - 1 {
+    height: 0.5px;
+    background - color: #c5c3c3;
+    width: 74px;
+}
+
+.info - txt {
+    color: #757575;
+}
+
+    .info-txt-2 {
+        color: #414141;
+    }
+
+.filter-list {
+    /* padding:6px 10px;  */
+    background-color: white;
+    border: 1px solid #808080;
+    border-radius: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.filter-close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+    color: #888;
+}
+
+.filters-section {
+    margin-top: 2%;
+}
+
+
+
+@media(max-width: 575.98px) {
+    .list-view.card {
+        flex-direction: column;
+    }
+}
+
+.list-view.card > .card-img-top {
+    width: auto;
+}
+
+.list - view.card.card - body {
+    display: inline - block;
+}
+
+@media screen and (min-width:767px) {
+    .filter-button, #offcanvasWithBothOptions, #offcanvasWithBothOptions2 {
+        display: none;
+    }
+
+    .nav - brand {
+        display: none;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .navbar1 {
+        display: none;
+    }
+
+    .userprofile {
+        display: none;
+    }
+
+    .seconddiv {
+        display: none;
+    }
+}

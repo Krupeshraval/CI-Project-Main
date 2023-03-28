@@ -1,0 +1,322 @@
+﻿
+@inject IHttpContextAccessor Accessor
+
+@{
+    var id = Context.Session.GetString("userID");
+
+}
+
+@{
+    bool favcheck = false;
+    int sum = 0;
+    //int count = 0;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    @* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">*@
+
+    @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstr/ap-icons@1.10.3/font/bootstrap-icons.css">*@
+    <link rel="stylesheet" href="~/css/LandingPage.css" asp-append-version="true">
+</head>
+
+<body>
+
+    
+
+    <div>
+        @if (TempData["Done"] != null)
+        {
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+            <script type="text/javascript">
+
+
+                toastr.success('@TempData["Done"]');
+
+
+            </script>
+        }
+    </div>
+
+    <div class="filters-section d-flex align-items-end flex-wrap justify-content-start ms-5">
+    </div>
+    @*<div class="container">*@
+    <div class="explore row me-5">
+        <div class="col-lg-6 d-inline">
+            <p class="fs-4 ms-5 mt-2"> Explore <strong class="fs-3">@ViewBag.TotalMissions missions</strong> </p>
+        </div>
+
+
+        <div class="col-lg-6 d-flex mt-3 sortby">
+            <div class="dropdown sort me-2 mt-1">
+                <button class=" btn dropdown d-flex align-items-center justify-content-between outline-0 w-100" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    <span class="sortby "> Sort By </span>
+                    <img src="~/Images/drop-down.png" alt="" class="sortaerrow ">
+                </button>
+                <ul class="dropdown-menu">
+
+                    <li><a class="dropdown-item" onclick="filters('Newest')">Newest</a></li>
+                    <li><a class="dropdown-item" onclick="filters('Oldest')">Oldest</a></li>
+                    <li><a class="dropdown-item" onclick="filters('Lowest seats')">Lowest Seats</a></li>
+                    <li><a class="dropdown-item" onclick="filters('Highest seats')">Highest Seats</a></li>
+                    <li>
+                        <a class="dropdown-item" onclick="filters('My favourites')">
+                            My favourites
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" onclick="filters('Registration deadline')">
+                            Registration deadline
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ms-5 ">
+
+                <a class=" btn-grid filter-btn" href="">
+                    @*<i class="bi bi-grid me-3" style="width:2rem;"></i>*@
+                    <img src="~/Images/grid.png" class="ms-3  mt-2" style="width:2rem" />
+                </a>
+
+                <a class="btn-list filter-btn" href="">
+                    @*<i class="bi bi-list me-3 "></i>*@
+                    <img src="~/Images/list.png" class="ms-3 mt-2" />
+                </a>
+                <!-- <img class="me-3" src="../CI Platform Assets/grid.png" alt="">
+                <img src="../CI Platform Assets/list.png" alt=""> -->
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+
+    <!-- ==================================================================== -->
+    <!----------------------------------- CARD --------------------------------->
+    <!-- ==================================================================== -->
+
+    <div class="container grid-container">
+        <div class="row">
+
+            @foreach (var obj in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-4 cardcss">
+                    <div class="card">
+
+                        <div class="card-img ">
+                            <img class="card-img-top h-100 "
+                             src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                             alt="Card image cap" />
+
+                            <div class="pin d-flex align-items-center px-2 py-1 ">
+                                <img src="~/Images/pin.png" alt="location">
+                                <p class="text-white mb-0 px-2">@obj.Cityname</p>
+                            </div>
+
+                             @if (obj.isfav==true)
+                            {
+                                <div onclick="AddtoFav()" class="heart align-items-center px-2 py-1">
+                                    <img src="~/Images/heart.png" alt="" style="color:darkorange" id="addtofav" class="heart-share-img">
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="heart align-items-center px-2 py-1">
+                                    <img src="~/Images/heart.png" alt="" class="heart-share-img">
+                                </div>
+                            }
+                            <div class="share align-items-center px-2 py-1">
+                                <img src="~/Images/user.png" alt="">
+                            </div>
+
+                            <div class="env align-items-center px-2 py-1 ">
+                                <p class="mb-0 info-txt-2">@obj.Themename</p>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-0 py-3">
+                            <div class="px-3">
+                                <h5 class="card-title">@obj.Title </h5>
+                                <p class="card-text info-txt">
+                                    @obj.ShortDescription
+                                </p>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="mb-0">Tree Canada</p>
+                                    <div class="overflow-auto   ms-5">
+                                        @if (obj.AvgRating != null)
+                                        {
+                                            for (int i = 0; i < obj.AvgRating; i++)
+                                            {
+                                                <img src="~/Images/selected-star.png" />
+
+                                            }
+                                            for (int i = obj.AvgRating; i < 5; i++)
+                                            {
+                                                <img src="~/Images/star.png" />
+
+                                            }
+                                        }
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            @*<div class="d-flex align-items-center">
+                        <div class="l-1"></div>
+                        <p class="date-detail mb-3">From @obj.StartDate.ToString().Split(" ")[0] until @obj.EndDate.ToString().Split(" ")[0]</p>
+                        <div class="l-1"></div>
+                        </div>*@
+                            @if (@obj.MissionType == "Time")
+                            {
+                                <div class="date-line">
+                                    <hr class="hr-1">
+                                    <p class="date-detail mb-3">From @obj.StartDate.ToString().Split(" ")[0] until @obj.EndDate.ToString().Split(" ")[0]</p>
+                                    <hr class="hr-1">
+                                </div>
+                            }
+                            else
+                            {
+                                @*@foreach (var goal in ViewBag.Goal1)
+                                {
+                                    @if (@obj.MissionId == goal.MissionId)
+                                    {
+                                        <div class="date-line">
+                                            <hr class="hr-1">
+                                            <p class="date-detail mb-3">@goal.GoalObjectiveText</p>
+                                            <hr class="hr-1">
+                                        </div>
+                                    }
+                                }*@
+                            
+
+                            <div class="date-line">
+                                <hr class="hr-1">
+                                <p class="date-detail mb-3">@obj.GoalObjectiveText</p>
+                                <hr class="hr-1">
+                            </div>
+                            }
+                            <div class="d-flex justify-content-between mx-3 mt-2">
+                                <div class="d-flex align-items-start ms-2">
+                                    <img src="~/Images/Seats-left.png" alt="">
+                                    <div class="ms-2">
+                                        <p class="mb-0">@obj.Availability</p>
+                                        <p class="info-txt">Seats left</p>
+                                    </div>
+                                </div>
+                                @if (obj.MissionType == "Time")
+                                {
+                                    <div class="d-flex align-items-start ms-2">
+                                        <img src="~/Images/deadline.png" alt="">
+                                        <div class="ms-2">
+                                            <p class="mb-0">@obj.EndDate.ToString().Split(" ")[0]</p>
+                                            <p class="info-txt">Deadline</p>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="ms-2">
+                                        <div class="d-flex">
+                                            <img src="~/Images/achieved.png" alt="">
+                                            <div class="progress ms-2" role="progressbar" aria-label="Basic example"
+                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width:100px; background-color: #F88634;"></div>
+                                            </div>
+                                        </div>
+                                        <p class="info-txt">8000 achieved</p>
+                                    </div>
+                                }
+                            </div>
+                            <hr style="margin: 0;">
+
+                            @if (id == null)
+                            {
+                                <div class="d-flex justify-content-center w-100">
+                                    <button class="apply px-3 py-2 m-0 mt-4 mb-2 " onclick="apply()">
+                                        <a style="text-decoration: none" class="apply-text" href="/User/Volunteeringmission/@id?missionid=@obj.MissionId">
+                                            Apply &nbsp; <img src="~/Images/right-arrow.png"
+                                                      alt="">
+                                        </a>
+                                    </button>
+
+                                </div>
+                            }
+
+                            else
+                            {
+                                <div class="d-flex justify-content-center w-100">
+                                    <button class="apply px-3 py-2 m-0 mt-4 mb-2 ">
+                                        <a style="text-decoration: none" class="apply-text" href="/User/Volunteeringmission/@id?missionid=@obj.MissionId">
+                                            Apply &nbsp; <img src="~/Images/right-arrow.png"
+                                                      alt="">
+                                        </a>
+                                    </button>
+
+                                </div>
+                            }
+
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+
+
+    <div class="pager">
+        @if (ViewBag.PageNumber > 1)
+        {
+            <a href="@Url.Action("_LandingPageCards", new { page = ViewBag.PageNumber - 1 })">&lt; Previous</a>
+
+        }
+
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            if (i == ViewBag.PageNumber)
+
+            {
+                <span>@i</span>
+            }
+            else
+            {
+                <a href="@Url.Action("_LandingPageCards", new { page = i })">@i</a>
+            }
+
+        }
+
+        @if (ViewBag.PageNumber < ViewBag.TotalPages)
+        {
+            <a href="@Url.Action("_LandingPageCards", new { page = ViewBag.PageNumber + 1 })">Next &gt;</a>
+
+
+        }
+
+    </div>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/js/LandingPage.js" asp-append-version="true"></script>
+
+</body>
+</html>
+
+

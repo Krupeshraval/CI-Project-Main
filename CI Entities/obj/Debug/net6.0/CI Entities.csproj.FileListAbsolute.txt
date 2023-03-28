@@ -1,0 +1,42 @@
+F:\Project\CI Project\CI Entities\bin\Debug\net6.0\CI Entities.deps.json
+F:\Project\CI Project\CI Entities\bin\Debug\net6.0\CI Entities.runtimeconfig.json
+F:\Project\CI Project\CI Entities\bin\Debug\net6.0\CI Entities.dll
+F:\Project\CI Project\CI Entities\bin\Debug\net6.0\CI Entities.pdb
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.csproj.AssemblyReference.cache
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.GeneratedMSBuildEditorConfig.editorconfig
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.AssemblyInfoInputs.cache
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.AssemblyInfo.cs
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.csproj.CoreCompileInputs.cache
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.dll
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\refint\CI Entities.dll
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.pdb
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\CI Entities.genruntimeconfig.cache
+F:\Project\CI Project\CI Entities\obj\Debug\net6.0\ref\CI Entities.dll
+F:\CI Project-dummy\CI Entities\bin\Debug\net6.0\CI Entities.deps.json
+F:\CI Project-dummy\CI Entities\bin\Debug\net6.0\CI Entities.runtimeconfig.json
+F:\CI Project-dummy\CI Entities\bin\Debug\net6.0\CI Entities.dll
+F:\CI Project-dummy\CI Entities\bin\Debug\net6.0\CI Entities.pdb
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.csproj.AssemblyReference.cache
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.GeneratedMSBuildEditorConfig.editorconfig
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.AssemblyInfoInputs.cache
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.AssemblyInfo.cs
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.csproj.CoreCompileInputs.cache
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.dll
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\refint\CI Entities.dll
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.pdb
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\CI Entities.genruntimeconfig.cache
+F:\CI Project-dummy\CI Entities\obj\Debug\net6.0\ref\CI Entities.dll
+F:\CI Project main\CI Entities\bin\Debug\net6.0\CI Entities.deps.json
+F:\CI Project main\CI Entities\bin\Debug\net6.0\CI Entities.runtimeconfig.json
+F:\CI Project main\CI Entities\bin\Debug\net6.0\CI Entities.dll
+F:\CI Project main\CI Entities\bin\Debug\net6.0\CI Entities.pdb
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.csproj.AssemblyReference.cache
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.GeneratedMSBuildEditorConfig.editorconfig
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.AssemblyInfoInputs.cache
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.AssemblyInfo.cs
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.csproj.CoreCompileInputs.cache
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.dll
+F:\CI Project main\CI Entities\obj\Debug\net6.0\refint\CI Entities.dll
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.pdb
+F:\CI Project main\CI Entities\obj\Debug\net6.0\CI Entities.genruntimeconfig.cache
+F:\CI Project main\CI Entities\obj\Debug\net6.0\ref\CI Entities.dll
