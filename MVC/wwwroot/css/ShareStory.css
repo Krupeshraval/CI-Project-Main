@@ -65,3 +65,9 @@ output {
     output .span--hidden {
         visibility: hidden;
     }
+
+
+.save-cancel-btn{
+    border-color: #F88634;
+    color: #F88634;
+}

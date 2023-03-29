@@ -26,7 +26,7 @@ namespace CI_Project.Models
         [Required]
         [DataType(DataType.Password)]
         [MinLength(8, ErrorMessage = "Password should contain atleast 8 charachter")]
-        [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", ErrorMessage = "Password should contain atleast one Capital letter , one small case letter, one Digit and one special symbol")]
+        [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", ErrorMessage = " Password length should be 8 minimun, & it should contain atleast one Capital letter , one small case letter, one Digit and one special symbol")]
         public string Password { get; set; }
 
         [Required]

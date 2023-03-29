@@ -766,8 +766,7 @@ namespace CI_Entities.CIPlatformContext
                 entity.Property(e => e.StoryId).HasColumnName("story_id");
 
                 entity.Property(e => e.CreatedAt)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime")
                     .HasColumnName("created_at");
 
                 entity.Property(e => e.DeletedAt)
@@ -866,8 +865,7 @@ namespace CI_Entities.CIPlatformContext
                 entity.Property(e => e.StoryMedia).HasColumnName("story_media");
 
                 entity.Property(e => e.CreatedAt)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime")
                     .HasColumnName("created_at");
 
                 entity.Property(e => e.DeletedAt)

@@ -192,14 +192,14 @@
                     <div id="abcd">
                     @if (ViewBag.Missiondetail.isfav == true)
                     {
-                        <button onclick="checkFav(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)" class="px-3 py-2 my-3" id="add-fav-btn">
+                        <button onclick="checkFav(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)" class="px-3 py-2 my-3 addfav-btn" id="add-fav-btn">
                             <i class="bi bi-suit-heart-fill" style="color:darkorange" id="addtofav"></i>&nbsp; Add
                             to Favourite &nbsp;
                         </button>
                     }
                     else
                     {
-                        <button onclick="checkFav(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)" class="px-3 py-2 my-3" id="add-fav-btn">
+                        <button onclick="checkFav(@ViewBag.Missiondetail.MissionId,@ViewBag.UserId)" class="px-3 py-2 my-3 addfav-btn" id="add-fav-btn">
                             <i class="bi bi-suit-heart-fill" id="addtofav"></i>&nbsp; Add
                             to Favourite &nbsp;
                         </button>
@@ -429,7 +429,7 @@
                         <div class="comment-display">
                             @foreach (var i in @Model[0].Comments)
                             {
-                                <div class="comment d-flex mt-3">
+                                <div class="comment d-flex mt-3 mx-2 bg-white"> 
                                     <div class="">
                                         <img src="~/Images/volunteer1.png" class="rounded-circle" height="52"
                                          width="52" alt="">

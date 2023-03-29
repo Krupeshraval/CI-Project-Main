@@ -315,7 +315,7 @@
     border-radius: 25px;
     margin: 1rem;
     margin-left: auto;
-    margin-right: auto;
+    
     border: 1px solid #757575;
     color: #757575;
     background: transparent;
@@ -365,6 +365,12 @@ a {
     width: fit-content;
 }
 
+.addfav-btn {
+    border-radius: 20px;
+    border: 1px solid gray;
+    background-color: white;
+}
+
 .trees {
     margin: 1rem 0;
     background-color: black !important;
@@ -377,8 +383,10 @@ a {
     border: 1px solid #e1dada;
 }
 
+
 .comments {
     margin-top: 1rem;
+    
     padding-left: 1rem;
     height: 11vh;
 }

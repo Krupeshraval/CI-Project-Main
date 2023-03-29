@@ -305,7 +305,7 @@ namespace CI_Project.Controllers
         //            break;
         //        case 3:
         //            mission = mission.OrderBy(e => e.StartDate).ToList();
-        //            break;      0
+        //            break;
         //        case 4:
         //            mission = mission.OrderBy(e => int.Parse(e.Availability)).ToList();
         //            break;        

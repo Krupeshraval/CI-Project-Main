@@ -59,7 +59,27 @@ namespace CI_Project.Controllers
 
         public IActionResult ShareStory()
         {
+            IEnumerable<Mission> missions = _db.Missions.ToList();
+            ViewData["mission"] = _db.MissionApplications.ToList();
+
             return View();
         }
+
+        [HttpPost]
+        public IActionResult ShareStory(ShareStoryViewModel shareStoryView)
+        {
+            IEnumerable<Mission> missions = _db.Missions.ToList();
+            ViewData["mission"] = _db.MissionApplications.ToList();
+            Story story = new Story();
+            story.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+            story.MissionId = shareStoryView.MissionId;
+            story.Title = shareStoryView.Title;
+            story.Description = shareStoryView.Description;
+            story.Status = "DRAFT";
+            story.CreatedAt = DateTime.Now;
+            _db.Stories.Add(story);
+            _db.SaveChanges();
+            return View();
+        } 
     }
 }
