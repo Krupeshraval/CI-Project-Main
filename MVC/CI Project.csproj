@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\img\" />
+    <Compile Remove="wwwroot\img\**" />
+    <Content Remove="wwwroot\img\**" />
+    <EmbeddedResource Remove="wwwroot\img\**" />
+    <None Remove="wwwroot\img\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +31,10 @@
   <ItemGroup>
     <ProjectReference Include="..\CI Entities\CI Entities.csproj" />
     <ProjectReference Include="..\CI Project.Repository\CI Project.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\StoryImages\" />
   </ItemGroup>
 
 </Project>

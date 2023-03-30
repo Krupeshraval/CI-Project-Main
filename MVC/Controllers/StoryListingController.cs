@@ -1,6 +1,7 @@
 ﻿using CI_Entities.CIPlatformContext;
 using CI_Entities.Models;
 using CI_Project.Models;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Reflection;
@@ -15,6 +16,11 @@ namespace CI_Project.Controllers
         {
             _db = db; //underscore db ma baddho database store thai jase
         }
+
+        public IActionResult StoryDetail()
+        {
+            return View();
+        }
         public IActionResult StoryListing(int? page)
         {
             List<Story> storylist = _db.Stories.ToList();
@@ -22,6 +28,7 @@ namespace CI_Project.Controllers
             foreach (var story in storylist)
             {
                 var storyuser = _db.Users.FirstOrDefault(x => x.UserId == story.UserId);
+                var storymedia = _db.StoryMedia.Where(s => s.StoryId == story.StoryId).FirstOrDefault();
                 StoryList.Add(new VolunteeringViewModel
                 {
                     StoryId = story.StoryId,
@@ -31,6 +38,7 @@ namespace CI_Project.Controllers
                     ShortDescription = story.Description,
                     username = storyuser.FirstName,
                     lastname = storyuser.LastName,
+                    storypath = storymedia != null ? storymedia.Path : null,
 
                 });
 
@@ -54,7 +62,7 @@ namespace CI_Project.Controllers
             ViewData["mission"] = items.ToList();
 
             return View(items);
-            
+
         }
 
         public IActionResult ShareStory()
@@ -66,7 +74,7 @@ namespace CI_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult ShareStory(ShareStoryViewModel shareStoryView)
+        public IActionResult ShareStory(ShareStoryViewModel shareStoryView, IFormFileCollection? dragdrop)
         {
             IEnumerable<Mission> missions = _db.Missions.ToList();
             ViewData["mission"] = _db.MissionApplications.ToList();
@@ -74,12 +82,39 @@ namespace CI_Project.Controllers
             story.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
             story.MissionId = shareStoryView.MissionId;
             story.Title = shareStoryView.Title;
-            story.Description = shareStoryView.Description;
+            story.Description = shareStoryView.editor1;
             story.Status = "DRAFT";
             story.CreatedAt = DateTime.Now;
+
+
+            foreach (IFormFile file in dragdrop)
+            {
+                if (file != null)
+                {
+                    //Set Key Name
+                    string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
+                    //Get url To Save
+                    string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images\\StoryImages", ImageName);
+
+                    using (var stream = new FileStream(SavePath, FileMode.Create))
+                    {
+                        StoryMedium sm = new StoryMedium();
+                        sm.Type = file.ContentType.ToString().Replace("image/", "");
+                        sm.Path = ImageName;
+                        sm.CreatedAt = DateTime.Now;
+                        story.StoryMedia.Add(sm);
+                        file.CopyTo(stream);
+                    }
+                }
+            }
+
+
+
+
             _db.Stories.Add(story);
             _db.SaveChanges();
             return View();
-        } 
+        }
     }
 }

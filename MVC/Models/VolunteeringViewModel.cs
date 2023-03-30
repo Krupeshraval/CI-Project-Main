@@ -51,6 +51,8 @@
         public int AvgRating { get; set; }
         public bool isfav { get; set; }
         public object Theme { get; internal set; }
+
+        public string storypath { get; set; }
         //public int MissionRatings { get; set; }
     }
 }

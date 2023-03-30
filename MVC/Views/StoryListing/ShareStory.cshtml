@@ -30,11 +30,12 @@
     <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
 </head>
 
+
 <body>
 
     <partial name="_Navbar1" />
 
-    <form method="post" asp-action="ShareStory" asp-controller="StoryListing" class="container">
+    <form method="post" asp-action="ShareStory" asp-controller="StoryListing" enctype="multipart/form-data" class="container">
         <div>
             <h2>Share your story</h2>
         </div>
@@ -70,7 +71,7 @@
         </div>
 
         <div class="col-12 mt-2">
-            <textarea class="" name="editor1"></textarea>
+            <textarea asp-for="editor1" class="" name="editor1"></textarea>
         </div>
 
         <div class="col-12 mt-3">
@@ -81,7 +82,7 @@
         <label class=" fs-5 mt-2 "> Upload Your Photos</label>
         <div class="input-div">
             <p>Drag & drop photos here or <strong>Browse</strong></p>
-            <input type="file" class="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+            <input type="file" class="file" name="dragdrop" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
         </div>
 
         <output class="d-flex"></output>

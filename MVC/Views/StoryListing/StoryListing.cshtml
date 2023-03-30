@@ -60,13 +60,19 @@
                     <div class="card shadow">
                         <div class="card-img ">
                             <div class="containers">
-                                <img src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability-1.png"
-                                 alt="Avatar" class="image" style="width:100%">
+                                @if (obj.storypath != null)
+                                {
+                                    <img src="~/Images/StoryImages/@obj.storypath" alt="avatar" class="image" style="width:100%" >
+                                }
+                                else
+                                {
+                                    <img src="~/Images/404-Page-image.png" alt="Avatar" class="image" style="width:100%">
+                                }
                                 <div class="env align-items-center px-2 py-1 ">
                                     <p class="mb-0 info-txt-2">Enviroment</p>
                                  </div>
                                 <div class="middle">
-                                    <div class="text">View Details -></div>
+                                    <div class="text"> <a class="text-decoration-none" asp-action="StoryDetail" asp-controller="StoryListing"> View Details -></a></div>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +80,7 @@
                             <div class="px-3">
                                 <h5 class="card-title">@obj.StoryTitle </h5>
                                 <p class="card-text info-txt">
-                                    @obj.ShortDescription
+                                    @Html.Raw(@obj.ShortDescription.Substring(0,90))  ...
                                 </p>
                             </div>
                             <div class="comment d-flex mt-3">
@@ -135,5 +141,3 @@
 </body>
 
 </html>
-
-    good bye 

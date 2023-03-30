@@ -7,7 +7,7 @@
         public long UserId { get; set; }
         public long MissionId { get; set; }
         public string? Title { get; set; }
-        public string? Description { get; set; }
+        public string? editor1 { get; set; }
         public string Status { get; set; } = null!;
         public DateTime? PublishedAt { get; set; }
         public DateTime CreatedAt { get; set; }
