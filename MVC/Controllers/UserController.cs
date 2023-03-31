@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration.UserSecrets;
 using System.Net.Mail;
 using System.Net;
 using CI_Project.Repository.Interface;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CI_Project.Controllers
 {
@@ -137,7 +138,7 @@ namespace CI_Project.Controllers
             
             
             
-            ViewBag.UserId = Convert.ToInt64(userId);
+            ViewBag.UserId = Convert.ToInt64(userId);   
 
             List<Mission> missions = _Iuser.missionlist();
             List<Mission> newmission = _Iuser.missionlist();
@@ -292,6 +293,8 @@ namespace CI_Project.Controllers
 
 
 
+
+
         //#region landingPage
         //public IActionResult LandingPage(int? page, String SearchingMission, int Order, String searchQuery, long[] fCountries)
         //{
@@ -433,7 +436,7 @@ namespace CI_Project.Controllers
 
         #region filters
 
-        public PartialViewResult navbarfilters(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme)
+        public PartialViewResult navbarfilters(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme, int jpg)
         {
             var SessionUserId = HttpContext.Session.GetString("userID");
 
@@ -568,10 +571,27 @@ namespace CI_Project.Controllers
             //ViewBag.CurrentPage = pageIndex ?? 0;
             var missionfinal = Missions;
 
+            // ============================ Pagination =========================
+            #region Pagination 
+            //Pagination
+            ViewBag.missionCount = _db.Missions.Count();
+            const int pageSize = 9;
+            if (jpg < 1)
+            {
+                jpg = 1;
+            }
+            int recsCount = _db.Missions.Count();
+            var pager = new PagerViewModel(recsCount, jpg, pageSize);
+            int recSkip = (jpg - 1) * pageSize;
+            var data = _db.Missions.Skip(recSkip).Take(pager.PageSize).ToList();
+            this.ViewBag.pager = pager;
+            ViewBag.missionTempDate = data;
+            _db.Missions.AddRange(data.ToList()) ;
+            ViewBag.TotalMission = recsCount;
 
             return PartialView("_LandingPageCards", missionfinal);
         }
-
+        #endregion
 
         #endregion
 

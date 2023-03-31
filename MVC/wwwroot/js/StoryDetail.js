@@ -62,3 +62,47 @@ function coworker(Id, missionid) {
         });
 
 }
+
+
+function apply(mid, uid) {
+    $.ajax({
+        url: '/User/apply',
+        type: 'POST',
+        data: { MissionId: mid, UserId: uid },
+        success: function (result) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Applied',
+                text: 'Applied Successfully',
+
+            });
+
+        },
+        error: function (result) { }
+    });
+}
+
+function checkEmail() {
+    var data = document.getElementsByName("coworker-email");
+    var suiiEmail = [];
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].ariaChecked) {
+            suiiEmail.push(data[i].value);
+        }
+    }
+    console.log(suiiEmail)
+}
+
+const countEl = document.getElementById('count');
+
+updateVisitCount();
+
+function updateVisitCount() {
+
+    //Develop a namespace and key for your API, in my case "megs" is my namespace and "count" is my key
+    fetch('https://api.countapi.xyz/update/megs/count/?amount=1')
+        .then(res => res.json())
+        .then(res => {
+            countEl.innerHTML = res.value;
+        })
+}

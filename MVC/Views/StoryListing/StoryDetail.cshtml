@@ -106,21 +106,31 @@
 
             </div>
 
-            <div class="vol-1 col">
-                <img class="rounded-circle" src="~/Images/volunteer3.png"
-                     alt="" height="82" width="82">
-                <p> &nbsp;  Terri Aki</p>
-                @*<div> </div>*@
+
+            <div class="col-12 col-lg-6 col-md-12 col-sm-12">
+                <div class="col-12 mt-3 d-flex justify-content-lg-between">
+                    <a class=" ms-4 me-2 text-decoration-none text-black justify-content-center ">
+                        <img src="~/Images/volunteer1.png" class="involveduserprofile rounded-circle" height="62" width="62" /><br>
+                        <label id="" class="text-center">Ama teki</label>
+                    </a>
+
+                    <div class="views d-flex justify-content-center align-content-center me-1 mt-5 px-2 py-0 ">
+                        <i class="bi bi-eye" style="margin-top:3px; margin-bottom:3px"></i>
+                        <p class="viewsptag" style="margin-top:3px; margin-bottom:3px" id="count">0</p>
+                    </div>
+                </div>
+
 
                 <div class="text mt-4 ms-4">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit esse ea commodi doloremque, nemo
-                        sit minima natus nesciunt eos, possimus molestias inventore quidem.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit assumenda ad eaque
+                        facere voluptatem explicabo voluptas commodi repellendus sint?
                     </p>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit esse ea commodi doloremque, nemo sit minima natus nesciunt eos,
-                        possimus molestias inventore quidem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, laborum.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus beatae inventore labore
+                        possimus earum, id explicabo nostrum dolorem sint quaerat quod unde dignissimos facilis
+                        eaque?
                     </p>
 
                     <p>
@@ -133,54 +143,66 @@
 
                 </div>
 
-                <div class="d-flex">
-                    @*============================ recomed to co worker button =======================================*@
-                    <button class=" add-fav px-3 py-2 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <img src="~/Images/add1.png" alt="">&nbsp;
-                        Recommend to a Co-Worker &nbsp;
-                    </button>
+                <!-- ===================================== Recomend to Co-Worker BUTTON ======================================= -->
 
-                    <!-- ================== Recomend to Co-Worker Modal ================================== -->
-                    @*<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="d-flex">
+                    <div class="">
+                        <button class="apply px-3 py-2 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <img src="~/Images/add1.png" alt="">&nbsp;
+                            Recommend to a Co-Worker &nbsp;
+                        </button>
+                        
+                       @* <!-- ===================================== Recomend to Co-Worker MODAL ======================================= -->
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                    </div>
+
+                                    <div class="modal-body overflow-y-auto " style="height:200px;">
+                                        @foreach (var user in ViewBag.allavailuser)
+                                        {
+                                            <div class=" userlistdiv align-items-center d-flex my-3">
+                                                <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
+                                                <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
+                                                <input class="form-check-input me-2 " type="checkbox" value="@user.userEmail" id="@user.userEmail" name="email">
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" onclick="coworker(@ViewBag.UserId, @ViewBag.Missiondetail.MissionId)">Send E-mail</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>*@
                     </div>
-                    <div class="modal-body overflow-y-auto " style="height:200px;">
-                    @foreach (var user in ViewBag.allavailuser)
-                    {
-                    <div class=" userlistdiv align-items-center d-flex my-3">
-                    <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
-                    <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
-                    <input class="form-check-input me-2 " type="checkbox" value="@user.userEmail" id="@user.userEmail" name="email">
-                    </div>
-                    }
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="coworker(@ViewBag.UserId, @ViewBag.Missiondetail.MissionId)">Send E-mail</button>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    *@
 
                     <div class="m-auto text-center mt-2 ">
-                        <button class="apply px-3 py-2 my-3" @*onclick="apply(@ViewBag.Missiondetail.MissionId, @ViewBag.user.UserId)"*@>
-                            Open Mission &nbsp; <img src="~/Images/right-arrow.png" alt="">
+                        <button class="apply px-3 py-2 my-3">
+                            <a style="text-decoration:none; color:#F88634;">
+                                Open Mission &nbsp; <img src="~/Images/right-arrow.png" alt="">
+                            </a>
                         </button>
                     </div>
-                </div>
 
+                </div>
             </div>
 
-
-
-
         </div>
+
+
+
+
     </div>
+   
 
     <div class="container">
         <div class="row">
@@ -234,38 +256,9 @@
 
 
 </body>
-<script>
-    function apply(mid, uid) {
-        $.ajax({
-            url: '/User/apply',
-            type: 'POST',
-            data: { MissionId: mid, UserId: uid },
-            success: function (result) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Applied',
-                    text: 'Applied Successfully',
-
-                });
-
-            },
-            error: function (result) { }
-        });
-    }
-
-    function checkEmail() {
-        var data = document.getElementsByName("coworker-email");
-        var suiiEmail = [];
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].ariaChecked) {
-                suiiEmail.push(data[i].value);
-            }
-        }
-        console.log(suiiEmail)
-    }
-</script>
+<script src="~/js/StoryDetail.js" asp-append-version="true"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="~/js/StoryDetail.js"></script>
+
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

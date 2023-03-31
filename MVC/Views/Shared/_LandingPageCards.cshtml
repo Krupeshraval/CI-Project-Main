@@ -5,7 +5,16 @@
     var id = Context.Session.GetString("userID");
 
 }
-
+@{
+    PagerViewModel pager = new PagerViewModel();
+    int pageNo = 0;
+    int jpg = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
 @{
     bool favcheck = false;
     int sum = 0;
@@ -266,35 +275,36 @@
     </div>
 
 
-    <div class="pager">
-        @if (ViewBag.PageNumber > 1)
-        {
-            <a href="@Url.Action("_LandingPageCards", new { page = ViewBag.PageNumber - 1 })">&lt; Previous</a>
-
-        }
-
-        @for (int i = 1; i <= ViewBag.TotalPages; i++)
-        {
-            if (i == ViewBag.PageNumber)
-
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-center">
+            @if (pager.CurrentPage > 1)
             {
-                <span>@i</span>
+                <li class="mx-1">
+                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=1)"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+                <li class="page-item mx-1">
+                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@(pager.CurrentPage-1))"><span aria-hidden="true">&lsaquo;</span></a>
+                </li>
             }
-            else
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
             {
-                <a href="@Url.Action("_LandingPageCards", new { page = i })">@i</a>
+                <li class="page-item mx-1 @(pge==pager.CurrentPage ? "active":"")">
+                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@pge)">@pge</a>
+                </li>
+            }
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item mx-1">
+                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@(pager.CurrentPage+1))"><span aria-hidden="true">&rsaquo;</span></a>
+                </li>
+                <li class="mx-1">
+                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@(pager.TotalPages))"><span aria-hidden="true">&raquo;</span></a>
+                </li>
             }
 
-        }
-
-        @if (ViewBag.PageNumber < ViewBag.TotalPages)
-        {
-            <a href="@Url.Action("_LandingPageCards", new { page = ViewBag.PageNumber + 1 })">Next &gt;</a>
-
-
-        }
-
-    </div>
+        </ul>
+    }
 
 
 

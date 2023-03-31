@@ -17,10 +17,21 @@ namespace CI_Project.Controllers
             _db = db; //underscore db ma baddho database store thai jase
         }
 
-        public IActionResult StoryDetail()
+        public IActionResult StoryDetail(long id, long storyid)
         {
+            var userId = HttpContext.Session.GetString("userID");
+
+            ViewBag.UserId = Convert.ToInt64(userId);
+
+
+
             return View();
         }
+
+
+
+
+
         public IActionResult StoryListing(int? page)
         {
             List<Story> storylist = _db.Stories.ToList();

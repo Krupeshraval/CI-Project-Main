@@ -85,10 +85,15 @@
         opacity: 1;
     }
 
-
+.views {
+    border: 1px solid gray;
+    border-radius: 30px;
+    padding: 3px;
+    align-content: center;
+}
 
 .apply {
-    cursor:pointer;
+    cursor: pointer;
     border-radius: 25px;
     width: fit-content;
     margin: 1.5rem;
@@ -144,7 +149,8 @@
 / Six columns side by side /
 .column {
     float: left;
-    width: 16.66%;
+    width: 1
+    6.66%;
 }
 
 / Add a transparency effect for thumnbail images /

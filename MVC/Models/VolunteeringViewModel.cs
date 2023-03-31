@@ -53,6 +53,10 @@
         public object Theme { get; internal set; }
 
         public string storypath { get; set; }
+
+        public long storyid { get; set; }
+
+      //  public string storyname { get; set;}
         //public int MissionRatings { get; set; }
     }
 }

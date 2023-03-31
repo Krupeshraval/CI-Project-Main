@@ -19,3 +19,40 @@ $(document).on('click', '.btn-list', showList);
 function apply() {
     alert("Please Login First");
 }
+
+
+function pagination(jpg) {
+    //var country = [];
+    //$("input[type='checkbox'][name='country']:checked").each(function () {
+    //    country.push($(this).val());
+    //});
+
+    //var city = [];
+    //$("input[type='checkbox'][name='city']:checked").each(function () {
+    //    city.push($(this).val());
+    //});
+
+    //var theme = [];
+    //$("input[type='checkbox'][name='theme']:checked").each(function () {
+    //    theme.push($(this).val());
+    //});
+
+
+    $.ajax({
+        url: '/User/_LandingPageCards',
+        type: 'GET',
+        data: { 'jpg': jpg },
+        success: function (res) {
+            $("#storyList").html(res);
+        },
+
+        error: function (res) {
+            alert("error");
+        }
+    });
+}
+
+$(document).ready(function () {
+    pagination(jpg = 1);
+    console.log("hello krupsi");
+});
