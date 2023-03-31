@@ -46,9 +46,9 @@ function pagination(jpg) {
             $("#storyList").html(res);
         },
 
-        error: function (res) {
-            alert("error");
-        }
+        //error: function (res) {
+        //    alert("error");
+        //}
     });
 }
 

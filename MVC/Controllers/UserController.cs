@@ -78,7 +78,7 @@ namespace CI_Project.Controllers
                 //ratingExists.MissionId = missionId;
                 _db.MissionRatings.Update(ratingExists);
                 await _db.SaveChangesAsync();
-                return Json(new { success = true, ratingExists, isRated = true });
+                //return Json(new { success = true, ratingExists, isRated = true });
  
             }
             else
@@ -88,9 +88,9 @@ namespace CI_Project.Controllers
                 newRating.UserId = id;
                 newRating.MissionId = missionId;
                 await _db.MissionRatings.AddAsync(newRating); await _db.SaveChangesAsync();
-                return Json(new { success = true, newRating, isRated = true });
+                //return Json(new { success = true, newRating, isRated = true });
             }
-
+            return RedirectToAction("VolunteeringMission", "User", new { missionId = missionId });
         }
 
 
@@ -131,7 +131,7 @@ namespace CI_Project.Controllers
             return Json(new { success = true });
         }
 
-        public IActionResult VolunteeringMission( long id, long missionid)
+        public IActionResult VolunteeringMission( long id, long missionid, VolunteeringViewModel volunteeringViewModel)
         {
             var userId = HttpContext.Session.GetString("userID");
 
@@ -157,6 +157,7 @@ namespace CI_Project.Controllers
 
             List<VolunteeringViewModel> relatedlist = new List<VolunteeringViewModel>();
 
+            VolunteeringViewModel volunteeringVM = new VolunteeringViewModel();
             IEnumerable<Mission> objMis = _Iuser.missionlist();
             IEnumerable<Comment> objComm = _Iuser.comments();
             IEnumerable<FavoriteMission> fav = _Iuser.favoriteMissions().Where(m => m.MissionId == missionid).ToList();
@@ -169,9 +170,10 @@ namespace CI_Project.Controllers
             var themeobjective = _Iuser.goalMissions().FirstOrDefault(m => m.MissionId == missionid);
             string[] Startdate = volmission.StartDate.ToString().Split(" ");
             string[] Enddate = volmission.EndDate.ToString().Split(" ");
+            volunteeringVM.UserPrevRating = prevRating != null ? prevRating.Rating : 0;
             var favrioute = (id != null) ? _Iuser.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(userId) && u.MissionId == volmission.MissionId) : false;
 
-            VolunteeringViewModel volunteeringVM = new VolunteeringViewModel();
+            
             volunteeringVM.MissionId = missionid;
             volunteeringVM.Title = volmission.Title;
             volunteeringVM.ShortDescription = volmission.ShortDescription;

@@ -217,9 +217,9 @@
 
 
                 @*<div class="d-flex align-items-center">*@
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center" id="givenrating">
                     <div class="l-11"></div>
-                    <div class="ms-4 me-4">
+                    <div class="ms-4 me-4" >
                         @if (@ViewBag.Missiondetail.UserPrevRating != null)
 
                         {
@@ -243,7 +243,6 @@
                             <i class="bi bi-star-fill star star-3" id="3" onclick="ratemission(this.id,@ViewBag.Missiondetail.MissionId, @ViewBag.user.UserId)"></i>
                             <i class="bi bi-star-fill star star-4" id="4" onclick="ratemission(this.id,@ViewBag.Missiondetail.MissionId, @ViewBag.user.UserId)"></i>
                             <i class="bi bi-star-fill star star-5" id="5" onclick="ratemission(this.id,@ViewBag.Missiondetail.MissionId, @ViewBag.user.UserId)"></i>
-
                         }
 
                         @*                        <i class="bi bi-star"></i>
@@ -835,7 +834,7 @@
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="~/js/VolunteeringMission.js"></script>
+<script src="~/js/VolunteeringMission.js" asp-append-version="true"></script>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
