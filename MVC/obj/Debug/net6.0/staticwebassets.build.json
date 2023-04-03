@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ztibwUFTStn8CxfwJkCzWOHu8fJB4JiLeLaV8lhyrH8=",
+  "Hash": "dMm4k+kyS+4WONX3uPD2s0P0Q2BXYVvAVlftpNmGFRo=",
   "Source": "CI Project",
   "BasePath": "_content/CI Project",
   "Mode": "Default",
@@ -1783,6 +1783,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\star-empty.png"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\05003b44-1e0b-4435-83d0-7d13f9f2b4e6.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/StoryImages/05003b44-1e0b-4435-83d0-7d13f9f2b4e6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\05003b44-1e0b-4435-83d0-7d13f9f2b4e6.jpg"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\0bc5ae67-6242-495e-a78b-296185116a98.jpg",

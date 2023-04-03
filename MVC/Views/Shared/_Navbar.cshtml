@@ -70,7 +70,7 @@
                             <ul class="dropdown-menu text-small">
                                 <li><a class="dropdown-item" href="#">New project...</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" asp-action="StoryDraft" asp-controller="StoryListing">Draft</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -133,7 +133,7 @@
                     <ul class="dropdown-menu text-small">
                         <li><a class="dropdown-item" href="#">Dashbord</a></li>
                         <li><a class="dropdown-item" href="#">My Account</a></li>
-                        <li><a class="dropdown-item" href="#">Help Center</a></li>
+                        <li><a class="dropdown-item" asp-action="StoryDraft" asp-controller="StoryListing">Draft</a></li>
                         <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">Logout</a></li>
                     </ul>
                 </div>
@@ -189,7 +189,7 @@
                                 @foreach (var obj in ViewBag.countryList)
                                 {
                                     <li>
-                                        <input class="form-check-input mt-1 ms-2" type="checkbox" onchange="filters()" name="country" value="@obj.Name" id="1" />
+                                        <input class="form-check-input tick mt-1 ms-2" type="checkbox" onchange="filters()" name="country" value="@obj.Name" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                                 }
@@ -210,7 +210,7 @@
                                 @foreach (var obj in ViewBag.cityList)
                                 {
                                     <li>
-                                        <input class="form-check-input mt-1 ms-2" onchange="filters()" type="checkbox" name="city" value="@obj.Name" id="1" />
+                                        <input class="form-check-input tick mt-1 ms-2" onchange="filters()" type="checkbox" name="city" value="@obj.Name" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                                 }
@@ -233,7 +233,7 @@
                                 @foreach (var obj in ViewBag.themeList)
                                 {
                                     <li class="ps-2">
-                                        <input class="form-check-input mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.Title" id="1" />
+                                        <input class="form-check-input tick mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.Title" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Title</label>
                                     </li>
                                 }
@@ -305,7 +305,7 @@
                             @foreach (var obj in ViewBag.countryList)
                             {
                                 <li>
-                                    <input class="form-check-input  mt-1 ms-2" type="checkbox" name="country" value="@obj.Name" name="country" id=@obj.CountryId onchange="filters()" />
+                                    <input class="form-check-input tick  mt-1 ms-2" type="checkbox" name="country" value="@obj.Name" name="country" id=@obj.CountryId onchange="filters()" />
                                     <label class="form-check-label" for="1"> @obj.Name</label>
                                 </li>
                             }
@@ -327,7 +327,7 @@
                              @foreach (var obj in ViewBag.cityList)
                              {
                                     <li>
-                                    <input class="form-check-input mt-1 ms-2" type="checkbox" onchange="filters()" name="city" value="@obj.Name" id="1" />
+                                    <input class="form-check-input tick mt-1 ms-2" type="checkbox" onchange="filters()" name="city" value="@obj.Name" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                              }
@@ -350,8 +350,8 @@
                             @foreach (var obj in ViewBag.themeList)
                             {
                                 <li class="ps-2">
-                                    <input class="form-check-input mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.Title" id="1" />
-                                    <label class="form-check-label" for="1"> @obj.Title</label>
+                                    <input class="form-check-input  tick mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.Title" id="1" />
+                                    <label class="form-check-label " for="1"> @obj.Title</label>
                                 </li>
                             }
 
@@ -368,32 +368,32 @@
                     </a>
                     <ul class="dropdown-menu">
                         <div>
-                            <input class="form-check-input mt-1 ms-2" type="checkbox" value="Anthropology" id=""
+                            <input class="form-check-input tick mt-1 ms-2" type="checkbox" value="Anthropology" id=""
                                    name="Anthropology" aria-label="Checkbox for following text input">
                             Anthropology
                         </div>
                         <div>
-                            <input class="form-check-input mt-1 ms-2" type="checkbox" value="Archeolgy" id=""
+                            <input class="form-check-input tick mt-1 ms-2" type="checkbox" value="Archeolgy" id=""
                                    name="Archeolgy" aria-label="Checkbox for following text input">
                             Archeolgy
                         </div>
                         <div>
-                            <input class="form-check-input mt-1 ms-2" type="checkbox" value="Astronomy" id=""
+                            <input class="form-check-input tick mt-1 ms-2" type="checkbox" value="Astronomy" id=""
                                    name="Astronomy" aria-label="Checkbox for following text input">
                             Astronomy
                         </div>
                         <div>
-                            <input class="form-check-input mt-1 ms-2" type="checkbox" value="Computer Science" id=""
+                            <input class="form-check-input tick mt-1 ms-2" type="checkbox" value="Computer Science" id=""
                                    name="Computer Science" aria-label="Checkbox for following text input">
                             Computer Science
                         </div>
                         <div>
-                            <input class="form-check-input mt-1 ms-2" type="checkbox" value="History" id=""
+                            <input class="form-check-input tick mt-1 ms-2" type="checkbox" value="History" id=""
                                    name="History" aria-label="Checkbox for following text input">
                             History
                         </div>
                         <div>
-                            <input class="form-check-input mt-1 ms-2" type="checkbox" value="Research" id=""
+                            <input class="form-check-input tick mt-1 ms-2" type="checkbox" value="Research" id=""
                                    name="Research" aria-label="Checkbox for following text input">
                             Research
                         </div>

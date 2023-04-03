@@ -286,6 +286,7 @@ namespace CI_Project.Controllers
         {
             var SessionUserId = HttpContext.Session.GetString("userID");
             //var UserId = HttpContext.Session.GetString("userID");
+            ViewData["applicaions"] = _Iuser.missionApplications();
             ViewBag.countrylist = _Iuser.countries();
             ViewBag.themelist = _Iuser.themes();
             ViewBag.citylist = _Iuser.cities();
@@ -438,10 +439,13 @@ namespace CI_Project.Controllers
 
         #region filters
 
-        public PartialViewResult navbarfilters(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme, int jpg)
+        public PartialViewResult _LandingPageCards(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string country, string city, string theme, int jpg)
         {
             var SessionUserId = HttpContext.Session.GetString("userID");
 
+            ViewData["applicaions"] = _Iuser.missionApplications();
+
+            IEnumerable<MissionApplication> missionApplications = _Iuser.missionApplications();
             List<User> alluser = _Iuser.users();
             List<VolunteeringViewModel> allavailuser = new List<VolunteeringViewModel>();
             foreach (var all in alluser)
@@ -549,18 +553,24 @@ namespace CI_Project.Controllers
             }
 
             //filter
-            if (country.Length > 0)
+            if (country!= null)
             {
-                Missions = Missions.Where(s => country.Contains(s.Countryname)).ToList();
+                string[] countryText = country.Split(',');
+                Missions = Missions.Where(s => countryText.Contains(s.Countryname)).ToList();
             }
-            if (city.Length > 0)
+            if (city != null)
             {
+                    string[] cityText = city.Split(',');
+
                 Missions = Missions.Where(s => city.Contains(s.Cityname)).ToList();
             }
-            if (theme.Length > 0)
+            if (theme !=null)
             {
+                string[] themeText = theme.Split(',');
                 Missions = Missions.Where(s => theme.Contains(s.Themename)).ToList();
             }
+
+
 
             //Pagination
             //int pageSize = 6;
@@ -571,27 +581,29 @@ namespace CI_Project.Controllers
             //ViewBag.TotalMission = totalMissions;
             //ViewBag.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
             //ViewBag.CurrentPage = pageIndex ?? 0;
-            var missionfinal = Missions;
+
 
             // ============================ Pagination =========================
             #region Pagination 
             //Pagination
-            ViewBag.missionCount = _db.Missions.Count();
-            const int pageSize = 9;
+            ViewBag.missionCount = Missions.Count();
+            const int pageSize = 6;
             if (jpg < 1)
             {
                 jpg = 1;
             }
-            int recsCount = _db.Missions.Count();
+            int recsCount = Missions.Count();
             var pager = new PagerViewModel(recsCount, jpg, pageSize);
             int recSkip = (jpg - 1) * pageSize;
-            var data = _db.Missions.Skip(recSkip).Take(pager.PageSize).ToList();
+            var data = Missions.Skip(recSkip).Take(pager.PageSize).ToList();
             this.ViewBag.pager = pager;
             ViewBag.missionTempDate = data;
-            _db.Missions.AddRange(data.ToList()) ;
+            Missions = data.ToList();
             ViewBag.TotalMission = recsCount;
 
-            return PartialView("_LandingPageCards", missionfinal);
+            //return PartialView("_LandingPageCards",);
+            return PartialView("_LandingPageCards", Missions);
+            
         }
         #endregion
 

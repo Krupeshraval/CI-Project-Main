@@ -113,6 +113,10 @@
       "PackagePath": "staticwebassets\\Images\\Seats-left.png"
     },
     {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\05003b44-1e0b-4435-83d0-7d13f9f2b4e6.jpg",
+      "PackagePath": "staticwebassets\\Images\\StoryImages\\05003b44-1e0b-4435-83d0-7d13f9f2b4e6.jpg"
+    },
+    {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\0bc5ae67-6242-495e-a78b-296185116a98.jpg",
       "PackagePath": "staticwebassets\\Images\\StoryImages\\0bc5ae67-6242-495e-a78b-296185116a98.jpg"
     },

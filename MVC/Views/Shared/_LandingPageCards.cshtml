@@ -1,8 +1,9 @@
 ﻿
 @inject IHttpContextAccessor Accessor
-
+@using CI_Entities.Models
+@model List<VolunteeringViewModel>
 @{
-    var id = Context.Session.GetString("userID");
+    var id = @Accessor.HttpContext.Session.GetString("userID");
 
 }
 @{
@@ -21,29 +22,20 @@
     //int count = 0;
 }
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing page</title>
-    @* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">*@
-
-    @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstr/ap-icons@1.10.3/font/bootstrap-icons.css">*@
     <link rel="stylesheet" href="~/css/LandingPage.css" asp-append-version="true">
-</head>
 
-<body>
 
     
 
     
 
-    <div class="filters-section d-flex align-items-end flex-wrap justify-content-start ms-5">
-    </div>
+   @* <div class="filters-section d-flex align-items-end flex-wrap justify-content-start ms-5">
+    </div>*@
+
+<div id="filters-section" class="my-3">
+</div>
+
     @*<div class="container">*@
     <div class="explore row me-5">
         <div class="col-lg-6 d-inline">
@@ -116,10 +108,17 @@
                                 <p class="text-white mb-0 px-2">@obj.Cityname</p>
                             </div>
 
-                            
-                            <p class="p-2 text-white applied" style="width:fit-content;">Applied</p>
+                            @foreach (var data in ViewData["applicaions"] as IList<MissionApplication> )
+                            {
+                                @if (id == data.UserId.ToString())
+                                {
+                                    <p class="p-2 text-white applied" style="width:fit-content;">Applied</p>
 
-                             @if (obj.isfav==true)
+                                }
+                            }
+                            
+
+                            @if (obj.isfav==true)
                             {
                                 <div onclick="AddtoFav()" class="heart align-items-center px-2 py-1">
                                     <img src="~/Images/heart.png" alt="" style="color:darkorange" id="addtofav" class="heart-share-img">
@@ -277,32 +276,31 @@
         </div>
     </div>
 
-
     @if (pager.TotalPages > 0)
     {
         <ul class="pagination justify-content-center">
             @if (pager.CurrentPage > 1)
             {
                 <li class="mx-1">
-                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=1)"><span aria-hidden="true">&laquo;</span></a>
+                    <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=1)"><span aria-hidden="true">&laquo;</span></a>
                 </li>
                 <li class="page-item mx-1">
-                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@(pager.CurrentPage-1))"><span aria-hidden="true">&lsaquo;</span></a>
+                <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@(pager.CurrentPage-1))"><span aria-hidden="true">&lsaquo;</span></a>
                 </li>
             }
             @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
             {
                 <li class="page-item mx-1 @(pge==pager.CurrentPage ? "active":"")">
-                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@pge)">@pge</a>
+                <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@pge)">@pge</a>
                 </li>
             }
             @if (pager.CurrentPage < pager.TotalPages)
             {
                 <li class="page-item mx-1">
-                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@(pager.CurrentPage+1))"><span aria-hidden="true">&rsaquo;</span></a>
+                <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@(pager.CurrentPage+1))"><span aria-hidden="true">&rsaquo;</span></a>
                 </li>
                 <li class="mx-1">
-                    <a class="page-link text-muted" onclick="mysearch(order=1,jpg=@(pager.TotalPages))"><span aria-hidden="true">&raquo;</span></a>
+                    <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@(pager.TotalPages))"><span aria-hidden="true">&raquo;</span></a>
                 </li>
             }
 
@@ -315,7 +313,5 @@
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/js/LandingPage.js" asp-append-version="true"></script>
 
-</body>
-</html>
 
 

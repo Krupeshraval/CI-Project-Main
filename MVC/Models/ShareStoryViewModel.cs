@@ -1,4 +1,6 @@
-﻿namespace CI_Project.Models
+﻿using CI_Entities.Models;
+
+namespace CI_Project.Models
 {
     public class ShareStoryViewModel
     {
@@ -18,5 +20,13 @@
 
         public string Type { get; set; } = null!;
         public string Path { get; set; } = null!;
+
+        public List<Story> story { get; set; }
+        public List<User> users { get; set; }
+        public List<Mission> missions { get; set; }
+        public List<MissionTheme> missionthemes { get; set; }
+        public List<StoryMedium> storyMedia { get; set; }
+
+        public List<MissionApplication> MissionApplications { get; set; }
     }
 }

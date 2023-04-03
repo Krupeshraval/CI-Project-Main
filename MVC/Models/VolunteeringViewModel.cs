@@ -1,4 +1,6 @@
-﻿namespace CI_Project.Models
+﻿using CI_Entities.Models;
+
+namespace CI_Project.Models
 {
     public class VolunteeringViewModel
     {
@@ -56,7 +58,11 @@
 
         public long storyid { get; set; }
 
-      //  public string storyname { get; set;}
+        public  ICollection<MissionApplication> MissionApplications { get; set; }
+        public List<Mission> Missions { get;set; }
+
+
+        //  public string storyname { get; set;}
         //public int MissionRatings { get; set; }
     }
 }
