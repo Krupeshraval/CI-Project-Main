@@ -17,16 +17,17 @@
 
     <nav class="navbar navbar-expand-md navbar-lighte header2" aria-label="Second navbar example">
         <div class="container" style="margin-left: 5vw;">
-            <div class="col-9 col-lg-6 col-md-5 me-2   ">
+            @*<div class="col-9 col-lg-6 col-md-5 me-2   ">*@
+            <div class=" ">
                 <form role="search" class="d-flex">
                     <!-- <img src="../HTML/images/search.png" height="22px" width="21px"class="mt-2">? -->
                     <i class="bi bi-search mt-2"></i>
-                    <input class="form-control" type="search" placeholder="Search mission....." name="SearchingMission" aria-label="Search "
+                    <input class="form-control " style="box-shadow:none;" type="search" placeholder="Search mission....." name="SearchingMission" aria-label="Search "
                            id="search-bar" value="@ViewBag.Searchinput" class="searchbox">
                 </form>
             </div>
 
-            <button class="btn filter-button  " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions2"
+            <button class="btn filter-button " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions2"
                     aria-controls="offcanvasWithBothOptions">
                 <img src="~/Images/filter.png">
             </button>
@@ -41,7 +42,7 @@
 
 
                     <li class="nav-item dropdown mt-3">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">
                             Country
                         </a>
@@ -52,7 +53,7 @@
                                 @foreach (var obj in ViewBag.countryList)
                                 {
                                     <li>
-                                        <input class="form-check-input mt-1 ms-2" type="checkbox" value="@obj.Name" id="1" />
+                                        <input class="form-check-input mt-1 ms-2" style="box-shadow:none;" type="checkbox" value="@obj.Name" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                                 }
@@ -73,7 +74,7 @@
                                 @foreach (var obj in ViewBag.cityList)
                                 {
                                     <li>
-                                        <input class="form-check-input mt-1 ms-2" type="checkbox" value="@obj.Name" id="1" />
+                                        <input class="form-check-input mt-1 ms-2" style="box-shadow:none;" type="checkbox" value="@obj.Name" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                                 }
@@ -96,7 +97,7 @@
                                 @foreach (var obj in ViewBag.themeList)
                                 {
                                     <li class="ps-2">
-                                        <input class="form-check-input mt-1 ms-2" type="checkbox" value="@obj.Title" id="1" />
+                                        <input class="form-check-input mt-1 ms-2" style="box-shadow:none;" type="checkbox" value="@obj.Title" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Title</label>
                                     </li>
                                 }
@@ -168,7 +169,7 @@
                             @foreach (var obj in ViewBag.countryList)
                             {
                                 <li>
-                                    <input class="form-check-input  mt-1 ms-2" type="checkbox" value="@obj.Name" name="country" id=@obj.CountryId onchange="FilterforCountry()" />
+                                    <input class="form-check-input  mt-1 ms-2" style="box-shadow:none;" type="checkbox" value="@obj.Name" name="country" id=@obj.CountryId onchange="FilterforCountry()" />
                                     <label class="form-check-label" for="1"> @obj.Name</label>
                                 </li>
                             }
@@ -190,7 +191,7 @@
                              @foreach (var obj in ViewBag.cityList)
                              {
                                     <li>
-                                        <input class="form-check-input mt-1 ms-2" type="checkbox" value="@obj.Name" id="1" />
+                                    <input class="form-check-input mt-1 ms-2" style="box-shadow:none;" type="checkbox" value="@obj.Name" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                              }
@@ -213,7 +214,7 @@
                             @foreach (var obj in ViewBag.themeList)
                             {
                                 <li class="ps-2">
-                                    <input class="form-check-input mt-1 ms-2" type="checkbox" value="@obj.Title" id="1" />
+                                    <input class="form-check-input mt-1 ms-2" style="box-shadow:none;" type="checkbox" value="@obj.Title" id="1" />
                                     <label class="form-check-label" for="1"> @obj.Title</label>
                                 </li>
                             }
@@ -354,3 +355,8 @@
 
 
 </html>
+
+
+
+
+        

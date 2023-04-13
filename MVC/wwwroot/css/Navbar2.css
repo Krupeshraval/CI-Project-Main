@@ -29,12 +29,12 @@
 }
 
 .sort {
-    width: 11rem;
+    width: 8rem;
     margin-left: auto;
 }
 
 .sortby {
-    margin-left: auto;
+    /*margin-left: auto;*/
 }
 
 .c1 {
@@ -43,9 +43,9 @@
 
     .c1-content {
         position: absolute;
-        margin - left: auto !important;
-        background - color: rgb(0, 0, 0, 0.511);
-        border - radius: 20px;
+        margin-left: auto !important;
+        background-color: rgb(0, 0, 0, 0.511);
+        border-radius: 20px;
     }
 
 .card {
@@ -53,12 +53,12 @@
 }
 
 .list - view.row > [class*= col -] {
-    max - width: 100 %;
-    flex: 0 0 100 %;
+    max-width: 100 %;
+    flex: 0 0 100%;
 }
 
-.list - view.card {
-    flex - direction: row;
+.list-view.card {
+    flex-direction: row;
 }
 
 .date - detail {

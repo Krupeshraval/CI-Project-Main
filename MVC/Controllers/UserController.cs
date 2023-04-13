@@ -96,7 +96,7 @@ namespace CI_Project.Controllers
 
         [HttpPost]
         //< ========================== send recomodation ======================================= >
-        public async Task<IActionResult> sendRecom(long Id, long missionid, string[] Email)
+        public async Task<IActionResult> sendRecom(long Id, long missionid, string[] Email,string currentURL)
         {
             foreach (var email in Email)
             {
@@ -112,7 +112,7 @@ namespace CI_Project.Controllers
                 var fromAddress = new MailAddress("testermaster43@gmail.com", "Community Empowerment Portal");
                 var toAddress = new MailAddress(email);
                 var subject = "Password reset request";
-                var body = $"Hi,<br /><br /> you are recomanded a mission by {sendername} Please click on the following link to see recomanded mission detail:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
+                var body = $"Hi,<br /><br /> you are recomanded a mission by {sendername} Please click on the following link to see recomanded mission detail:<br /><br /><a href='{currentURL}'>{currentURL}</a>";
                 var message = new MailMessage(fromAddress, toAddress)
                 {
                     Subject = subject,

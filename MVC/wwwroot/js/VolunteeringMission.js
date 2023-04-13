@@ -30,6 +30,7 @@ function showSlides(n) {
 function coworker(Id, missionid) {
 
     var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
+    var currentURL = window.location.href;
     Swal.fire({
         icon: 'info',
         title: 'Sending...',
@@ -40,7 +41,7 @@ function coworker(Id, missionid) {
         ({
             url: '/User/sendRecom',
             type: 'POST',
-            data: { missionid: missionid, Id: Id, Email: Email },
+            data: { missionid: missionid, Id: Id, Email: Email, currentURL },
             success: function (result) {
                /* alert("Recomendations sent successfully!");*/
                 const checkboxes = document.querySelectorAll('input[name="email"]:checked');
