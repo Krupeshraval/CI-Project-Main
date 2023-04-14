@@ -1,0 +1,193 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    @*<link src="~/css/UserProfile.css" asp-append-version="true"></link>*@
+
+    <style>
+        .user-change-password-link {
+            font-size: 12px;
+        }
+
+        .users-username {
+            font-size: 21px;
+        }
+
+        .user-profile-img {
+            width: 130px !important;
+            height: 130px !important;
+            border: 1px solid grey !important;
+            object-fit: cover !important;
+           
+        }
+
+        .user-profile-div {
+            position: relative;
+        }
+
+        .add-img-plus-icon {
+            position: absolute;
+            top: 100px;
+            right: 16px;
+            font-size: 26px;
+        }
+
+        /*.imdupperdiv {
+            border: 1px solid lightgrey !important;
+        }*/
+    </style>
+</head>
+
+<body>
+
+    <partial name="_Navbar1" />
+
+    <div class=" container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-2 user-profile-left-div d-flex flex-column  mt-3">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="user-profile-div " id="imgdiv">
+                        <input type="file" @*asp-for="files"*@ style="display:none" id="imginput" />
+                        @*   @if (@Model.avatar != "")
+                        {
+                        <img src="@Model.avatar" alt=""
+                        class="rounded-circle user-profile-img " id="user-profile-img">
+                        }
+                        else
+                        {*@
+                        <img src="~/images/user.png" alt=""
+                             class="rounded-circle user-profile-img" id="user-profile-img">
+                        @* }
+                        *@
+                        <i class="bi bi-plus-circle-fill add-img-plus-icon" height="25px" width="25px"></i>
+
+                    </div>
+                    <div class="users-username mt-2">@*@Model.firstname.ToUpperInvariant() @Model.lastname.ToUpperInvariant()*@Krupesh</div>
+                    <div class="">
+                        <!-- Button trigger modal -->
+                        <button class="  bg-white border-0 border-white user-change-password-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Change Password
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-12 col-lg-10 col-md-9 p-3">
+                <h3 style=" width:fit-content; border-bottom:2px solid black;" class="mb-0 pb-3" >Basic Information</h3>
+                <hr class="mt-0" />
+
+                <div class="row">
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">First Name <sup class="text-danger">*</sup></label>
+                        <input type="text" class="form-control border mb-3" placeholder="Enter your First Name" aria-label="First name" required>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Surname <sup class="text-danger">*</sup></label>
+                        <input type="text" class="form-control border mb-3" placeholder="Enter your Surname" aria-label="Last name" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Employee ID</label>
+                        <input type="text" class="form-control border mb-3" placeholder="Enter your Employee ID" aria-label="First name" required>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Manager</label>
+                        <input type="text" class="form-control border mb-3" placeholder="Enter your Manager details" aria-label="Last name" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Title</label>
+                        <input type="text" class="form-control border mb-3" placeholder="Enter your Title" aria-label="First name" required>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Department</label>
+                        <input type="text" class="form-control border mb-3" placeholder="Enter your Department details" aria-label="Last name" required>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="comm"> My Profile<sup class="text-danger">*</sup> </label>
+                    <textarea class="form-control  mb-3 mt-2" placeholder="Enter your comments..." id="comm" style="height: 100px"></textarea>
+                </div>
+
+                <div class="why-volunteer">
+                    <label for="floatingTextarea2">Why I Volunteer?</label>
+                    <textarea class="form-control mb-3 mt-2" placeholder="Enter your comments..." id="floatingTextarea2" style="height: 100px"></textarea>
+                </div>
+
+                <h3 style=" width:fit-content; border-bottom:2px solid black;" class="mb-0 pb-3">Additional Information</h3>
+                <hr class="mt-0" />
+                <div class="row">
+                    <div class="col">
+                        <label for="floatingTextarea2">City </label>
+                        <select class="form-select mb-3 mt-2" aria-label="Default select example">
+                            <option selected>Select your City</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label for="floatingTextarea2">Country <sup class="text-danger">*</sup></label>
+                        <select class="form-select mb-3 mt-2" aria-label="Default select example">
+                            <option selected> Select Country</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <h3 style=" width:fit-content; border-bottom:2px solid black;" class="mb-0 pb-3">Professional Information</h3>
+                <hr class="mt-0" />
+                <div class="row">
+                    <div class="col">
+                        <label for="floatingTextarea2">Avaibility</label>
+                        <select class="form-select mb-3 mt-2" aria-label="Default select example">
+                            <option selected>Select your Avaibility</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Linkdin</label>
+                        <input type="text" class="form-control mb-3" placeholder="Enter your Linkdin URL" aria-label="Last name" required>
+                    </div>
+                </div>
+                
+                <h3 style=" width:fit-content; border-bottom:2px solid black;" class="mb-0 pb-3">Skills</h3>
+                <hr class="mt-0" />
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+<script src="~/js/UserProfile.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</html>

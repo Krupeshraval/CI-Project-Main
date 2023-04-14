@@ -13,7 +13,7 @@ namespace CI_Project.Repository.Repository
     public class UserRepository : IUserInterface
     {
         private readonly CIPlatformContext _db;
-
+         
         public UserRepository(CIPlatformContext db)
         {
             _db = db; //underscore db ma baddho database store thai jase

@@ -529,6 +529,10 @@
       "PackagePath": "staticwebassets\\css\\StoryListing.css"
     },
     {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\css\\UserProfile.css",
+      "PackagePath": "staticwebassets\\css\\UserProfile.css"
+    },
+    {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\css\\VolunteeringMission.css",
       "PackagePath": "staticwebassets\\css\\VolunteeringMission.css"
     },
@@ -557,12 +561,20 @@
       "PackagePath": "staticwebassets\\js\\StoryDetail.js"
     },
     {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\UserProfile.js",
+      "PackagePath": "staticwebassets\\js\\UserProfile.js"
+    },
+    {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\VolunteeringMission.js",
       "PackagePath": "staticwebassets\\js\\VolunteeringMission.js"
     },
     {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\navbar.js",
       "PackagePath": "staticwebassets\\js\\navbar.js"
+    },
+    {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\popper.min.js"
     },
     {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\site.js",
