@@ -31,9 +31,16 @@ namespace CI_Project.Repository.Interface
         public void adduser (User user);
         public void comment (Comment comment);
 
+
         public void apply(long missionid, long userid);
         public List<FavoriteMission> Addfavorite(long missionid, long id);
         public List<FavoriteMission> removefavorite(long missionid, long id);
+
+        public void AddUserSkills(long SkillId, int UserId);
+
+        public void updateuser(User user);
+
+        public List<UserSkill> skilllist(int userid);
 
         //public List<PasswordReset> passwordreset();
         //public List<User> Users();

@@ -929,6 +929,10 @@ namespace CI_Entities.CIPlatformContext
 
                 entity.Property(e => e.Time).HasColumnName("time");
 
+                entity.Property(e => e.TimesheetTime)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.UpdatedAt)
                     .HasColumnType("datetime")
                     .HasColumnName("updated_at");
@@ -951,6 +955,10 @@ namespace CI_Entities.CIPlatformContext
                 entity.ToTable("user");
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
+
+                entity.Property(e => e.Availability)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Avatar)
                     .HasMaxLength(2048)

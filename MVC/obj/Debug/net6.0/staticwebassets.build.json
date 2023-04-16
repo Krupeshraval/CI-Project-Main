@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k9Fv5prQwynSayrMzVSgGRQu31kqrZAr/OgcBQR1Af4=",
+  "Hash": "miei2ySASduDTrhqUVc7nMsux90pyDg34TOLp2qDs1k=",
   "Source": "CI Project",
   "BasePath": "_content/CI Project",
   "Mode": "Default",
@@ -2497,6 +2497,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\VolunteeringMission.js"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\VolunteeringTimesheet.js",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "js/VolunteeringTimesheet.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\VolunteeringTimesheet.js"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

@@ -569,6 +569,10 @@
       "PackagePath": "staticwebassets\\js\\VolunteeringMission.js"
     },
     {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\VolunteeringTimesheet.js",
+      "PackagePath": "staticwebassets\\js\\VolunteeringTimesheet.js"
+    },
+    {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\navbar.js",
       "PackagePath": "staticwebassets\\js\\navbar.js"
     },

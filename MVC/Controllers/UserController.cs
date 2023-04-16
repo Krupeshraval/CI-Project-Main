@@ -40,6 +40,10 @@ namespace CI_Project.Controllers
         {
             return View();
         }
+          public IActionResult PrivacyPolicy()
+        {
+            return View();
+        }
 
         public async Task<IActionResult> apply(int MissionId, int UserId)
         {

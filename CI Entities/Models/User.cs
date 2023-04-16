@@ -39,6 +39,7 @@ namespace CI_Entities.Models
         public byte[] CreatedAt { get; set; } = null!;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
+        public string? Availability { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<FavoriteMission> FavoriteMissions { get; set; }

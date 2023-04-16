@@ -125,5 +125,24 @@ namespace CI_Project.Repository.Repository
             _db.SaveChanges();
             return null;
         }
+
+        public void AddUserSkills(long SkillId, int UserId)
+        {
+            UserSkill skill = new UserSkill();
+            skill.SkillId = SkillId;
+            skill.UserId = UserId;
+            _db.UserSkills.Add(skill);
+            _db.SaveChanges();
+        }
+        public void updateuser(User user)
+        {
+            _db.Users.Add(user);
+            _db.SaveChanges();
+        }
+
+        public List<UserSkill> skilllist(int userid)
+        {
+            return _db.UserSkills.Where(e => e.UserId == userid).ToList();
+        }
     }
 }
