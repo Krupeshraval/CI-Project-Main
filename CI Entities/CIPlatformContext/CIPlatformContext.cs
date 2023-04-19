@@ -961,8 +961,7 @@ namespace CI_Entities.CIPlatformContext
                     .IsUnicode(false);
 
                 entity.Property(e => e.Avatar)
-                    .HasMaxLength(2048)
-                    .IsUnicode(false)
+                    .HasColumnType("text")
                     .HasColumnName("avatar");
 
                 entity.Property(e => e.CityId).HasColumnName("city_id");

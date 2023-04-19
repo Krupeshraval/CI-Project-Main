@@ -13,6 +13,7 @@ namespace CI_Project.Models
         public string EmployeeID { get; set; }
 
         public string? Avatar { get; set; }
+        public IFormFile UserImg { get; set; }
 
         public string Availability { get; set; }
 
@@ -30,7 +31,8 @@ namespace CI_Project.Models
         public long? CityId { get; set; }
 
         public long? CountryId { get; set; }
-
+       
+        public List<IFormFile> files { get; set; }
 
         public List<Skill> skills { get; set; }
         public List<UserSkill> userSkills { get; set; }

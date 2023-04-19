@@ -18,6 +18,7 @@ namespace CI_Project.Controllers
             _db = db; //underscore db ma baddho database store thai jase
         }
 
+        [HttpGet]
         public IActionResult UserProfile()
         {
             var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
@@ -102,17 +103,18 @@ namespace CI_Project.Controllers
                 userdetail.Avatar = model.Avatar;
 
             }
-            foreach (var file in files)
+            if (model.UserImg != null)
             {
+                var FileName = "";
                 using (var ms = new MemoryStream())
                 {
-                    await file.CopyToAsync(ms);
+                    await model.UserImg.CopyToAsync(ms)
+;
                     var imageBytes = ms.ToArray();
                     var base64String = Convert.ToBase64String(imageBytes);
-                    userdetail.Avatar = "data:image/png;base64," + base64String;
-                    model.Avatar = "data:image/png;base64," + base64String;
-                    HttpContext.Session.SetString("useravtar", "data:image/png;base64," + base64String);
+                    FileName = "data:image/png;base64," + base64String;
                 }
+                userdetail.Avatar = FileName;
             }
 
             var allskills = _Iuser.skills();
@@ -131,8 +133,10 @@ namespace CI_Project.Controllers
             ViewBag.allcities = _Iuser.cities();
             ViewBag.allcountry = _Iuser.countries();
 
-            _Iuser.updateuser(userdetail);
-            return View(model);
+
+            _db.Users.Update(userdetail);
+            _db.SaveChanges();
+            return RedirectToAction("userProfile", "UserProfile");
         }
 
 

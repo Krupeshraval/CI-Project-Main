@@ -6,6 +6,13 @@
 
 <partial name="_Navbar1" />
 
+
+<html>
+    <head>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    </head>
+    <body>
+
 <div class="container">
     <div class="mt-5 fs-3">
         Volunteering Timesheet
@@ -20,7 +27,11 @@
                         data-bs-target="#timesheetADD">
                     <i class="bi bi-plus-lg me-2 "></i>ADD
                 </button>
-                <!-- Modal -->
+
+                <!-- ============================================================================================ -->
+                <!-- ========================================== Modal =========================================== -->
+                <!-- ============================================================================================ -->
+
                 <div class="modal  fade" id="timesheetADD" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
                     <div class="modal-dialog modal-xl modal-dialog-centered" style="width: 70%;">
                         <div class="modal-content">
@@ -32,7 +43,7 @@
                                 <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
-                            <form asp-action="VolunteeringTimesheet" asp-controller="VolunteeringTimesheet" method="post">
+                            <form asp-action="Timesheet" asp-controller="VolunteeringTimesheet" method="post">
                                 <div class="modal-body">
                                     <span>Time</span>
                                     <div>
@@ -143,7 +154,11 @@
                         data-bs-target="#exampleModalADDGoal">
                     <i class="bi bi-plus-lg me-2 "></i>ADD
                 </button>
-                <!-- Modal -->
+
+                <!-- ============================================================================================ -->
+                <!-- ========================================== Modal =========================================== -->
+                <!-- ============================================================================================ -->
+
                 <div class="modal fade" id="exampleModalADDGoal" tabindex="-1" aria-labelledby="exampleModalLabel">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -155,7 +170,7 @@
                                 <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
-                            <form asp-action="VolunteeringTimesheet" asp-controller="VolunteeringTimesheet" method="post">
+                            <form asp-action="Timesheet" asp-controller="VolunteeringTimesheet" method="post">
                                 <div class="modal-body">
                                     <div>
                                         <label for="mission">Mission</label>
@@ -246,7 +261,9 @@
     </div>
 </div>
 
-          
+     </body>     
 <script asp-append-version="true" src="~/js/VolunteeringTimesheet.js">
    
 </script>
+
+</html>

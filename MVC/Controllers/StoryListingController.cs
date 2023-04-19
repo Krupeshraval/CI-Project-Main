@@ -103,98 +103,127 @@ namespace CI_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult ShareStory(ShareStoryViewModel shareStoryView, IFormFileCollection? dragdrop , string action)
+        public IActionResult ShareStory(ShareStoryViewModel storyView, IFormFileCollection? dragdrop, string action)
         {
-
-            if(action == "submit")
+            if (action == "submit")
             {
-                IEnumerable<Mission> missions = _db.Missions.ToList();
-                ViewData["mission"] = _db.MissionApplications.ToList();
-                Story story = new Story();
-                story.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
-                story.MissionId = shareStoryView.MissionId;
-                story.Title = shareStoryView.Title;
-                story.Description = shareStoryView.editor1;
-                story.Status = "1";
-                story.CreatedAt = DateTime.Now;
-
-
-                foreach (IFormFile file in dragdrop)
+                if (storyView.StoryId == null || storyView.StoryId == 0)
                 {
-                    if (file != null)
+                    IEnumerable<Mission> missions = _db.Missions.ToList();
+                    ViewData["mission"] = _db.MissionApplications.ToList();
+                    Story story = new Story();
+                    story.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+                    story.MissionId = storyView.MissionId;
+                    story.Title = storyView.Title;
+                    story.Description = storyView.editor1;
+                    story.Status = "1";
+                    story.CreatedAt = DateTime.Now;
+
+                    foreach (IFormFile file in dragdrop)
                     {
-                        //Set Key Name
-                        string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-
-                        //Get url To Save
-                        string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images\\StoryImages", ImageName);
-
-                        using (var stream = new FileStream(SavePath, FileMode.Create))
+                        if (file != null)
                         {
-                            StoryMedium sm = new StoryMedium();
-                            sm.Type = file.ContentType.ToString().Replace("image/", "");
-                            sm.Path = ImageName;
-                            sm.CreatedAt = DateTime.Now;
-                            story.StoryMedia.Add(sm);
-                            file.CopyTo(stream);
+                            //Set Key Name
+                            string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
+                            //Get url To Save
+                            string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images\\StoryImages", ImageName);
+
+                            using (var stream = new FileStream(SavePath, FileMode.Create))
+                            {
+                                StoryMedium sm = new StoryMedium();
+                                sm.Type = file.ContentType.ToString().Replace("image/", "");
+                                sm.Path = ImageName;
+                                sm.CreatedAt = DateTime.Now;
+                                story.StoryMedia.Add(sm);
+                                file.CopyTo(stream);
+                            }
                         }
                     }
+
+                    _db.Stories.Add(story);
+                    _db.SaveChanges();
+                    return RedirectToAction("StoryListing", "StoryListing");
                 }
-
-
-
-
-                _db.Stories.Add(story);
-                _db.SaveChanges();
-                return View();
-            }
-            else if(action == "save")
-            {
-                IEnumerable<Mission> missions = _db.Missions.ToList();
-                ViewData["mission"] = _db.MissionApplications.ToList();
-                Story story = new Story();
-                story.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
-                story.MissionId = shareStoryView.MissionId;
-                story.Title = shareStoryView.Title;
-                story.Description = shareStoryView.editor1;
-                story.Status = "DRAFT";
-                story.CreatedAt = DateTime.Now;
-
-
-                foreach (IFormFile file in dragdrop)
+                else
                 {
-                    if (file != null)
+                    var foundstory = _db.Stories.FirstOrDefault(x => x.StoryId == storyView.StoryId);
+                    foundstory.StoryId = storyView.StoryId;
+                    foundstory.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+                    foundstory.MissionId = storyView.MissionId;
+                    foundstory.Title = storyView.Title;
+                    foundstory.Description = storyView.editor1;
+                    foundstory.Status = "1";
+                    foundstory.CreatedAt = DateTime.Now;
+                    foundstory.UpdatedAt = DateTime.Now;
+                    _db.Update(foundstory);
+                    _db.SaveChanges();
+                    return RedirectToAction("StoryListing", "StoryListing");
+                }
+            }
+            else if (action == "save")
+            {
+                if (storyView.StoryId == null || storyView.StoryId == 0)
+                {
+
+
+                    IEnumerable<Mission> missions = _db.Missions.ToList();
+                    ViewData["mission"] = _db.MissionApplications.ToList();
+                    Story story = new Story();
+                    story.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+                    story.MissionId = storyView.MissionId;
+                    story.Title = storyView.Title;
+                    story.Description = storyView.editor1;
+                    story.Status = "Draft";
+                    story.CreatedAt = DateTime.Now;
+
+                    foreach (IFormFile file in dragdrop)
                     {
-                        //Set Key Name
-                        string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-
-                        //Get url To Save
-                        string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images\\StoryImages", ImageName);
-
-                        using (var stream = new FileStream(SavePath, FileMode.Create))
+                        if (file != null)
                         {
-                            StoryMedium sm = new StoryMedium();
-                            sm.Type = file.ContentType.ToString().Replace("image/", "");
-                            sm.Path = ImageName;
-                            sm.CreatedAt = DateTime.Now;
-                            story.StoryMedia.Add(sm);
-                            file.CopyTo(stream);
+                            //Set Key Name
+                            string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
+                            //Get url To Save
+                            string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images\\StoryImages", ImageName);
+
+                            using (var stream = new FileStream(SavePath, FileMode.Create))
+                            {
+                                StoryMedium sm = new StoryMedium();
+                                sm.Type = file.ContentType.ToString().Replace("image/", "");
+                                sm.Path = ImageName;
+                                sm.CreatedAt = DateTime.Now;
+                                story.StoryMedia.Add(sm);
+                                file.CopyTo(stream);
+                            }
                         }
                     }
+
+                    _db.Stories.Add(story);
+                    _db.SaveChanges();
+                    return View();
+
                 }
+                else
+                {
+                    var foundstory = _db.Stories.FirstOrDefault(x => x.StoryId == storyView.StoryId);
+                    foundstory.StoryId = storyView.StoryId;
+                    foundstory.UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
+                    foundstory.MissionId = storyView.MissionId;
+                    foundstory.Title = storyView.Title;
+                    foundstory.Description = storyView.editor1;
+                    foundstory.Status = "Draft";
+                    foundstory.CreatedAt = DateTime.Now;
+                    foundstory.UpdatedAt = DateTime.Now;
+                    _db.Update(foundstory);
+                    _db.SaveChanges();
+                    return RedirectToAction("StoryDraft", "StoryListing");
 
-
-
-
-                _db.Stories.Add(story);
-                _db.SaveChanges();
-                return View();
+                }
             }
-
             else { return View(); }
-
-            
         }
+
         public IActionResult StoryDraft()
         {
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "miei2ySASduDTrhqUVc7nMsux90pyDg34TOLp2qDs1k=",
+  "Hash": "1/ZNLAF79/xMMm49fcSA4+GxLiI8ovRkYFvNphwVQ6Q=",
   "Source": "CI Project",
   "BasePath": "_content/CI Project",
   "Mode": "Default",
@@ -1836,6 +1836,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\0bc5ae67-6242-495e-a78b-296185116a98.jpg"
     },
     {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\2d7f37e0-9fd1-461d-817a-970afa004f83.jpeg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/StoryImages/2d7f37e0-9fd1-461d-817a-970afa004f83.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\2d7f37e0-9fd1-461d-817a-970afa004f83.jpeg"
+    },
+    {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\496da408-2a2b-48e9-88f7-0ddce6dcb4d7.jpg",
       "SourceId": "CI Project",
       "SourceType": "Discovered",
@@ -1936,6 +1953,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\9383b45e-7dce-457d-8a6b-2beb219fa438.jpg"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\b79a34d2-0ea8-432b-864a-f321ee824721.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/StoryImages/b79a34d2-0ea8-432b-864a-f321ee824721.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\b79a34d2-0ea8-432b-864a-f321ee824721.jpg"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\c33d296b-d5d2-464c-aec9-d054a5918e62.jpg",
