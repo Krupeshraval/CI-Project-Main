@@ -1,4 +1,5 @@
 ﻿using CI_Entities.Models;
+using Microsoft.Build.Framework;
 
 namespace CI_Project.Models
 {
@@ -45,20 +46,21 @@ namespace CI_Project.Models
 
         public long hiddenid { get; set; }
 
-
         public string TimesheetTime { get; set; }
 
-
+        //[Required(ErrorMessage = "please Enter Action")]
         public int? Action { get; set; }
 
         public DateTime DateVolunteered { get; set; }
 
         public string? Notes { get; set; }
 
+        [Required]
         public int hour { get; set; }
-
+        [Required]
         public int minute { get; set; }
 
+        [Required]
         public virtual Mission? Mission { get; set; }
 
     }

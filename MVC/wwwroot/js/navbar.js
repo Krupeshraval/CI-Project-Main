@@ -35,7 +35,7 @@ function filters(sortValue,jpg=1) {
     //add
 
     $.ajax({
-        url: "/User/_LandingPageCards",
+        url: "/Employee/User/_LandingPageCards",
         type: "GET",
         data: { 'search': Search, 'jpg': jpg, 'sortValue': sortValue, 'country': country.toString(), 'city': city.toString(), 'theme': theme.toString() },
 

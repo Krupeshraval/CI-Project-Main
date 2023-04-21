@@ -38,7 +38,7 @@ function coworker(Id, missionid) {
     });
     $.ajax
         ({
-            url: '/User/sendRecom',
+            url: '/Employee/User/sendRecom',
             type: 'POST',
             data: { missionid: missionid, Id: Id, Email: Email },
             success: function (result) {
@@ -66,7 +66,7 @@ function coworker(Id, missionid) {
 
 function apply(mid, uid) {
     $.ajax({
-        url: '/User/apply',
+        url: '/Employee/User/apply',
         type: 'POST',
         data: { MissionId: mid, UserId: uid },
         success: function (result) {

@@ -16,16 +16,96 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\CI Project main\MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/CI Project main/MVC/Views/ForgotPassword/ForgotPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ290UGFzc3dvcmRcRm9yZ290UGFzc3dvcmQuY3NodG1s
+[F:/CI Project main/MVC/Areas/Admin/Views/Admin/AdminMission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRtaW5NaXNzaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/CI Project main/MVC/Views/ForgotPassword/ResetPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ290UGFzc3dvcmRcUmVzZXRQYXNzd29yZC5jc2h0bWw=
+[F:/CI Project main/MVC/Areas/Admin/Views/Admin/CmsCrud.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQ21zQ3J1ZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/CI Project main/MVC/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[F:/CI Project main/MVC/Areas/Admin/Views/Admin/MissionApplication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cTWlzc2lvbkFwcGxpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Admin/Views/Admin/user.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cdXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/ForgotPassword/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcRm9yZ290UGFzc3dvcmRcRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/ForgotPassword/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcRm9yZ290UGFzc3dvcmRcUmVzZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/StoryListing/ShareStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcU3RvcnlMaXN0aW5nXFNoYXJlU3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/StoryListing/StoryDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/StoryListing/StoryDraft.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5RHJhZnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/StoryListing/StoryListing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5TGlzdGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/UserProfile/UserProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVXNlclByb2ZpbGVcVXNlclByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/User/LandingPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVXNlclxMYW5kaW5nUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/User/NoMissionFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVXNlclxOb01pc3Npb25Gb3VuZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/User/PrivacyPolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVXNlclxQcml2YWN5UG9saWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/User/Registration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVXNlclxSZWdpc3RyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/User/VolunteeringMission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVXNlclxWb2x1bnRlZXJpbmdNaXNzaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/VolunteeringTimesheet/VolunteeringTimesheet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcVm9sdW50ZWVyaW5nVGltZXNoZWV0XFZvbHVudGVlcmluZ1RpbWVzaGVldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CI Project main/MVC/Areas/Employee/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/CI Project main/MVC/Views/Shared/Error.cshtml]
@@ -56,56 +136,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXJMb2dpblJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/CI Project main/MVC/Views/Shared/_SideNavigation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlTmF2aWdhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/CI Project main/MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/StoryListing/ShareStory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlMaXN0aW5nXFNoYXJlU3RvcnkuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/StoryListing/StoryDetail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5RGV0YWlsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/StoryListing/StoryDraft.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5RHJhZnQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/StoryListing/StoryListing.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlMaXN0aW5nXFN0b3J5TGlzdGluZy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/UserProfile/UserProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclByb2ZpbGVcVXNlclByb2ZpbGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/User/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/User/LandingPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMYW5kaW5nUGFnZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/User/NoMissionFound.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxOb01pc3Npb25Gb3VuZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/User/PrivacyPolicy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcml2YWN5UG9saWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/User/Registration.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3RyYXRpb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/User/VolunteeringMission.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxWb2x1bnRlZXJpbmdNaXNzaW9uLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/CI Project main/MVC/Views/VolunteeringTimesheet/VolunteeringTimesheet.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm9sdW50ZWVyaW5nVGltZXNoZWV0XFZvbHVudGVlcmluZ1RpbWVzaGVldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/CI Project main/MVC/Views/_ViewImports.cshtml]

@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Reflection;
 
-namespace CI_Project.Controllers
+namespace CI_Project.Areas.Employee.Controllers
 {
+    [Area("Employee")]
     public class StoryListingController : Controller
     {
         private readonly CIPlatformContext _db;
-         
+
         public StoryListingController(CIPlatformContext db)
         {
             _db = db; //underscore db ma baddho database store thai jase
@@ -57,7 +58,7 @@ namespace CI_Project.Controllers
             ViewBag.StoryList = StoryList;
 
             const int pageSize = 3; // Number of items to display per page
-            int pageNumber = (page ?? 1); // Default to the first page
+            int pageNumber = page ?? 1; // Default to the first page
                                           // Total number of items
             var items = StoryList
                 //.OrderByDescending(i => i.CreatedDate
@@ -88,7 +89,7 @@ namespace CI_Project.Controllers
             if (storyID != 0)
             {
                 storyView.storyMedia = _db.StoryMedia.Where(e => e.StoryId == storyID).ToList();
-                storyView.MissionApplications= _db.MissionApplications.Where(u => u.UserId == UserId).ToList();
+                storyView.MissionApplications = _db.MissionApplications.Where(u => u.UserId == UserId).ToList();
 
                 var story = _db.Stories.Where(e => e.StoryId == storyID).FirstOrDefault();
                 storyView.MissionId = story.MissionId;

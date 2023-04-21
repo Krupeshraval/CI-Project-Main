@@ -1,4 +1,5 @@
-﻿namespace CI_Project.Models
+﻿
+namespace CI_Project.Models
 {
     public class PagerViewModel
     {

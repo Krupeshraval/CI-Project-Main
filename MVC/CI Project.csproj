@@ -34,6 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Employee\Data\" />
+    <Folder Include="Areas\Employee\Models\" />
+    <Folder Include="Controllers\" />
     <Folder Include="wwwroot\Images\StoryImages\" />
   </ItemGroup>
 

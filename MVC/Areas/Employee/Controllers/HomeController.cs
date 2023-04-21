@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CI_Project.Controllers
+namespace CI_Project.Areas.Employee.Controllers
 {
+    [Area("Employee")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,7 +14,7 @@ namespace CI_Project.Controllers
             _logger = logger;
         }
 
-       
+
 
         public IActionResult Privacy()
         {

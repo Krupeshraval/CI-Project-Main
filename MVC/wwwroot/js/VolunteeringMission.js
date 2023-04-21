@@ -39,7 +39,7 @@ function coworker(Id, missionid) {
     });
     $.ajax
         ({
-            url: '/User/sendRecom',
+            url: '/Employee/User/sendRecom',
             type: 'POST',
             data: { missionid: missionid, Id: Id, Email: Email, currentURL },
             success: function (result) {
@@ -71,7 +71,7 @@ function checkFav(missionid,id) {
     const params = new URLSearchParams(window.location.search);
     const query = params.get('missionid');
     $.ajax({
-        url: "/User/AddToFav",
+        url: "/Employee/User/AddToFav",
         data: { missionid: missionid,id:id },
         success: function (response) {
             console.log(response)
@@ -138,7 +138,7 @@ function checkFav(missionid,id) {
 
 function ratemission(starId, missionId, id) {
     $.ajax({
-        url: '/User/AddRating',
+        url: '/Employee/User/AddRating',
         type: 'POST',
         data: { missionId: missionId, id: id, rating: starId },
         success: function (result) {
@@ -161,7 +161,7 @@ function AddComment() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get('missionid');
     $.ajax({
-        url: "/User/AddComment",
+        url: "/Employee/User/AddComment",
         data: { missionId: query, commenttext: commentVal },
         success: function (result)
         {

@@ -811,7 +811,7 @@
 <script>
     function apply(mid, uid) {
         $.ajax({
-            url: '/User/apply',
+            url: '/Employee/User/apply',
             type: 'POST',
             data: { MissionId: mid, UserId: uid },
             success: function (result) {

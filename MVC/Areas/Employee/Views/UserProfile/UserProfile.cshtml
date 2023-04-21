@@ -8,33 +8,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-    <style>
-        .user-change-password-link {
-            font-size: 12px;
-        }
-
-        .users-username {
-            font-size: 21px;
-        }
-
-        .user-profile-img {
-            width: 130px !important;
-            height: 130px !important;
-            border: 1px solid grey !important;
-            object-fit: cover !important;
-        }
-
-        .user-profile-div {
-            position: relative;
-        }
-
-        .add-img-plus-icon {
-            position: absolute;
-            top: 100px;
-            right: 16px;
-            font-size: 26px;
-        }
-    </style>
+    <link href="~/css/UserProfile.css" asp-append-version="true" rel="stylesheet"></link>
 </head>
 
 <body>
@@ -65,10 +39,36 @@
                         <div class="users-username mt-2">@*@Model.firstname.ToUpperInvariant() @Model.lastname.ToUpperInvariant()*@Krupesh</div>
                         <div class="">
                             <!-- Button trigger modal -->
-                            <button class="  bg-white border-0 border-white user-change-password-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button class="bg-white border-0 border-white user-change-password-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Change Password
                             </button>
+                            <!-- ================================================================================================== -->
+                                                                           <!-- Modal -->
+                            <!-- ================================================================================================== -->
 
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="fs-4">Change Password </div>
+                                        <div><input class="col-12 mt-4" type="text" id="old" placeholder="Enter Old Password" /></div>
+                                        <div><input class="col-12 mt-4" type="text" id="new" placeholder="Enter New Password" /></div>
+                                        <div><input class="col-12 mt-4" type="text" id="conf" placeholder="Confirm Your Password" /></div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn border-secondary rounded-pill shadow-none" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" onclick="ChangePassword()" class="btn orange  shadow-none">Change Password</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -77,55 +77,58 @@
                     <h3 style=" width:fit-content; border-bottom:2px solid black;" class="mb-0 pb-3">Basic Information</h3>
                     <hr class="mt-0" />
 
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">First Name <sup class="text-danger">*</sup></label>
-                            <input type="text" asp-for="FirstName" class="form-control border mb-3" placeholder="Enter your First Name" aria-label="First name" required>
+                            <input type="text" asp-for="FirstName" class="form-control border" placeholder="Enter your First Name" aria-label="First name" required>
+                            <span class="text-danger" id="reqFname" asp-validation-for="FirstName"> </span>
                         </div>
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Surname <sup class="text-danger">*</sup></label>
-                            <input type="text" asp-for="LastName" class="form-control border mb-3" placeholder="Enter your Surname" aria-label="Last name" required>
+                            <input type="text" asp-for="LastName" class="form-control border" placeholder="Enter your Surname" aria-label="Last name" required>
+                            <span class="text-danger" id="reqFname" asp-validation-for="LastName"> </span>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Employee ID</label>
-                            <input type="text" asp-for="EmployeeID" class="form-control border mb-3" placeholder="Enter your Employee ID" aria-label="First name" required>
+                            <input type="text" asp-for="EmployeeID" class="form-control border" placeholder="Enter your Employee ID" aria-label="First name" required>
                         </div>
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Manager</label>
-                            <input type="text" class="form-control border mb-3" placeholder="Enter your Manager details" aria-label="Last name" required>
+                            <input type="text" class="form-control border" placeholder="Enter your Manager details" aria-label="Last name" required>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Title</label>
-                            <input type="text" asp-for="title" class="form-control border mb-3" placeholder="Enter your Title" aria-label="First name" required>
+                            <input type="text" asp-for="title" class="form-control border" placeholder="Enter your Title" aria-label="First name" required>
                         </div>
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Department</label>
-                            <input type="text" asp-for="department" class="form-control border mb-3" placeholder="Enter your Department details" aria-label="Last name" required>
+                            <input type="text" asp-for="department" class="form-control border" placeholder="Enter your Department details" aria-label="Last name" required>
                         </div>
                     </div>
 
                     <div class="">
                         <label for="comm"> My Profile<sup class="text-danger">*</sup> </label>
-                        <textarea class="form-control  mb-3 mt-2" asp-for="ProfileText" placeholder="Enter your comments..." id="comm" style="height: 100px"></textarea>
+                        <textarea class="form-control mt-2" asp-for="ProfileText" placeholder="Enter your comments..." id="comm" style="height: 100px"></textarea>
+                        <span class="text-danger" id="reqFname" asp-validation-for="ProfileText"> </span>
                     </div>
 
                     <div class="why-volunteer">
                         <label for="floatingTextarea2">Why I Volunteer?</label>
-                        <textarea class="form-control mb-3 mt-2" asp-for="WhyIVolunteered" placeholder="Enter your comments..." id="floatingTextarea2" style="height: 100px"></textarea>
+                        <textarea class="form-control mt-2" asp-for="WhyIVolunteered" placeholder="Enter your comments..." id="floatingTextarea2" style="height: 100px"></textarea>
                     </div>
 
                     <h3 style=" width:fit-content; border-bottom:2px solid black;" class="mb-0 pb-3">Additional Information</h3>
                     <hr class="mt-0" />
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col">
                             <label for="floatingTextarea2">City </label>
-                            <select class="form-select mb-3 mt-2" asp-for="CityId" aria-label="Default select example">
+                            <select class="form-select mt-2" asp-for="CityId" aria-label="Default select example">
                                 <option selected>Select your City</option>
                                 @foreach (var item in ViewBag.allcities)
                                 {
@@ -136,19 +139,21 @@
 
                         <div class="col">
                             <label for="floatingTextarea2">Country <sup class="text-danger">*</sup></label>
-                            <select class="form-select mb-3 mt-2" asp-for="CountryId" aria-label="Default select example">
+                            <select class="form-select mt-2" asp-for="CountryId" aria-label="Default select example">
                                 <option selected> Select Country</option>
                                 @foreach (var item in ViewBag.allcountry)
                                 {
                                     <option value="@item.CountryId">@item.Name </option>
                                 }
                             </select>
+                            <span class="text-danger" id="reqFname" asp-validation-for="CountryId"> </span>
                         </div>
                     </div>
 
                     <h3 style=" width:fit-content; border-bottom:2px solid black;" class="mb-0 pb-3">Professional Information</h3>
                     <hr class="mt-0" />
-                    <div class="row">
+                    <div class="row mb-3
+">
                         <div class="col">
                             <label for="floatingTextarea2">Avaibility</label>
                             <select class="form-select mb-3 mt-2" aria-label="Default select example">
@@ -289,14 +294,15 @@
     </div>
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+@*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-
+*@
 <script src="~/lib/jquery/dist/jquery.min.js"> </script>
 
 <script src="~/js/UserProfile.js" asp-append-version="true"></script>

@@ -12,9 +12,9 @@ using System.Net;
 using CI_Project.Repository.Interface;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CI_Project.Controllers
+namespace CI_Project.Areas.Employee.Controllers
 {
-
+    [Area("Employee")]
     public class UserController : Controller
     {
         int co = 0;
@@ -29,7 +29,7 @@ namespace CI_Project.Controllers
         }
         public IActionResult Registration()
         {
-           return View();
+            return View();
         }
 
         public IActionResult Index()
@@ -40,7 +40,7 @@ namespace CI_Project.Controllers
         {
             return View();
         }
-          public IActionResult PrivacyPolicy()
+        public IActionResult PrivacyPolicy()
         {
             return View();
         }
@@ -51,29 +51,29 @@ namespace CI_Project.Controllers
 
             return Json(new { success = true });
         }
-        public IActionResult AddToFav(long missionid,long id)
-         {
-            
+        public IActionResult AddToFav(long missionid, long id)
+        {
+
             var isFav = _Iuser.favoriteMissions().FirstOrDefault(m => m.MissionId == missionid && m.UserId == id);
             if (isFav == null)
             {
-                _Iuser.Addfavorite(missionid,id);
+                _Iuser.Addfavorite(missionid, id);
             }
             else
             {
                 _Iuser.removefavorite(missionid, id);
             }
-            return RedirectToAction("VolunteeringMission", "User", new { id = id, missionid = missionid });
+            return RedirectToAction("VolunteeringMission", "User", new { id, missionid });
             //return RedirectToAction("VolunteeringMission" , new{ id=id, missionid=missionid});
             //return re(new {success = true, isFav});
         }
 
-        
+
 
         [HttpPost]
         public async Task<IActionResult> AddRating(string rating, long id, long missionId)
         {
-            MissionRating ratingExists =  _Iuser.missionRatings().FirstOrDefault(fm => fm.UserId == id && fm.MissionId == missionId);
+            MissionRating ratingExists = _Iuser.missionRatings().FirstOrDefault(fm => fm.UserId == id && fm.MissionId == missionId);
 
             if (ratingExists != null)
             {
@@ -83,33 +83,33 @@ namespace CI_Project.Controllers
                 _db.MissionRatings.Update(ratingExists);
                 await _db.SaveChangesAsync();
                 //return Json(new { success = true, ratingExists, isRated = true });
- 
+
             }
             else
             {
                 var newRating = new MissionRating();
-                newRating.Rating = int.Parse(rating); 
+                newRating.Rating = int.Parse(rating);
                 newRating.UserId = id;
                 newRating.MissionId = missionId;
                 await _db.MissionRatings.AddAsync(newRating); await _db.SaveChangesAsync();
                 //return Json(new { success = true, newRating, isRated = true });
             }
-            return RedirectToAction("VolunteeringMission", "User", new { missionId = missionId });
+            return RedirectToAction("VolunteeringMission", "User", new { missionId });
         }
 
 
         [HttpPost]
         //< ========================== send recomodation ======================================= >
-        public async Task<IActionResult> sendRecom(long Id, long missionid, string[] Email,string currentURL)
+        public async Task<IActionResult> sendRecom(long Id, long missionid, string[] Email, string currentURL)
         {
             foreach (var email in Email)
             {
                 //var user = _db.Users.FirstOrDefault(m => m.Email == email);
-                var user =_Iuser.UserByEmail(email);
+                var user = _Iuser.UserByEmail(email);
                 var sender = _Iuser.users().FirstOrDefault(m => m.UserId == Id);
                 var sendername = sender.FirstName + $" " + sender.LastName;
                 var userid = user.UserId;
-                var resetLink = Url.Action("VolunteeringMission", "User", new { missionid = missionid, id = userid }, Request.Scheme);
+                var resetLink = Url.Action("VolunteeringMission", "User", new { missionid, id = userid }, Request.Scheme);
                 // Send email to user with reset password link
                 // ...
 
@@ -129,20 +129,20 @@ namespace CI_Project.Controllers
                     Credentials = new NetworkCredential("testermaster43@gmail.com", "rnonuvkukadwpnpx"),
                     EnableSsl = true
                 };
-            smtpClient.Send(message);
+                smtpClient.Send(message);
 
-        }
+            }
             return Json(new { success = true });
         }
 
-        public IActionResult VolunteeringMission( long id, long missionid, VolunteeringViewModel volunteeringViewModel)
+        public IActionResult VolunteeringMission(long id, long missionid, VolunteeringViewModel volunteeringViewModel)
         {
             var userId = HttpContext.Session.GetString("userID");
 
-            
-            
-            
-            ViewBag.UserId = Convert.ToInt64(userId);   
+
+
+
+            ViewBag.UserId = Convert.ToInt64(userId);
 
             List<Mission> missions = _Iuser.missionlist();
             List<Mission> newmission = _Iuser.missionlist();
@@ -166,7 +166,7 @@ namespace CI_Project.Controllers
             IEnumerable<Comment> objComm = _Iuser.comments();
             IEnumerable<FavoriteMission> fav = _Iuser.favoriteMissions().Where(m => m.MissionId == missionid).ToList();
             IEnumerable<Mission> selected = _Iuser.missionlist().Where(m => m.MissionId == missionid).ToList();
-            var applied =(id!=null)? _Iuser.missionApplications().Any(m => m.UserId == int.Parse(userId) && m.MissionId == missionid):false;
+            var applied = id != null ? _Iuser.missionApplications().Any(m => m.UserId == int.Parse(userId) && m.MissionId == missionid) : false;
             var volmission = _Iuser.missionlist().FirstOrDefault(m => m.MissionId == missionid);
             var theme = _Iuser.themes().FirstOrDefault(m => m.MissionThemeId == volmission.ThemeId);
             var City = _Iuser.cities().FirstOrDefault(m => m.CityId == volmission.CityId);
@@ -175,13 +175,13 @@ namespace CI_Project.Controllers
             string[] Startdate = volmission.StartDate.ToString().Split(" ");
             string[] Enddate = volmission.EndDate.ToString().Split(" ");
             volunteeringVM.UserPrevRating = prevRating != null ? prevRating.Rating : 0;
-            var favrioute = (id != null) ? _Iuser.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(userId) && u.MissionId == volmission.MissionId) : false;
+            var favrioute = id != null ? _Iuser.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(userId) && u.MissionId == volmission.MissionId) : false;
 
-            
+
             volunteeringVM.MissionId = missionid;
             volunteeringVM.Title = volmission.Title;
             volunteeringVM.ShortDescription = volmission.ShortDescription;
-            volunteeringVM.OrganizationName= volmission.OrganizationName; 
+            volunteeringVM.OrganizationName = volmission.OrganizationName;
             volunteeringVM.Description = volmission.Description;
             volunteeringVM.OrganizationDetail = volmission.OrganizationDetail;
             volunteeringVM.Availability = volmission.Availability;
@@ -195,9 +195,9 @@ namespace CI_Project.Controllers
             volunteeringVM.UserId = Convert.ToInt64(userId);
 
 
-            if (prevRating!= null) { volunteeringVM.UserPrevRating = prevRating.Rating; }
-            
-            
+            if (prevRating != null) { volunteeringVM.UserPrevRating = prevRating.Rating; }
+
+
             volunteeringVM.GoalObjectiveText = themeobjective.GoalObjectiveText;
             ViewBag.Missiondetail = volunteeringVM;
 
@@ -474,8 +474,8 @@ namespace CI_Project.Controllers
                 var goalobj = _Iuser.goalMissions().FirstOrDefault(m => m.MissionId == item.MissionId);
                 string[] Startdate1 = item.StartDate.ToString().Split(" ");
                 string[] Enddate2 = item.EndDate.ToString().Split(" ");
-                var favrioute = (id != null) ? _Iuser.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(SessionUserId) && u.MissionId == item.MissionId) : false;
-                var Applybtn = (id != null) ? _Iuser.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(SessionUserId)) : false;
+                var favrioute = id != null ? _Iuser.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(SessionUserId) && u.MissionId == item.MissionId) : false;
+                var Applybtn = id != null ? _Iuser.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(SessionUserId)) : false;
                 ViewBag.FavoriteMissions = favrioute;
                 var ratiing = _Iuser.missionRatings().Where(u => u.MissionId == item.MissionId).ToList();
 
@@ -557,18 +557,18 @@ namespace CI_Project.Controllers
             }
 
             //filter
-            if (country!= null)
+            if (country != null)
             {
                 string[] countryText = country.Split(',');
                 Missions = Missions.Where(s => countryText.Contains(s.Countryname)).ToList();
             }
             if (city != null)
             {
-                    string[] cityText = city.Split(',');
+                string[] cityText = city.Split(',');
 
                 Missions = Missions.Where(s => city.Contains(s.Cityname)).ToList();
             }
-            if (theme !=null)
+            if (theme != null)
             {
                 string[] themeText = theme.Split(',');
                 Missions = Missions.Where(s => theme.Contains(s.Themename)).ToList();
@@ -600,14 +600,14 @@ namespace CI_Project.Controllers
             var pager = new PagerViewModel(recsCount, jpg, pageSize);
             int recSkip = (jpg - 1) * pageSize;
             var data = Missions.Skip(recSkip).Take(pager.PageSize).ToList();
-            this.ViewBag.pager = pager;
+            ViewBag.pager = pager;
             ViewBag.missionTempDate = data;
             Missions = data.ToList();
             ViewBag.TotalMission = recsCount;
 
             //return PartialView("_LandingPageCards",);
             return PartialView("_LandingPageCards", Missions);
-            
+
         }
         #endregion
 
@@ -625,20 +625,43 @@ namespace CI_Project.Controllers
         [HttpPost]
         public IActionResult Index(User user)
         {
+            
+
             var status = _Iuser.UserByEmail_Password(user.Email, user.Password);
-            if (status != null)
+            //var admin = _db.Admins.FirstOrDefault(x => x.Email == user.Email);
+            var Admin= _db.Admins.FirstOrDefault(U=> U.Email== user.Email);
+            if (Admin != null)
             {
-                var username = _Iuser.UserByEmail(user.Email);
-                HttpContext.Session.SetString("userID", username.UserId.ToString());
-                HttpContext.Session.SetString("username", username.FirstName);
-                TempData["Done"] = "logged in";
-                return RedirectToAction("LandingPage" , new {@id = status.UserId});
+                if (user.Password == Admin.Password)
+                {
+                    HttpContext.Session.SetString("userID", Admin.AdminId.ToString());
+                    HttpContext.Session.SetString("username", Admin.FirstName);
+                    TempData["okay"] = "loggedin successfully";
+                    return RedirectToAction("user", "Admin", new { area = "Admin" });
+                }
+                else
+                {
+                    ViewBag.LoginError = "Login Credentials Invalid";
+                    return View();
+                }
             }
             else
             {
-                TempData["LoginErr"] = "Invalid login credentials";
-                return View();
+                if (status != null)
+                {
+                    var username = _Iuser.UserByEmail(user.Email);
+                    HttpContext.Session.SetString("userID", username.UserId.ToString());
+                    HttpContext.Session.SetString("username", username.FirstName);
+                    TempData["Done"] = "logged in";
+                    return RedirectToAction("LandingPage", new { @id = status.UserId });
+                }
+                else
+                {
+                    TempData["LoginErr"] = "Invalid login credentials";
+                    return View();
+                }
             }
+           
         }
 
         [HttpPost]
@@ -656,9 +679,9 @@ namespace CI_Project.Controllers
                         LastName = user.LastName,
                         PhoneNumber = user.PhoneNumber,
                         Email = user.Email,
-                         Password = user.Password
+                        Password = user.Password
                     };
-                   _Iuser.adduser(newUser);
+                    _Iuser.adduser(newUser);
                     TempData["Done"] = "Registered Succesfully";
                     return RedirectToAction("Index", "User");
                 }

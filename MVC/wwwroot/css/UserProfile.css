@@ -1,4 +1,4 @@
-﻿/*.user-change-pass-link {
+﻿.user-change-pass-link {
     font-size: 13px;
 }
 
@@ -20,11 +20,17 @@
 .addimgplus {
     position: absolute;
     top: 100px;
-    right: 16px;*/
-    /*  color: #F88634;*/
-    /*font-size: 26px;
+    right: 16px;
+      color: #F88634;
+    font-size: 26px;
 }
 
 .imdupperdiv {
     border: 1px solid lightgrey !important;
-}*/
+}
+.orange  {
+    border: 1px solid #fd7e14 !important;
+    border-radius: 22px !important;
+    color: #fd7e14!important;
+    background-color: white !important;
+}

@@ -575,6 +575,23 @@ F:\CI Project-dummy\MVC\obj\Debug\net6.0\refint\CI Project.dll
 F:\CI Project-dummy\MVC\obj\Debug\net6.0\CI Project.pdb
 F:\CI Project-dummy\MVC\obj\Debug\net6.0\CI Project.genruntimeconfig.cache
 F:\CI Project-dummy\MVC\obj\Debug\net6.0\ref\CI Project.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\ko\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
+F:\CI Project main\MVC\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.csproj.AssemblyReference.cache
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.GeneratedMSBuildEditorConfig.editorconfig
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.AssemblyInfoInputs.cache
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.AssemblyInfo.cs
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.csproj.CoreCompileInputs.cache
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.MvcApplicationPartsAssemblyInfo.cache
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.RazorAssemblyInfo.cache
+F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.RazorAssemblyInfo.cs
 F:\CI Project main\MVC\bin\Debug\net6.0\appsettings.Development.json
 F:\CI Project main\MVC\bin\Debug\net6.0\appsettings.json
 F:\CI Project main\MVC\bin\Debug\net6.0\CI Project.staticwebassets.runtime.json
@@ -599,7 +616,6 @@ F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Workspaces
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.Features.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.Scripting.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.Features.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.Workspaces.dll
@@ -620,17 +636,12 @@ F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Debugger.Contracts.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\dotnet-aspnet-codegenerator-design.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\Newtonsoft.Json.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\NuGet.Common.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\NuGet.Configuration.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\NuGet.DependencyResolver.Core.dll
@@ -666,7 +677,6 @@ F:\CI Project main\MVC\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
@@ -763,7 +773,6 @@ F:\CI Project main\MVC\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.VisualBasic.Fe
 F:\CI Project main\MVC\bin\Debug\net6.0\fr\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\it\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\ja\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\ko\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\pl\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\pt-BR\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
@@ -809,7 +818,6 @@ F:\CI Project main\MVC\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.Workspaces.MSB
 F:\CI Project main\MVC\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-F:\CI Project main\MVC\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
@@ -825,14 +833,6 @@ F:\CI Project main\MVC\bin\Debug\net6.0\CI Entities.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\CI Project.Repository.dll
 F:\CI Project main\MVC\bin\Debug\net6.0\CI Entities.pdb
 F:\CI Project main\MVC\bin\Debug\net6.0\CI Project.Repository.pdb
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.csproj.AssemblyReference.cache
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.GeneratedMSBuildEditorConfig.editorconfig
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.AssemblyInfoInputs.cache
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.AssemblyInfo.cs
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.csproj.CoreCompileInputs.cache
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.MvcApplicationPartsAssemblyInfo.cache
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.RazorAssemblyInfo.cache
-F:\CI Project main\MVC\obj\Debug\net6.0\CI Project.RazorAssemblyInfo.cs
 F:\CI Project main\MVC\obj\Debug\net6.0\staticwebassets\msbuild.CI Project.Microsoft.AspNetCore.StaticWebAssets.props
 F:\CI Project main\MVC\obj\Debug\net6.0\staticwebassets\msbuild.build.CI Project.props
 F:\CI Project main\MVC\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CI Project.props

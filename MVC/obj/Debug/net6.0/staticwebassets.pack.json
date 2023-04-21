@@ -501,6 +501,10 @@
       "PackagePath": "staticwebassets\\Images\\xlsx.png"
     },
     {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\css\\Admin.css",
+      "PackagePath": "staticwebassets\\css\\Admin.css"
+    },
+    {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\css\\ForgotPassword.css",
       "PackagePath": "staticwebassets\\css\\ForgotPassword.css"
     },

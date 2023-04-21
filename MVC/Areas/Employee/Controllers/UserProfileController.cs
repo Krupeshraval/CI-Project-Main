@@ -4,8 +4,9 @@ using CI_Project.Models;
 using CI_Project.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CI_Project.Controllers
+namespace CI_Project.Areas.Employee.Controllers
 {
+    [Area("Employee")]
     public class UserProfileController : Controller
     {
 
@@ -156,6 +157,28 @@ namespace CI_Project.Controllers
             return RedirectToAction("UserProfile", "UserProfile");
         }
 
+        [HttpPost]
+        public bool ChangePassword(string old, string newp, string conf)
+        {
 
+            var userid = HttpContext.Session.GetString("userID");
+            var user = _db.Users.Where(e => e.UserId == Convert.ToInt32(userid)).FirstOrDefault();
+
+            if (old != user.Password)
+            {
+                return false;
+            }
+            else
+            {
+                var pass = _db.Users.FirstOrDefault(u => u.Password == old);
+                pass.Password = newp;
+
+                _db.Users.Update(pass);
+                _db.SaveChanges();
+
+                return true;
+            }
+
+        }
     }
 }

@@ -57,7 +57,9 @@
                                                 }
                                             }
                                         </select>
+
                                     </div>
+                                        <span class="text-danger" id="reqFname" asp-validation-for="Mission"> </span>
 
                                     <label class="mt-4">Date Volunteered</label>
                                     <div>
@@ -70,12 +72,16 @@
                                             <div>
                                                 <input asp-for="hour" class="col-12" type="number" id="hour" min="0" max="23" placeholder="Enter Spent Hours" />
                                             </div>
+                                                <span class="text-danger" id="reqFname" asp-validation-for="hour"> </span>
+
                                         </div>
                                         <div class="col-6">
                                             <label for="Action" class="mt-4">Minutes</label>
                                             <div>
                                                 <input asp-for="minute" class="col-12" type="number" id="min" min="0" max="59" placeholder="Enter Spent Minutes" />
                                             </div>
+                                                <span class="text-danger" id="reqFname" asp-validation-for="minute"> </span>
+
                                         </div>
                                     </div>
                                     <label class="mt-4">Message</label>
@@ -98,6 +104,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!--==============================================================================================-->
 
             </div>
 
@@ -183,6 +191,8 @@
                                                 }
                                             }
                                         </select>
+                                            <span class="text-danger" id="reqFname" asp-validation-for="Mission"> </span>
+
                                     </div>
 
                                     <label for="Action" class="mt-4">Actions</label>
@@ -261,9 +271,12 @@
     </div>
 </div>
 
-     </body>     
-<script asp-append-version="true" src="~/js/VolunteeringTimesheet.js">
-   
-</script>
+     </body>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script asp-append-version="true" src="~/js/VolunteeringTimesheet.js"></script>
 
 </html>

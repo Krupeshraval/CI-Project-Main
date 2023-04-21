@@ -22,7 +22,7 @@
 function deletes(id) {
     console.log(id);
     $.ajax({
-        url: '/VolunteeringTimesheet/Delete',
+        url: '/Employee/VolunteeringTimesheet/Delete',
         type: 'POST',
         data: { 'id': id }
         //success: function (res) {
@@ -44,7 +44,7 @@ function deletes(id) {
 //}
 function edit(id) {
     $.ajax({
-        url: '/VolunteeringTimesheet/EditTimesheet',
+        url: '/Employee/VolunteeringTimesheet/EditTimesheet',
         type: 'GET',
         data: { 'id': id },
         success: function (res) {
@@ -58,7 +58,7 @@ function edit(id) {
 
 function editgoal(id) {
     $.ajax({
-        url: '/VolunteeringTimesheet/EditTimesheet',
+        url: '/Employee/VolunteeringTimesheet/EditTimesheet',
         type: 'GET',
         data: { 'id': id },
         success: function (res) {

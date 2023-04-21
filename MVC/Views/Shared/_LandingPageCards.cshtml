@@ -1,7 +1,10 @@
-﻿
+﻿@using CI_Entities.Models;
+@using CI_Project.Models;
+
+
+
 @inject IHttpContextAccessor Accessor
-@using CI_Entities.Models
-@model List<VolunteeringViewModel>
+
 @{
     var id = @Accessor.HttpContext.Session.GetString("userID");
 
@@ -239,7 +242,7 @@
                             {
                                 <div class="d-flex justify-content-center w-100">
                                     <button class="apply px-3 py-2 m-0 mt-4 mb-2 " onclick="apply()">
-                                        <a style="text-decoration: none" class="apply-text" href="/User/Volunteeringmission/@id?missionid=@obj.MissionId">
+                                    <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
                                             Apply &nbsp; <img src="~/Images/right-arrow.png"
                                                       alt="">
                                         </a>
@@ -252,7 +255,7 @@
                             {
                                 <div class="d-flex justify-content-center w-100">
                                     <button class="apply px-3 py-2 m-0 mt-4 mb-2 ">
-                                        <a style="text-decoration: none" class="apply-text" href="/User/Volunteeringmission/@id?missionid=@obj.MissionId">
+                                        <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
                                             Apply &nbsp; <img src="~/Images/right-arrow.png"
                                                       alt="">
                                         </a>
