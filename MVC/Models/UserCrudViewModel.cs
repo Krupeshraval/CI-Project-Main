@@ -11,6 +11,8 @@ namespace CI_Project.Models
 
         public List<MissionApplication> missionApplications { get; set; }
 
+        public List<Story> stories { get; set; }
+
 
     }
 }

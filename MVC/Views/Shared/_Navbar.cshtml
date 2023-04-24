@@ -197,7 +197,7 @@
                                 @foreach (var obj in ViewBag.countryList)
                                 {
                                     <li>
-                                        <input class="form-check-input tick mt-1 ms-2" type="checkbox" onchange="filters()" name="country" value="@obj.Name" id="1" />
+                                        <input class="form-check-input tick  mt-1 ms-2" type="checkbox" name="country" value="@obj.Name" name="country" id=@obj.CountryId onchange="filters()" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                                 }
@@ -212,13 +212,12 @@
                             City
                         </a>
                         <ul class="dropdown-menu" style="height:150px; width:max-content; overflow-y:auto">
-
                             @if (ViewBag.cityList != null)
                             {
                                 @foreach (var obj in ViewBag.cityList)
                                 {
                                     <li>
-                                        <input class="form-check-input tick mt-1 ms-2" onchange="filters()" type="checkbox" name="city" value="@obj.Name" id="1" />
+                                        <input class="form-check-input tick mt-1 ms-2" type="checkbox" onchange="filters()" name="city" value="@obj.Name" id="1" />
                                         <label class="form-check-label" for="1"> @obj.Name</label>
                                     </li>
                                 }
@@ -241,8 +240,8 @@
                                 @foreach (var obj in ViewBag.themeList)
                                 {
                                     <li class="ps-2">
-                                        <input class="form-check-input tick mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.Title" id="1" />
-                                        <label class="form-check-label" for="1"> @obj.Title</label>
+                                        <input class="form-check-input  tick mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.Title" id="1" />
+                                        <label class="form-check-label " for="1"> @obj.Title</label>
                                     </li>
                                 }
 

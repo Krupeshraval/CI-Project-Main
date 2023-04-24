@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_SideNavigation";
+}
+
+@using CI_Project.Models;
+@model UserCrudViewModel
+
+
+<body>
+    <div class="container-fluid d-flex">
+        <div class="missionApplications">
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>Story Title</th>
+                        <th>Full Name</th>
+                        <th>Mission Title</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var story in Model.stories)
+                    {
+                        <tr>
+                            <td>@story.Title</td>
+
+                            <td>@story.User.FirstName  @story.User.LastName</td>
+
+                            <td>@story.Mission.Title</td>
+
+                            <td>
+                                <span>
+                                    <button class="btn shadow-none oran">
+                                        Edit
+                                    </button>
+                                </span>
+                                <span>
+                                    <button class="btn shadow-none" onclick="Approve(@story.StoryId)">
+                                        <i class="bi bi-check-circle fs-5" style="color:green;"></i>
+                                    </button>
+                                </span>
+                                <span>
+                                    <button class="btn shadow-none" onclick="Reject(@story.StoryId)">
+                                        <i class="bi bi-x-circle fs-5" style="color:red;"></i>
+                                    </button>
+                                </span>
+                                <span>
+                                    <button class="btn shadow-none">
+                                        <i class="bi bi-trash fs-5"></i>
+                                    </button>
+                                </span>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<script>
+
+
+
+
+</script>

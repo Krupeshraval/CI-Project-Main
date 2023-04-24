@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ntjX5mbL5Fplx9LHBI4DaM2TsvC13ZjctkISc2HSOGE=",
+  "Hash": "qtvdnDaCasiyGMCcfTvoN87cjSaah+95COA3liU+coY=",
   "Source": "CI Project",
   "BasePath": "_content/CI Project",
   "Mode": "Default",
@@ -1853,6 +1853,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\0bc5ae67-6242-495e-a78b-296185116a98.jpg"
     },
     {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\13a79194-2dc8-4611-adc8-540f5573a013.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/StoryImages/13a79194-2dc8-4611-adc8-540f5573a013.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\13a79194-2dc8-4611-adc8-540f5573a013.jpg"
+    },
+    {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\2d7f37e0-9fd1-461d-817a-970afa004f83.jpeg",
       "SourceId": "CI Project",
       "SourceType": "Discovered",
@@ -1868,6 +1885,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\2d7f37e0-9fd1-461d-817a-970afa004f83.jpeg"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\34750f32-0e52-4415-a8ee-d67cdc673436.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/StoryImages/34750f32-0e52-4415-a8ee-d67cdc673436.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\34750f32-0e52-4415-a8ee-d67cdc673436.jpg"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\496da408-2a2b-48e9-88f7-0ddce6dcb4d7.jpg",
@@ -1919,6 +1953,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\691f3d9a-c63b-470c-9b83-3ffa06795860.jpg"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\6c965929-461f-4708-bce8-d6dd5bc873cd.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/StoryImages/6c965929-461f-4708-bce8-d6dd5bc873cd.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\6c965929-461f-4708-bce8-d6dd5bc873cd.jpg"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\704523bc-a77e-4881-9506-8e41235f3214.jpg",
@@ -2021,6 +2072,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\c97b7172-cbd7-4db8-b767-80e05fd2e83f.jpg"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\ce87c3a9-5bb5-4768-befe-a1f9c065db31.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/StoryImages/ce87c3a9-5bb5-4768-befe-a1f9c065db31.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StoryImages\\ce87c3a9-5bb5-4768-befe-a1f9c065db31.jpg"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\StoryImages\\d88f59e9-f06d-41af-a8a6-f22f15c7b00a.jpg",
@@ -2414,6 +2482,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\xlsx.png"
     },
     {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\Admin.js",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "js/Admin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Admin.js"
+    },
+    {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\LandingPage.js",
       "SourceId": "CI Project",
       "SourceType": "Discovered",
@@ -2429,6 +2514,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\LandingPage.js"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\MissionApplication.js",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "js/MissionApplication.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\MissionApplication.js"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\navbar.js",

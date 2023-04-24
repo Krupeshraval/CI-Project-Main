@@ -481,6 +481,7 @@ namespace CI_Project.Areas.Employee.Controllers
 
 
                 int finalrating = 0;
+
                 if (ratiing.Count > 0)
                 {
                     int rating = 0;

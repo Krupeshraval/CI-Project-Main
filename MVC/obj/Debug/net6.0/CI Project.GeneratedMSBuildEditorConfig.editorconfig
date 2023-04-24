@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRtaW5NaXNzaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/CI Project main/MVC/Areas/Admin/Views/Admin/AdminStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRtaW5TdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/CI Project main/MVC/Areas/Admin/Views/Admin/CmsCrud.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQ21zQ3J1ZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
