@@ -251,11 +251,28 @@
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+
+
+
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">
                             Skill
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="height:150px; width:max-content; overflow-y:auto">
+
+                       @*     @if (ViewBag.sklilllist != null)
+                            {
+                                @foreach (var obj in ViewBag.sklilllist)
+                                {
+                                    <li class="ps-2">
+                                        <input class="form-check-input  tick mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.skill" id="1" />
+                                        <label class="form-check-label " for="1"> @obj.Title</label>
+                                    </li>
+                                }
+
+                            }*@
+                        </ul>
+                        @*<ul class="dropdown-menu">
                             <div>
                                 <input class="form-check-input mt-1 ms-2" type="checkbox" value="INDIA" id=""
                                        name="INDIA" aria-label="Checkbox for following text input">
@@ -287,7 +304,7 @@
                                 Research
                             </div>
 
-                        </ul>
+                        </ul>*@
                     </li>
                 </div>
 

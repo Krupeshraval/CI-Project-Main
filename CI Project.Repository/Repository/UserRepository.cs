@@ -4,6 +4,7 @@ using CI_Project.Repository.Interface;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -143,6 +144,19 @@ namespace CI_Project.Repository.Repository
         public List<UserSkill> skilllist(int userid)
         {
             return _db.UserSkills.Where(e => e.UserId == userid).ToList();
+        }
+
+        public ContactU addContactUs(string subject, string message, string username, string email)
+        {
+            var contactUs = new ContactU();
+            contactUs.Username = username;
+            contactUs.Email = email;
+            contactUs.Subject = subject;
+            contactUs.Message = message;
+            contactUs.CreatedAt= DateTime.Now;
+            _db.Add(contactUs);
+            _db.SaveChanges();
+            return contactUs;
         }
     }
 }

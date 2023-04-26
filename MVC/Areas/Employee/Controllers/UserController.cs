@@ -294,6 +294,7 @@ namespace CI_Project.Areas.Employee.Controllers
             ViewBag.countrylist = _Iuser.countries();
             ViewBag.themelist = _Iuser.themes();
             ViewBag.citylist = _Iuser.cities();
+            ViewBag.sklilllist = _Iuser.skills();
             return View();
 
         }

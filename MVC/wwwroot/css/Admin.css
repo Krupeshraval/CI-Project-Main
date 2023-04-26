@@ -257,3 +257,21 @@ div#example_info {
     color: #fd7e14;
     background-color: white;
 }
+
+.button-row {
+    display: flex;
+    justify-content: center;
+}
+
+.start-btn {
+    margin-right: auto;
+}
+
+.end-btn {
+    display: flex;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    display: none !important;
+}
+

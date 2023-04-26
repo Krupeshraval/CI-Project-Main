@@ -16,3 +16,42 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: black !important;
+}
+
+.form-check-input {
+    box-shadow: none !important;
+    border-color: black !important;
+}
+
+.page-item.active .page-link {
+    background-color: #F88634 !important;
+    border-color: #F88634 !important;
+    color: white !important;
+}
+
+.back {
+    background-color: white;
+    border: none;
+    color: gray !important;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: black !important;
+}
+
+.btn {
+    box-shadow: none !important;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.btn:focus {
+    outline: none !important;
+}

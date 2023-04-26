@@ -17,109 +17,106 @@
 
 </head>
 <body>
-    <div class="fs-4">
-        CMS Page
-    </div>
-
-    <div class="row mt-1">
-        <hr class="col-2" style="border: 2px solid black;">
-        <hr class="col-10 ">
-    </div>
-
-    <div class="button-row mb-3">
-        <div class=" start-btn">
-            <input class="form-control me-2" id="myInputTextField" type="search" placeholder="Search" aria-label="Search">
+    <div class="container-fluid">
+        <div class="fs-4">
+            CMS Page
         </div>
 
-        <div class="end-btn">
-            <button type="button" class="btn btn-outline-warning rounded-pill px-3 py-0 me-2" data-bs-toggle="modal" data-bs-target="#AddModal">
-                <i class="bi bi-plus-lg "></i> <span class="btn-label">Add</span>
-            </button>
+        <div class="row mt-1">
+            <hr class="col-2" style="border: 2px solid black;">
+            <hr class="col-10 ">
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="fs-5 bg-dark-subtle border p-3 col-12"> Add</div>
 
-                        <div class="border ps-4 pb-5">
+        <div class="button-row mb-3">
+            <div class=" start-btn">
+                <input class="form-control me-2" id="myInputTextField" type="search" placeholder="Search" aria-label="Search">
+            </div>
 
-                            <label class="mt-3">Title</label>
-                            <div>
-                                <input class="col-12 " type="text" id="Title" />
-                            </div>
-
-                            <label class="mt-2">Description</label>
-                            <div class="col-12 mt-2">
-                                <textarea class="col-12" @*name="editor1"*@ id="Desc"></textarea>
-                            </div>
-
-                            <label class="mt-2">Slug</label>
-                            <div>
-                                <input class="col-12 " type="text" id="Slug" />
-                            </div>
-
-                            <label class="mt-2">Status</label>
-                            <div>
-                                <input class="col-12 " type="text" id="Status" />
-                            </div>
+            <div class="end-btn">
+                <button type="button" class="btn btn-outline-warning rounded-pill px-3 py-0 me-2" data-bs-toggle="modal" data-bs-target="#AddModal">
+                    <i class="bi bi-plus-lg "></i> <span class="btn-label">Add</span>
+                </button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <div class="modal-body">
+                            <div class="fs-5 bg-dark-subtle border p-3 col-12"> Add</div>
 
-                        <input type="hidden" id="CMSId" value="0" name="CMSId" />
+                            <div class="border ps-4 pb-5">
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn border-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn oran" onclick="AddEdit()" data-bs-dismiss="modal">Save</button>
+                                <label class="mt-3">Title</label>
+                                <div>
+                                    <input class="col-12 " type="text" id="Title" />
+                                </div>
+
+                                <label class="mt-2">Description</label>
+                                <div class="col-12 mt-2">
+                                    <textarea class="col-12" @*name="editor1"*@ id="Desc"></textarea>
+                                </div>
+
+                                <label class="mt-2">Slug</label>
+                                <div>
+                                    <input class="col-12 " type="text" id="Slug" />
+                                </div>
+
+                                <label class="mt-2">Status</label>
+                                <div>
+                                    <input class="col-12 " type="text" id="Status" />
+                                </div>
+                            </div>
+
+                            <input type="hidden" id="CMSId" value="0" name="CMSId" />
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn border-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn oran" onclick="AddEdit()" data-bs-dismiss="modal">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            @*End of Modal*@
+
         </div>
-        @*End of Modal*@
 
-    </div>
-
-    <div class="container-fluid d-flex">
-
-
-        <div class="usercrud">
-            <table id="userTable">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var user in Model.page)
-                    {
+                <table id="userTable">
+                    <thead>
                         <tr>
-                            <td>@user.Title</td>
-                            <td>
-                                @if (@user.Status == 1)
-                                {
-                                    <span style="color:green">Active</span>
-                                }
-                                else
-                                {
-                                    <span style="color:red">Inactive</span>
-                                }
-                            </td>
-
-                            <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" @*id="@fn.UserId"*@ onclick="editAdminUser(this.id)"></i> | <i class="fa fa-trash" style="color:red"></i></td>
-
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
-                    }
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model.page)
+                        {
+                            <tr>
+                                <td>@user.Title</td>
+                                <td>
+                                    @if (@user.Status == 1)
+                                    {
+                                        <span style="color:green">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="color:red">Inactive</span>
+                                    }
+                                </td>
 
-                </tbody>
-            </table>
-        </div>
+                                <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" @*id="@fn.UserId"*@ onclick="editAdminUser(this.id)"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+         
     </div>
 </body>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>

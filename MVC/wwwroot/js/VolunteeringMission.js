@@ -143,8 +143,9 @@ function ratemission(starId, missionId, id) {
         data: { missionId: missionId, id: id, rating: starId },
         success: function (result) {
             console.log(result)
-
+            location.reload();
             $('#givenrating').html($(result).find('#givenrating').html());
+
         },
         error: function () {
             // Handle error response from the server, e.g. show an error message to the user

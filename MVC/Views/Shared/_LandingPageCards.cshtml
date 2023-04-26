@@ -144,8 +144,8 @@
 
                         <div class="card-body p-0 py-3">
                             <div class="px-3">
-                                <h5 class="card-title">@obj.Title </h5>
-                                <p class="card-text info-txt">
+                                <h5 class="card-title demo-1">@obj.Title </h5>
+                                <p class="card-text demo-2 info-txt">
                                     @obj.ShortDescription
                                 </p>
 
@@ -285,16 +285,16 @@
             @if (pager.CurrentPage > 1)
             {
                 <li class="mx-1">
-                    <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=1)"><span aria-hidden="true">&laquo;</span></a>
+                <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=1)"><span aria-hidden="true">&laquo;</span></a>
                 </li>
                 <li class="page-item mx-1">
-                <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@(pager.CurrentPage-1))"><span aria-hidden="true">&lsaquo;</span></a>
+                <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=@(pager.CurrentPage-1))"><span aria-hidden="true">&lsaquo;</span></a>
                 </li>
             }
             @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
             {
                 <li class="page-item mx-1 @(pge==pager.CurrentPage ? "active":"")">
-                <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@pge)">@pge</a>
+                <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=@pge)">@pge</a>
                 </li>
             }
             @if (pager.CurrentPage < pager.TotalPages)
@@ -303,7 +303,7 @@
                 <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@(pager.CurrentPage+1))"><span aria-hidden="true">&rsaquo;</span></a>
                 </li>
                 <li class="mx-1">
-                    <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@(pager.TotalPages))"><span aria-hidden="true">&raquo;</span></a>
+                <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=@(pager.TotalPages))"><span aria-hidden="true">&raquo;</span></a>
                 </li>
             }
 

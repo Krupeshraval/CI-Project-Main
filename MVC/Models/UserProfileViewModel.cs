@@ -48,5 +48,9 @@ namespace CI_Project.Models
         public List<Skill> skills { get; set; }
         public List<UserSkill> userSkills { get; set; }
         public List<Skill> RemainingSkill { get; set; }
+        public string username { get; set; }
+        public string subject { get; set; }
+        public string message { get; set; }
+        public string email { get; set; }
     }
 }

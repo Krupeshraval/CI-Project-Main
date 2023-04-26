@@ -45,6 +45,10 @@ namespace CI_Project.Areas.Employee.Controllers
             userProfile.CityId = user.CityId;
             userProfile.CountryId = user.CountryId;
             userProfile.Availability = user.Availability;
+
+            userProfile.email=user.Email;
+            userProfile.username = user.FirstName;
+
             var allskills = _Iuser.skills();
             ViewBag.allskills = allskills;
             var skills = from US in _db.UserSkills
@@ -94,7 +98,8 @@ namespace CI_Project.Areas.Employee.Controllers
             userdetail.CountryId = model.CountryId;
             userdetail.CityId = model.CityId;
             userdetail.Availability = model.Availability;
-
+            model.email = userdetail.Email;
+            model.username = userdetail.FirstName;
             if (files.Count() == 0)
             {
                 model.Avatar = userdetail.Avatar;
@@ -180,5 +185,20 @@ namespace CI_Project.Areas.Employee.Controllers
             }
 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveContactus(UserProfileViewModel model)
+        {
+            try
+            {
+                _Iuser.addContactUs(model.subject, model.message, model.username, model.email);
+                return RedirectToAction("UserProfile", "UserProfile");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
     }
 }
