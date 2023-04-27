@@ -25,15 +25,35 @@ namespace CI_Project.Areas.Admin.Controllers
             var users = new UserCrudViewModel();
             users.users = _db.Users.ToList();
             return View(users);
-        } 
+        }
+
+        [HttpGet]
         public IActionResult CmsCrud()
         {
             HttpContext.Session.SetInt32("Nav", 2);
             ViewBag.nav = HttpContext.Session.GetInt32("Nav");
-            var page = new UserCrudViewModel();
-            page.page = _db.CmsPages.ToList();
+
+            var page = new CmsPageViewModel();
+            page.Pages = _db.CmsPages.ToList();
             return View(page);
+
+             
         }
+
+        //[HttpPost]
+        //public IActionResult CmsCrud(CmsPageViewModel)
+        //{
+        //    if (model.CmsPageId == 0 || model.CmsPageId == null)
+        //    {
+        //        _Idb.AddCms(model);
+
+        //    }
+        //    else
+        //    {
+        //        _Idb.UpdateCms(model);
+        //    }
+        //    return RedirectToAction("CmsCrud");
+        //}
 
         public IActionResult AdminMission()
         {

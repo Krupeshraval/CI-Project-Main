@@ -4,6 +4,7 @@ namespace CI_Project.Models
 {
     public class VolunteeringViewModel
     {
+        public List<User> Users { get; set; }   
         public long MissionId { get; set; }
 
         public long CityId { get; set; }

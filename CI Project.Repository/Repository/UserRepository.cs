@@ -6,8 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CI_Project.Repository.Repository
 {
@@ -157,6 +159,20 @@ namespace CI_Project.Repository.Repository
             _db.Add(contactUs);
             _db.SaveChanges();
             return contactUs;
+        }
+
+        public CmsPage GetCmsPage(long CmsPageId)
+        {
+            var cms = _db.CmsPages.FirstOrDefault(e => e.CmsPageId == CmsPageId);
+            var cmsPage = new CmsPage();
+            cmsPage.CmsPageId = CmsPageId;
+            //cmsPage.c = _db.CmsPages.Where(e => e.DeletedAt == null).ToList();
+            cmsPage.Title = cms.Title;
+            cmsPage.Description = HttpUtility.HtmlDecode(cms.Description);
+            cmsPage.Status = cms.Status;
+            cmsPage.Slug = cms.Slug;
+
+            return cmsPage;
         }
     }
 }

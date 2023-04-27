@@ -5,7 +5,7 @@ namespace CI_Project.Models
     public class UserCrudViewModel
     {
         public List<User> users { get; set; }   
-        public List<CmsPage> page  { get; set; }   
+        //public List<CmsPage> page  { get; set; }   
 
         public List<Mission> missions { get; set; }
 
@@ -13,6 +13,6 @@ namespace CI_Project.Models
 
         public List<Story> stories { get; set; }
 
-
+        
     }
 }

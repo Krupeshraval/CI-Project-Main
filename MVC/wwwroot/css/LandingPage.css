@@ -12,6 +12,7 @@
 }
 .card-img {
     position: relative;
+    text-align:center;
 }
 .applied{
     position:absolute;
@@ -26,21 +27,26 @@
     top: 15px;
     right: 10px;
 }
-
-.heart {
+.heartdiv {
     position: absolute;
+    bottom:195px!important;
+    right:16px!important;
+    background-color:red!important;
+    background:red!important;
+}
+.heart {
+   /* position: absolute;*/
     background-color: rgba(0, 0, 0, 0.514);
     border-radius: 50%;
-    top: 100px;
-    right: 12px;
+   
+ 
 }
 
 .share {
-    position: absolute;
+    
     background-color: rgba(0, 0, 0, 0.514);
     border-radius: 50%;
-    top: 150px;
-    right: 12px;
+  
 }
 .ham {
     height: 50%;
@@ -112,20 +118,26 @@
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #F88634;
-    color: #F88634;
+    color: #F88634!important;
     background: transparent;
 }
 
     .apply:hover {
-        background-color: #fcd4b6;
+        background-color: #F88634;
+        color:white!important;
     }
-
-.demo-1 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+.apply-text {
+    color: #F88634!important;
 }
+    .apply-text:hover{
+        color:white!important;
+    }
+    .demo-1 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
 
 .demo-2 {
     overflow: hidden;

@@ -52,5 +52,7 @@ namespace CI_Project.Models
         public string subject { get; set; }
         public string message { get; set; }
         public string email { get; set; }
+
+       
     }
 }

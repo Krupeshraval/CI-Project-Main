@@ -1,6 +1,6 @@
 ﻿@using CI_Entities.Models;
 @using CI_Project.Models;
-
+ 
 
 
 @inject IHttpContextAccessor Accessor
@@ -28,16 +28,11 @@
 
     <link rel="stylesheet" href="~/css/LandingPage.css" asp-append-version="true">
 
-
-    
-
-    
-
    @* <div class="filters-section d-flex align-items-end flex-wrap justify-content-start ms-5">
     </div>*@
 
-<div id="filters-section" class="my-3">
-</div>
+@*<div id="filters-section" class="my-3">
+</div>*@
 
     @*<div class="container">*@
     <div class="explore row me-5">
@@ -119,8 +114,8 @@
 
                                 }
                             }
-                            
 
+                        <div class="d-flex flex-column heartdiv" >
                             @if (obj.isfav==true)
                             {
                                 <div onclick="AddtoFav()" class="heart align-items-center px-2 py-1">
@@ -133,9 +128,34 @@
                                     <img src="~/Images/heart.png" alt="" class="heart-share-img">
                                 </div>
                             }
-                            <div class="share align-items-center px-2 py-1">
+                            <div class="share align-items-center px-2 py-1" id="@obj.MissionId" data-bs-toggle="modal" data-bs-target="#landingrecomanded">
                                 <img src="~/Images/user.png" alt="">
                             </div>
+                        </div>
+                        <div class="modal fade" id="landingrecomanded" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body  " style="overflow-y:scroll; height:200px;">
+                                        @foreach (var user in ViewBag.allavailuser)
+                                        {
+                                            <div class=" userlistdiv align-items-center d-flex my-3">
+                                                <img src="~/images/volunteer1.png" class="aviluser ms-2 my-1">
+                                                <label class=" ms-4  me-auto">   @user.username  @user.lastname </label>
+                                                <input class="form-check-input me-2 " type="checkbox" value="@user.userEmail" id="@user.userEmail" name="email">
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="@obj.MissionId" onclick="coworker2(@ViewBag.UserId,this.id)">Send E-mail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                             <div class="env align-items-center px-2 py-1 ">
                                 <p class="mb-0 info-txt-2">@obj.Themename</p>

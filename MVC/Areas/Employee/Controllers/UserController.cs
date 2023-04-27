@@ -11,6 +11,7 @@ using System.Net.Mail;
 using System.Net;
 using CI_Project.Repository.Interface;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Net.Http;
 
 namespace CI_Project.Areas.Employee.Controllers
 {
@@ -479,6 +480,11 @@ namespace CI_Project.Areas.Employee.Controllers
                 var Applybtn = id != null ? _Iuser.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(SessionUserId)) : false;
                 ViewBag.FavoriteMissions = favrioute;
                 var ratiing = _Iuser.missionRatings().Where(u => u.MissionId == item.MissionId).ToList();
+                //var closed = _db.Missions.FirstOrDefault(e => e.MissionId == item.MissionId && e.EndDate< DateTime.Now);
+               
+                //ViewBag.close = closed;
+
+
 
 
                 int finalrating = 0;
@@ -523,6 +529,9 @@ namespace CI_Project.Areas.Employee.Controllers
 
             var Missions = mission.ToList();
 
+
+            //Applied
+            //var applied = Model.missionApplications.FirstOrDefault(e => e.MissionId == category.MissionId && e.UserId == Convert.ToInt32(userid));
 
             //Seacrh
             if (search != null)
@@ -575,6 +584,7 @@ namespace CI_Project.Areas.Employee.Controllers
                 string[] themeText = theme.Split(',');
                 Missions = Missions.Where(s => theme.Contains(s.Themename)).ToList();
             }
+
 
 
 
@@ -694,6 +704,49 @@ namespace CI_Project.Areas.Employee.Controllers
             }
             return View();
         }
+
+//        public async Task<IActionResult> sendRecomlanding(long missionid, string[] Email)
+
+//        {
+//            try
+//            {
+//                var sessionUserId = HttpContext.Session.GetString("userID");
+//                var ID = int.Parse(sessionUserId);
+//                foreach (var email in Email)
+//                {
+//                    var user = _Idb.UserExist(email);
+//                    var sender = _db.Users.FirstOrDefault(m => m.UserId == ID);
+//                    var sendername = sender.FirstName + $" " + sender.LastName;
+//                    var userid = user.UserId;
+//                    var resetLink = Url.Action("Volunteering", "Volunteering", new { missionid, id = userid }, Request.Scheme);
+//                    // Send email to user with reset password link
+//                    // ...
+//                    var fromAddress = new mailto:mailaddress("ciproject18@gmail.com", "Community Empowerment Portal");
+//                    var toAddress = new MailAddress(email);
+//                    var subject = "Recomanded Mission Mail";
+//                    var body = $"Hi,<br /><br /> you are recomanded a mission by {sendername} Please click on the following link to see recomanded mission detail:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
+//                    var message = new MailMessage(fromAddress, toAddress)
+//                    {
+//                        Subject = subject,
+//                        Body = body,
+//                        IsBodyHtml = true
+//                    };
+//                    var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+//                    {
+//                        UseDefaultCredentials = false,
+//                        Credentials = new mailto:networkcredential("ciproject18@gmail.com", "ypijkcuixxklhrks"),
+//                        EnableSsl = true
+//                    };
+//                smtpClient.Send(message);
+
+//            }
+//                return Json(new { success = true });
+//        }
+//            catch (Exception ex)
+//            {
+//                return View("Error");
+//    }
+//}
 
     }
 }
