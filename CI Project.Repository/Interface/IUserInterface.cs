@@ -42,6 +42,8 @@ namespace CI_Project.Repository.Interface
 
         public List<UserSkill> skilllist(int userid);
         public ContactU addContactUs(string subject, string message, string username, string email);
+
+        public User UserExist(string Email);
         //public List<PasswordReset> passwordreset();
         //public List<User> Users();
     }

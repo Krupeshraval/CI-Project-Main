@@ -174,5 +174,10 @@ namespace CI_Project.Repository.Repository
 
             return cmsPage;
         }
+
+        public User UserExist(string Email)
+        {
+            return _db.Users.FirstOrDefault(u => u.Email == Email);
+        }
     }
 }

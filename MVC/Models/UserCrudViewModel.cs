@@ -13,6 +13,14 @@ namespace CI_Project.Models
 
         public List<Story> stories { get; set; }
 
-        
+        public List<City> cities { get; set; }
+
+        public List<Country> country { get; set; }
+
+        public long CountryId { get; set; }
+
+        public long CityId { get; set; }
+
+
     }
 }

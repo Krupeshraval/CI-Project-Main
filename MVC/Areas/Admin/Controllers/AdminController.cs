@@ -24,6 +24,8 @@ namespace CI_Project.Areas.Admin.Controllers
             ViewBag.nav = HttpContext.Session.GetInt32("Nav");
             var users = new UserCrudViewModel();
             users.users = _db.Users.ToList();
+            users.cities = _db.Cities.ToList();
+            users.country = _db.Countries.ToList();
             return View(users);
         }
 
@@ -171,5 +173,18 @@ namespace CI_Project.Areas.Admin.Controllers
 
         }
 
+        public IActionResult MissionTheme()
+        {
+            var theme = new MissionThemeViewModel();
+                theme.MissionThemes = _db.MissionThemes.ToList();
+            return View(theme);
+        }
+
+        public IActionResult MissionSkill()
+        {
+            var missionskills = new MissionThemeViewModel();
+            missionskills.skills =_db.Skills.ToList();
+            return View(missionskills);
+        }
     }
 }

@@ -33,7 +33,7 @@ function coworker(Id, missionid)
 
     });
     $.ajax
-        ({vv 
+        ({
             url: '/Employee/User/sendRecom',
             type: 'POST',
             data: { missionid: missionid, Id: Id, Email: Email},
@@ -46,7 +46,7 @@ function coworker(Id, missionid)
                 Swal.fire({
                     icon: 'success',
                     title: 'sent',
-                    text: 'sent Successfully',
+                    text: 'sent Successfully'
 
                 });
             },
@@ -95,41 +95,41 @@ function coworker(Id, missionid)
 //    console.log("hello krupsi");
 //});
 
-function coworker2(Id, missionid) {
+//function coworker2(Id, missionid) {
 
-        var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
-        var sendbtn = document.getElementById("sendbutton");
-        sendbtn.innerHTML = "Sending...";
-        $.ajax
-            ({
-
-
-
-                url: 'Employee/User/sendRecomlanding',
-                type: 'POST',
-                data: { missionid: missionid1, Email: Email },
+//        var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
+//        var sendbtn = document.getElementById("sendbutton");
+//        sendbtn.innerHTML = "Sending...";
+//        $.ajax
+//            ({
 
 
-                success: function (result) {
 
-                    const checkboxes = document.querySelectorAll('input[name="email"]:checked');
-                    checkboxes.forEach((checkbox) => {
-                        checkbox.checked = false;
-
-                    });
-                    sendbtn.innerHTML = "Send successfully";
-                    setTimeout(() => {
+//                url: 'Employee/User/sendRecomlanding',
+//                type: 'POST',
+//                data: { missionid: missionid, Email: Email },
 
 
-                        sendbtn.innerHTML = "Send Recommandation";
+//                success: function (result) {
 
-                    }, 2000);
+//                    const checkboxes = document.querySelectorAll('input[name="email"]:checked');
+//                    checkboxes.forEach((checkbox) => {
+//                        checkbox.checked = false;
 
-                },
-                error: function () {
-                    // Handle error response from the server, e.g. show an error message to the user
-                    alert('Error: Could not recommend mission.');
-                }
-            });
+//                    });
+//                    sendbtn.innerHTML = "Send successfully";
+//                    setTimeout(() => {
 
-    }
+
+//                        sendbtn.innerHTML = "Send Recommandation";
+
+//                    }, 2000);
+
+//                },
+//                error: function () {
+//                    // Handle error response from the server, e.g. show an error message to the user
+//                    alert('Error: Could not recommend mission.');
+//                }
+//            });
+
+//    }

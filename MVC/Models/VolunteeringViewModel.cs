@@ -62,6 +62,12 @@ namespace CI_Project.Models
         public  ICollection<MissionApplication> MissionApplications { get; set; }
         public List<Mission> Missions { get;set; }
 
+        public int? goal { get; set; }
+
+        public int? progress { get; set; }
+
+        public int? progressInPerc { get; set; }
+
 
         //  public string storyname { get; set;}
         //public int MissionRatings { get; set; }

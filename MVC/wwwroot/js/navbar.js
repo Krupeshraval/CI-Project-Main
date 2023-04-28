@@ -43,8 +43,9 @@ function filters(sortValue,jpg=1) {
             $('#Mycards').html('');
             $('#Mycards').html(res);
         },
-        error: function () {
-            alert("some Error");
+        error: function (res) {
+            alert(res);
+            console.log(res.responseText);
         }
         })
 }

@@ -1,6 +1,6 @@
 ﻿@using CI_Entities.Models;
 @using CI_Project.Models;
- 
+
 
 
 @inject IHttpContextAccessor Accessor
@@ -26,97 +26,97 @@
 }
 
 
-    <link rel="stylesheet" href="~/css/LandingPage.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/LandingPage.css" asp-append-version="true">
 
-   @* <div class="filters-section d-flex align-items-end flex-wrap justify-content-start ms-5">
+@* <div class="filters-section d-flex align-items-end flex-wrap justify-content-start ms-5">
     </div>*@
 
 @*<div id="filters-section" class="my-3">
 </div>*@
 
-    @*<div class="container">*@
-    <div class="explore row me-5">
-        <div class="col-lg-6 d-inline">
+@*<div class="container">*@
+<div class="explore row me-5">
+    <div class="col-lg-6 d-inline">
         <p class="fs-4 ms-5 mt-2"> Explore <strong class="fs-3">@ViewBag.TotalMission missions</strong> </p>
+    </div>
+
+
+    <div class="col-lg-6 d-flex mt-3 sortby">
+        <div class="dropdown sort me-2 mt-1">
+            <button class=" btn dropdown d-flex align-items-center justify-content-between outline-0 w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <span class="sortby "> Sort By </span>
+                <img src="~/Images/drop-down.png" alt="" class="sortaerrow ">
+            </button>
+            <ul class="dropdown-menu">
+
+                <li><a class="dropdown-item" onclick="filters('Newest')">Newest</a></li>
+                <li><a class="dropdown-item" onclick="filters('Oldest')">Oldest</a></li>
+                <li><a class="dropdown-item" onclick="filters('Lowest seats')">Lowest Seats</a></li>
+                <li><a class="dropdown-item" onclick="filters('Highest seats')">Highest Seats</a></li>
+                <li>
+                    <a class="dropdown-item" onclick="filters('My favourites')">
+                        My favourites
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" onclick="filters('Registration deadline')">
+                        Registration deadline
+                    </a>
+                </li>
+            </ul>
         </div>
+        <div class="ms-5 ">
 
+            <a class=" btn-grid filter-btn" href="">
+                @*<i class="bi bi-grid me-3" style="width:2rem;"></i>*@
+                <img src="~/Images/grid.png" class="ms-3  mt-2" style="width:2rem" />
+            </a>
 
-        <div class="col-lg-6 d-flex mt-3 sortby">
-            <div class="dropdown sort me-2 mt-1">
-                <button class=" btn dropdown d-flex align-items-center justify-content-between outline-0 w-100" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    <span class="sortby "> Sort By </span>
-                    <img src="~/Images/drop-down.png" alt="" class="sortaerrow ">
-                </button>
-                <ul class="dropdown-menu">
-
-                    <li><a class="dropdown-item" onclick="filters('Newest')">Newest</a></li>
-                    <li><a class="dropdown-item" onclick="filters('Oldest')">Oldest</a></li>
-                    <li><a class="dropdown-item" onclick="filters('Lowest seats')">Lowest Seats</a></li>
-                    <li><a class="dropdown-item" onclick="filters('Highest seats')">Highest Seats</a></li>
-                    <li>
-                        <a class="dropdown-item" onclick="filters('My favourites')">
-                            My favourites
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" onclick="filters('Registration deadline')">
-                            Registration deadline
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="ms-5 ">
-
-                <a class=" btn-grid filter-btn" href="">
-                    @*<i class="bi bi-grid me-3" style="width:2rem;"></i>*@
-                    <img src="~/Images/grid.png" class="ms-3  mt-2" style="width:2rem" />
-                </a>
-
-                <a class="btn-list filter-btn" href="">
-                    @*<i class="bi bi-list me-3 "></i>*@
-                    <img src="~/Images/list.png" class="ms-3 mt-2" />
-                </a>
-                <!-- <img class="me-3" src="../CI Platform Assets/grid.png" alt="">
-                <img src="../CI Platform Assets/list.png" alt=""> -->
-            </div>
+            <a class="btn-list filter-btn" href="">
+                @*<i class="bi bi-list me-3 "></i>*@
+                <img src="~/Images/list.png" class="ms-3 mt-2" />
+            </a>
+            <!-- <img class="me-3" src="../CI Platform Assets/grid.png" alt="">
+            <img src="../CI Platform Assets/list.png" alt=""> -->
         </div>
     </div>
-    @*</div>*@
+</div>
+@*</div>*@
 
-    <!-- ==================================================================== -->
-    <!----------------------------------- CARD --------------------------------->
-    <!-- ==================================================================== -->
+<!-- ==================================================================== -->
+<!----------------------------------- CARD --------------------------------->
+<!-- ==================================================================== -->
 
-    <div class="container grid-container">
-        <div class="row">
+<div class="container grid-container">
+    <div class="row">
 
-            @foreach (var obj in Model)
-            {
-                <div class="col-12 col-md-6 col-lg-4 cardcss">
-                    <div class="card">
+        @foreach (var obj in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4 cardcss">
+                <div class="card">
 
-                        <div class="card-img ">
-                            <img class="card-img-top h-100 "
-                             src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                             alt="Card image cap" />
-                             
-                            <div class="pin d-flex align-items-center px-2 py-1 ">
-                                <img src="~/Images/pin.png" alt="location">
-                                <p class="text-white mb-0 px-2">@obj.Cityname</p>
-                            </div>
+                    <div class="card-img ">
+                        <img class="card-img-top h-100 "
+                         src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                         alt="Card image cap" />
 
-                            @foreach (var data in ViewData["applicaions"] as IList<MissionApplication> )
+                        <div class="pin d-flex align-items-center px-2 py-1 ">
+                            <img src="~/Images/pin.png" alt="location">
+                            <p class="text-white mb-0 px-2">@obj.Cityname</p>
+                        </div>
+
+                        @foreach (var data in ViewData["applicaions"] as IList<MissionApplication>)
+                        {
+                            @if (id == data.UserId.ToString())
                             {
-                                @if (id == data.UserId.ToString())
-                                {
-                                    <p class="p-2 text-white applied" style="width:fit-content;">Applied</p>
+                                <p class="p-2 text-white applied" style="width:fit-content;">Applied</p>
 
-                                }
                             }
+                        }
 
-                        <div class="d-flex flex-column heartdiv" >
-                            @if (obj.isfav==true)
+                        <div class="d-flex flex-column heartdiv">
+                            @if (obj.isfav == true)
                             {
                                 <div onclick="AddtoFav()" class="heart align-items-center px-2 py-1">
                                     <img src="~/Images/heart.png" alt="" style="color:darkorange" id="addtofav" class="heart-share-img">
@@ -151,190 +151,232 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" id="@obj.MissionId" onclick="coworker2(@ViewBag.UserId,this.id)">Send E-mail</button>
+                                        <button type="button" class="btn btn-primary" id="@obj.MissionId" onclick="coworker2(this.id)">Send E-mail</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                            <div class="env align-items-center px-2 py-1 ">
-                                <p class="mb-0 info-txt-2">@obj.Themename</p>
-                            </div>
+                        <div class="env align-items-center px-2 py-1 ">
+                            <p class="mb-0 info-txt-2">@obj.Themename</p>
                         </div>
+                    </div>
 
-                        <div class="card-body p-0 py-3">
-                            <div class="px-3">
-                                <h5 class="card-title demo-1">@obj.Title </h5>
-                                <p class="card-text demo-2 info-txt">
-                                    @obj.ShortDescription
-                                </p>
+                    <div class="card-body p-0 py-3">
+                        <div class="px-3">
+                            <h5 class="card-title demo-1">@obj.Title </h5>
+                            <p class="card-text demo-2 info-txt">
+                                @obj.ShortDescription
+                            </p>
 
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <p class="mb-0">Tree Canada</p>
-                                    <div class="overflow-auto   ms-5">
-                                        @if (obj.AvgRating != null)
-                                        {
-                                            for (int i = 0; i < obj.AvgRating; i++)
-                                            {
-                                                <img src="~/Images/selected-star.png" />
-
-                                            }
-                                            for (int i = obj.AvgRating; i < 5; i++)
-                                            {
-                                                <img src="~/Images/star.png" />
-
-                                            }
-                                        }
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            @*<div class="d-flex align-items-center">
-                        <div class="l-1"></div>
-                        <p class="date-detail mb-3">From @obj.StartDate.ToString().Split(" ")[0] until @obj.EndDate.ToString().Split(" ")[0]</p>
-                        <div class="l-1"></div>
-                        </div>*@
-                            @if (@obj.MissionType == "Time")
-                            {
-                                <div class="date-line">
-                                    <hr class="hr-1">
-                                    <p class="date-detail mb-3">From @obj.StartDate.ToString().Split(" ")[0] until @obj.EndDate.ToString().Split(" ")[0]</p>
-                                    <hr class="hr-1">
-                                </div>
-                            }
-                            else
-                            {
-                                @*@foreach (var goal in ViewBag.Goal1)
-                                {
-                                    @if (@obj.MissionId == goal.MissionId)
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="mb-0">Tree Canada</p>
+                                <div class="overflow-auto   ms-5">
+                                    @if (obj.AvgRating != null)
                                     {
-                                        <div class="date-line">
-                                            <hr class="hr-1">
-                                            <p class="date-detail mb-3">@goal.GoalObjectiveText</p>
-                                            <hr class="hr-1">
-                                        </div>
+                                        for (int i = 0; i < obj.AvgRating; i++)
+                                        {
+                                            <img src="~/Images/selected-star.png" />
+
+                                        }
+                                        for (int i = obj.AvgRating; i < 5; i++)
+                                        {
+                                            <img src="~/Images/star.png" />
+
+                                        }
                                     }
-                                }*@
-                            
+                                </div>
+
+                            </div>
+                        </div>
+
+                        @*<div class="d-flex align-items-center">
+                    <div class="l-1"></div>
+                    <p class="date-detail mb-3">From @obj.StartDate.ToString().Split(" ")[0] until @obj.EndDate.ToString().Split(" ")[0]</p>
+                    <div class="l-1"></div>
+                    </div>*@
+                        @if (@obj.MissionType == "Time")
+                        {
+                            <div class="date-line">
+                                <hr class="hr-1">
+                                <p class="date-detail mb-3">From @obj.StartDate.ToString().Split(" ")[0] until @obj.EndDate.ToString().Split(" ")[0]</p>
+                                <hr class="hr-1">
+                            </div>
+                        }
+                        else
+                        {
+                            @*@foreach (var goal in ViewBag.Goal1)
+                    {
+                    @if (@obj.MissionId == goal.MissionId)
+                    {
+                    <div class="date-line">
+                    <hr class="hr-1">
+                    <p class="date-detail mb-3">@goal.GoalObjectiveText</p>
+                    <hr class="hr-1">
+                    </div>
+                    }
+                    }*@
+
 
                             <div class="date-line">
                                 <hr class="hr-1">
                                 <p class="date-detail mb-3">@obj.GoalObjectiveText</p>
                                 <hr class="hr-1">
                             </div>
-                            }
-                            <div class="d-flex justify-content-between mx-3 mt-2">
-                                <div class="d-flex align-items-start ms-2">
-                                    <img src="~/Images/Seats-left.png" alt="">
-                                    <div class="ms-2">
-                                        <p class="mb-0">@obj.Availability</p>
-                                        <p class="info-txt">Seats left</p>
-                                    </div>
+                        }
+                        <div class="d-flex justify-content-between mx-3 mt-2">
+                            <div class="d-flex align-items-start ms-2">
+                                <img src="~/Images/Seats-left.png" alt="">
+                                <div class="ms-2">
+                                    <p class="mb-0">@obj.Availability</p>
+                                    <p class="info-txt">Seats left</p>
                                 </div>
-                                @if (obj.MissionType == "Time")
-                                {
-                                    <div class="d-flex align-items-start ms-2">
-                                        <img src="~/Images/deadline.png" alt="">
-                                        <div class="ms-2">
-                                            <p class="mb-0">@obj.EndDate.ToString().Split(" ")[0]</p>
-                                            <p class="info-txt">Deadline</p>
-                                        </div>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <div class="ms-2">
-                                        <div class="d-flex">
-                                            <img src="~/Images/achieved.png" alt="">
-                                            <div class="progress ms-2" role="progressbar" aria-label="Basic example"
-                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                <div class="progress-bar" style="width:100px; background-color: #F88634;"></div>
-                                            </div>
-                                        </div>
-                                        <p class="info-txt">8000 achieved</p>
-                                    </div>
-                                }
                             </div>
-                            <hr style="margin: 0;">
-
-                            @if (id == null)
+                            @if (obj.MissionType == "Time")
                             {
-                                <div class="d-flex justify-content-center w-100">
-                                    <button class="apply px-3 py-2 m-0 mt-4 mb-2 " onclick="apply()">
-                                    <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
-                                            Apply &nbsp; <img src="~/Images/right-arrow.png"
-                                                      alt="">
-                                        </a>
-                                    </button>
-
+                                <div class="d-flex align-items-start ms-2">
+                                    <img src="~/Images/deadline.png" alt="">
+                                    <div class="ms-2">
+                                        <p class="mb-0">@obj.EndDate.ToString().Split(" ")[0]</p>
+                                        <p class="info-txt">Deadline</p>
+                                    </div>
                                 </div>
                             }
-
                             else
                             {
-                                <div class="d-flex justify-content-center w-100">
-                                    <button class="apply px-3 py-2 m-0 mt-4 mb-2 ">
-                                        <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
-                                            Apply &nbsp; <img src="~/Images/right-arrow.png"
-                                                      alt="">
-                                        </a>
-                                    </button>
-
+                                <div class="ms-2">
+                                    <div class="d-flex">
+                                        <img src="~/Images/achieved.png" alt="">
+                                        <div class="progress ms-2" role="progressbar" aria-label="Basic example"
+                                     aria-valuenow="@obj.progress" aria-valuemin="0" aria-valuemax="@obj.goal">
+                                            <div class="progress-bar" style="width:@obj.progressInPerc%; background-color: #F88634;"></div>
+                                        </div>
+                                    </div>
+                                    <p class="info-txt">@obj.progress achieved</p>
                                 </div>
                             }
-
-
-
                         </div>
+                        <hr style="margin: 0;">
+
+                        @if (id == null)
+                        {
+                            <div class="d-flex justify-content-center w-100">
+                                <button class="apply px-3 py-2 m-0 mt-4 mb-2 " onclick="apply()">
+                                    <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
+                                        Apply &nbsp; <img src="~/Images/right-arrow.png"
+                                                  alt="">
+                                    </a>
+                                </button>
+
+                            </div>
+                        }
+
+                        else
+                        {
+                            <div class="d-flex justify-content-center w-100">
+                                <button class="apply px-3 py-2 m-0 mt-4 mb-2 ">
+                                    <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
+                                        Apply &nbsp; <img src="~/Images/right-arrow.png"
+                                                  alt="">
+                                    </a>
+                                </button>
+
+                            </div>
+                        }
+
 
 
                     </div>
 
+
                 </div>
-            }
+
+            </div>
+        }
 
 
 
-        </div>
     </div>
+</div>
 
-    @if (pager.TotalPages > 0)
-    {
-        <ul class="pagination justify-content-center">
-            @if (pager.CurrentPage > 1)
-            {
-                <li class="mx-1">
+@if (pager.TotalPages > 0)
+{
+    <ul class="pagination justify-content-center">
+        @if (pager.CurrentPage > 1)
+        {
+            <li class="mx-1">
                 <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=1)"><span aria-hidden="true">&laquo;</span></a>
-                </li>
-                <li class="page-item mx-1">
+            </li>
+            <li class="page-item mx-1">
                 <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=@(pager.CurrentPage-1))"><span aria-hidden="true">&lsaquo;</span></a>
-                </li>
-            }
-            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
-            {
-                <li class="page-item mx-1 @(pge==pager.CurrentPage ? "active":"")">
+            </li>
+        }
+        @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+        {
+            <li class="page-item mx-1 @(pge==pager.CurrentPage ? "active":"")">
                 <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=@pge)">@pge</a>
-                </li>
-            }
-            @if (pager.CurrentPage < pager.TotalPages)
-            {
-                <li class="page-item mx-1">
+            </li>
+        }
+        @if (pager.CurrentPage < pager.TotalPages)
+        {
+            <li class="page-item mx-1">
                 <a class="page-link text-muted" onclick="filters(sortValue=1,jpg=@(pager.CurrentPage+1))"><span aria-hidden="true">&rsaquo;</span></a>
-                </li>
-                <li class="mx-1">
+            </li>
+            <li class="mx-1">
                 <a class="page-link back text-muted" onclick="filters(sortValue=1,jpg=@(pager.TotalPages))"><span aria-hidden="true">&raquo;</span></a>
-                </li>
-            }
+            </li>
+        }
 
-        </ul>
+    </ul>
+}
+
+<script>
+
+    function coworker2(missionid) {
+
+        var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
+        //var sendbtn = document.getElementById("sendbutton");
+        //sendbtn.innerHTML = "Sending...";
+        $.ajax
+            ({
+
+
+
+                url: '/Employee/User/sendRecomlanding',
+                type: 'POST',
+                data: { missionid: missionid, Email: Email },
+
+
+                success: function (result) {
+
+                    const checkboxes = document.querySelectorAll('input[name="email"]:checked');
+                    checkboxes.forEach((checkbox) => {
+                        checkbox.checked = false;
+
+                    });
+                    //sendbtn.innerHTML = "Send successfully";
+                    //setTimeout(() => {
+
+
+                    //    //sendbtn.innerHTML = "Send Recommandation";
+
+                    //}, 2000);
+
+                },
+                error: function () {
+                    // Handle error response from the server, e.g. show an error message to the user
+                    alert('Error: Could not recommend mission.');
+                }
+            });
+
     }
 
 
+</script>
 
 
-    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
-    <script src="~/js/LandingPage.js" asp-append-version="true"></script>
+@*<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>*@
+<script src="~/js/LandingPage.js" asp-append-version="true"></script>
 
 
 

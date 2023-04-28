@@ -447,179 +447,193 @@ namespace CI_Project.Areas.Employee.Controllers
 
         public PartialViewResult _LandingPageCards(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string country, string city, string theme, int jpg)
         {
-            var SessionUserId = HttpContext.Session.GetString("userID");
+           
+                var SessionUserId = HttpContext.Session.GetString("userID");
 
-            ViewData["applicaions"] = _Iuser.missionApplications();
+                ViewData["applicaions"] = _Iuser.missionApplications();
 
-            IEnumerable<MissionApplication> missionApplications = _Iuser.missionApplications();
-            List<User> alluser = _Iuser.users();
-            List<VolunteeringViewModel> allavailuser = new List<VolunteeringViewModel>();
-            foreach (var all in alluser)
-            {
-                allavailuser.Add(new VolunteeringViewModel
+                IEnumerable<MissionApplication> missionApplications = _Iuser.missionApplications();
+                List<User> alluser = _Iuser.users();
+                List<VolunteeringViewModel> allavailuser = new List<VolunteeringViewModel>();
+                foreach (var all in alluser)
                 {
-                    username = all.FirstName,
-                    lastname = all.LastName,
-                    userEmail = all.Email,
-                    UserId = all.UserId,
-                });
-
-            }
-            ViewBag.allavailuser = allavailuser;
-            List<Mission> allmission = _Iuser.missionlist();
-            List<VolunteeringViewModel> mission = new List<VolunteeringViewModel>();
-            foreach (Mission item in allmission)
-            {
-                var City = _Iuser.cities().FirstOrDefault(u => u.CityId == item.CityId);
-                var Country = _Iuser.countries().FirstOrDefault(u => u.CountryId == item.CountryId);
-                var Theme = _Iuser.themes().FirstOrDefault(u => u.MissionThemeId == item.ThemeId);
-                var goalobj = _Iuser.goalMissions().FirstOrDefault(m => m.MissionId == item.MissionId);
-                string[] Startdate1 = item.StartDate.ToString().Split(" ");
-                string[] Enddate2 = item.EndDate.ToString().Split(" ");
-                var favrioute = id != null ? _Iuser.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(SessionUserId) && u.MissionId == item.MissionId) : false;
-                var Applybtn = id != null ? _Iuser.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(SessionUserId)) : false;
-                ViewBag.FavoriteMissions = favrioute;
-                var ratiing = _Iuser.missionRatings().Where(u => u.MissionId == item.MissionId).ToList();
-                //var closed = _db.Missions.FirstOrDefault(e => e.MissionId == item.MissionId && e.EndDate< DateTime.Now);
-               
-                //ViewBag.close = closed;
-
-
-
-
-                int finalrating = 0;
-
-                if (ratiing.Count > 0)
-                {
-                    int rating = 0;
-                    foreach (var r in ratiing)
+                    allavailuser.Add(new VolunteeringViewModel
                     {
+                        username = all.FirstName,
+                        lastname = all.LastName,
+                        userEmail = all.Email,
+                        UserId = all.UserId,
+                    });
 
-                        rating = rating + r.Rating;
+                }
+                ViewBag.allavailuser = allavailuser;
+                List<Mission> allmission = _Iuser.missionlist();
+                List<VolunteeringViewModel> mission = new List<VolunteeringViewModel>();
+                foreach (Mission item in allmission)
+                {
+                    var actionList = _db.Timesheets.Where(e => e.MissionId == item.MissionId && e.DeletedAt == null).ToList();
+                    int? progress = 0;
+                    if (actionList != null)
+                    {
+                        foreach (var action in actionList)
+                        {
+                            progress = progress + action.Action;
+                        }
+                    }
+                    var City = _Iuser.cities().FirstOrDefault(u => u.CityId == item.CityId);
+                    var Country = _Iuser.countries().FirstOrDefault(u => u.CountryId == item.CountryId);
+                    var Theme = _Iuser.themes().FirstOrDefault(u => u.MissionThemeId == item.ThemeId);
+                    var goalobj = _Iuser.goalMissions().FirstOrDefault(m => m.MissionId == item.MissionId);
+                    string[] Startdate1 = item.StartDate.ToString().Split(" ");
+                    string[] Enddate2 = item.EndDate.ToString().Split(" ");
+                    var favrioute = id != null ? _Iuser.favoriteMissions().Any(u => u.UserId == Convert.ToInt64(SessionUserId) && u.MissionId == item.MissionId) : false;
+                    var Applybtn = id != null ? _Iuser.missionApplications().Any(u => u.MissionId == item.MissionId && u.UserId == Convert.ToInt64(SessionUserId)) : false;
+                    ViewBag.FavoriteMissions = favrioute;
+                    var ratiing = _Iuser.missionRatings().Where(u => u.MissionId == item.MissionId).ToList();
+                    //var closed = _db.Missions.FirstOrDefault(e => e.MissionId == item.MissionId && e.EndDate< DateTime.Now);
 
+                    //ViewBag.close = closed;
+
+
+
+
+                    int finalrating = 0;
+
+                    if (ratiing.Count > 0)
+                    {
+                        int rating = 0;
+                        foreach (var r in ratiing)
+                        {
+
+                            rating = rating + r.Rating;
+
+
+                        }
+                        finalrating = rating / ratiing.Count();
 
                     }
-                    finalrating = rating / ratiing.Count();
 
+
+
+
+                    mission.Add(new VolunteeringViewModel
+                    {
+                        MissionId = item.MissionId,
+                        Cityname = City.Name,
+                        Countryname = Country.Name,
+                        Themename = Theme.Title,
+                        Title = item.Title,
+                        ShortDescription = item.ShortDescription,
+                        StartDate = Startdate1[0],
+                        EndDate = Enddate2[0],
+                        Availability = item.Availability,
+                        OrganizationName = item.OrganizationName,
+                        GoalObjectiveText = goalobj.GoalObjectiveText,
+                        MissionType = item.MissionType,
+                        AvgRating = finalrating,
+                        isfav = favrioute,
+                        isapplied = Applybtn,
+                        UserId = Convert.ToInt64(SessionUserId),
+                        goal = goalobj.GoalValue,
+                        progress = progress,
+                        progressInPerc = item.MissionType == "Time" ? 0 : (progress * 100 / goalobj.GoalValue),
+
+                    });
+                }
+
+                var Missions = mission.ToList();
+
+
+                //Applied
+                //var applied = Model.missionApplications.FirstOrDefault(e => e.MissionId == category.MissionId && e.UserId == Convert.ToInt32(userid));
+
+                //Seacrh
+                if (search != null)
+                {
+                    Missions = Missions.Where(m => m.Title.ToUpper().Contains(search.ToUpper())).ToList();
+
+                }
+
+                ////Sort By
+                ViewBag.sort = sortValue;
+                switch (sortValue)
+                {
+
+                    case "Newest":
+                        Missions = Missions.OrderByDescending(m => m.StartDate).ToList();
+                        ViewBag.sortby = "Newest";
+                        break;
+                    case "Oldest":
+                        Missions = Missions.OrderBy(m => m.StartDate).ToList();
+                        ViewBag.sortby = "Oldest";
+                        break;
+                    case "Lowest seats":
+                        Missions = Missions.OrderBy(m => int.Parse(m.Availability)).ToList();
+                        break;
+                    case "Highest seats":
+                        Missions = Missions.OrderByDescending(m => int.Parse(m.Availability)).ToList();
+                        break;
+                    case "My favourites":
+                        Missions = Missions.Where(m => m.isfav == true).ToList();
+                        break;
+                    case "Registration deadline":
+                        Missions = Missions.OrderBy(m => m.EndDate).ToList();
+                        break;
+                }
+
+                //filter
+                if (country != null)
+                {
+                    string[] countryText = country.Split(',');
+                    Missions = Missions.Where(s => countryText.Contains(s.Countryname)).ToList();
+                }
+                if (city != null)
+                {
+                    string[] cityText = city.Split(',');
+
+                    Missions = Missions.Where(s => city.Contains(s.Cityname)).ToList();
+                }
+                if (theme != null)
+                {
+                    string[] themeText = theme.Split(',');
+                    Missions = Missions.Where(s => theme.Contains(s.Themename)).ToList();
                 }
 
 
 
 
-                mission.Add(new VolunteeringViewModel
+                //Pagination
+                //int pageSize = 6;
+                //int skip = (pageIndex ?? 0) * pageSize;
+                //var Missionss = Missions.Skip(skip).Take(pageSize).ToList();
+                //int totalMissions = mission.Count();
+
+                //ViewBag.TotalMission = totalMissions;
+                //ViewBag.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
+                //ViewBag.CurrentPage = pageIndex ?? 0;
+
+
+                // ============================ Pagination =========================
+                #region Pagination 
+                //Pagination
+                ViewBag.missionCount = Missions.Count();
+                const int pageSize = 6;
+                if (jpg < 1)
                 {
-                    MissionId = item.MissionId,
-                    Cityname = City.Name,
-                    Countryname = Country.Name,
-                    Themename = Theme.Title,
-                    Title = item.Title,
-                    ShortDescription = item.ShortDescription,
-                    StartDate = Startdate1[0],
-                    EndDate = Enddate2[0],
-                    Availability = item.Availability,
-                    OrganizationName = item.OrganizationName,
-                    GoalObjectiveText = goalobj.GoalObjectiveText,
-                    MissionType = item.MissionType,
-                    AvgRating = finalrating,
-                    isfav = favrioute,
-                    isapplied = Applybtn,
-                    UserId = Convert.ToInt64(SessionUserId),
-                });
-            }
+                    jpg = 1;
+                }
+                int recsCount = Missions.Count();
+                var pager = new PagerViewModel(recsCount, jpg, pageSize);
+                int recSkip = (jpg - 1) * pageSize;
+                var data = Missions.Skip(recSkip).Take(pager.PageSize).ToList();
+                ViewBag.pager = pager;
+                ViewBag.missionTempDate = data;
+                Missions = data.ToList();
+                ViewBag.TotalMission = recsCount;
 
-            var Missions = mission.ToList();
-
-
-            //Applied
-            //var applied = Model.missionApplications.FirstOrDefault(e => e.MissionId == category.MissionId && e.UserId == Convert.ToInt32(userid));
-
-            //Seacrh
-            if (search != null)
-            {
-                Missions = Missions.Where(m => m.Title.ToUpper().Contains(search.ToUpper())).ToList();
-
-            }
-
-            ////Sort By
-            ViewBag.sort = sortValue;
-            switch (sortValue)
-            {
-
-                case "Newest":
-                    Missions = Missions.OrderByDescending(m => m.StartDate).ToList();
-                    ViewBag.sortby = "Newest";
-                    break;
-                case "Oldest":
-                    Missions = Missions.OrderBy(m => m.StartDate).ToList();
-                    ViewBag.sortby = "Oldest";
-                    break;
-                case "Lowest seats":
-                    Missions = Missions.OrderBy(m => int.Parse(m.Availability)).ToList();
-                    break;
-                case "Highest seats":
-                    Missions = Missions.OrderByDescending(m => int.Parse(m.Availability)).ToList();
-                    break;
-                case "My favourites":
-                    Missions = Missions.Where(m => m.isfav == true).ToList();
-                    break;
-                case "Registration deadline":
-                    Missions = Missions.OrderBy(m => m.EndDate).ToList();
-                    break;
-            }
-
-            //filter
-            if (country != null)
-            {
-                string[] countryText = country.Split(',');
-                Missions = Missions.Where(s => countryText.Contains(s.Countryname)).ToList();
-            }
-            if (city != null)
-            {
-                string[] cityText = city.Split(',');
-
-                Missions = Missions.Where(s => city.Contains(s.Cityname)).ToList();
-            }
-            if (theme != null)
-            {
-                string[] themeText = theme.Split(',');
-                Missions = Missions.Where(s => theme.Contains(s.Themename)).ToList();
-            }
-
-
-
-
-            //Pagination
-            //int pageSize = 6;
-            //int skip = (pageIndex ?? 0) * pageSize;
-            //var Missionss = Missions.Skip(skip).Take(pageSize).ToList();
-            //int totalMissions = mission.Count();
-
-            //ViewBag.TotalMission = totalMissions;
-            //ViewBag.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-            //ViewBag.CurrentPage = pageIndex ?? 0;
-
-
-            // ============================ Pagination =========================
-            #region Pagination 
-            //Pagination
-            ViewBag.missionCount = Missions.Count();
-            const int pageSize = 6;
-            if (jpg < 1)
-            {
-                jpg = 1;
-            }
-            int recsCount = Missions.Count();
-            var pager = new PagerViewModel(recsCount, jpg, pageSize);
-            int recSkip = (jpg - 1) * pageSize;
-            var data = Missions.Skip(recSkip).Take(pager.PageSize).ToList();
-            ViewBag.pager = pager;
-            ViewBag.missionTempDate = data;
-            Missions = data.ToList();
-            ViewBag.TotalMission = recsCount;
-
-            //return PartialView("_LandingPageCards",);
-            return PartialView("_LandingPageCards", Missions);
-
+                //return PartialView("_LandingPageCards",);
+                return PartialView("_LandingPageCards", Missions);
+            
         }
         #endregion
 
@@ -705,48 +719,49 @@ namespace CI_Project.Areas.Employee.Controllers
             return View();
         }
 
-//        public async Task<IActionResult> sendRecomlanding(long missionid, string[] Email)
 
-//        {
-//            try
-//            {
-//                var sessionUserId = HttpContext.Session.GetString("userID");
-//                var ID = int.Parse(sessionUserId);
-//                foreach (var email in Email)
-//                {
-//                    var user = _Idb.UserExist(email);
-//                    var sender = _db.Users.FirstOrDefault(m => m.UserId == ID);
-//                    var sendername = sender.FirstName + $" " + sender.LastName;
-//                    var userid = user.UserId;
-//                    var resetLink = Url.Action("Volunteering", "Volunteering", new { missionid, id = userid }, Request.Scheme);
-//                    // Send email to user with reset password link
-//                    // ...
-//                    var fromAddress = new mailto:mailaddress("ciproject18@gmail.com", "Community Empowerment Portal");
-//                    var toAddress = new MailAddress(email);
-//                    var subject = "Recomanded Mission Mail";
-//                    var body = $"Hi,<br /><br /> you are recomanded a mission by {sendername} Please click on the following link to see recomanded mission detail:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
-//                    var message = new MailMessage(fromAddress, toAddress)
-//                    {
-//                        Subject = subject,
-//                        Body = body,
-//                        IsBodyHtml = true
-//                    };
-//                    var smtpClient = new SmtpClient("smtp.gmail.com", 587)
-//                    {
-//                        UseDefaultCredentials = false,
-//                        Credentials = new mailto:networkcredential("ciproject18@gmail.com", "ypijkcuixxklhrks"),
-//                        EnableSsl = true
-//                    };
-//                smtpClient.Send(message);
+        [HttpPost]
+        public async Task<IActionResult> sendRecomlanding(long missionid, string[] Email)
+        {
+            try
+            {
+                var sessionUserId = HttpContext.Session.GetString("userID");
+                var ID = int.Parse(sessionUserId);
+                foreach (var email in Email)
+                {
+                    var user = _Iuser.UserExist(email);
+                    var sender = _db.Users.FirstOrDefault(m => m.UserId == ID);
+                    var sendername = sender.FirstName + $" " + sender.LastName;
+                    var userid = user.UserId;
+                    var resetLink = Url.Action("Volunteering", "Volunteering", new { missionid, id = userid }, Request.Scheme);
+                    // Send email to user with reset password link
+                    // ...
+                    var fromAddress = new MailAddress("testermaster43@gmail.com", "Community Empowerment Portal");
+                    var toAddress = new MailAddress(email);
+                    var subject = "Recomanded Mission Mail";
+                    var body = $"Hi,<br /><br /> you are recomanded a mission by {sendername} Please click on the following link to see recomanded mission detail:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
+                    var message = new MailMessage(fromAddress, toAddress)
+                    {
+                        Subject = subject,
+                        Body = body,
+                        IsBodyHtml = true
+                    };
+                    var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+                    {
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential("testermaster43@gmail.com", "rnonuvkukadwpnpx"),
+                        EnableSsl = true
+                    };
+                smtpClient.Send(message);
 
-//            }
-//                return Json(new { success = true });
-//        }
-//            catch (Exception ex)
-//            {
-//                return View("Error");
-//    }
-//}
+            }
+                return Json(new { success = true });
+        }
+            catch (Exception ex)
+            {
+                return View("Error");
+    }
+}
 
     }
 }
