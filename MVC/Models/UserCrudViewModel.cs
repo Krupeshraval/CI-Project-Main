@@ -16,6 +16,10 @@ namespace CI_Project.Models
         public List<City> cities { get; set; }
 
         public List<Country> country { get; set; }
+        
+        public List<MissionTheme> missionThemes { get; set; }
+
+        public List<Skill> skill { get; set; }
 
         public long CountryId { get; set; }
 

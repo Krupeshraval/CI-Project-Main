@@ -111,8 +111,26 @@
                             }
                         </td>
 
-                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" @*id="@fn.UserId"*@ onclick="editAdminUser(this.id)"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                        <td>
+                            <span>
+                                @*<a asp-action="CMSEdit" asp-controller="Admin" asp-area="Admin" asp-route-id="@cms.CmsPageId">  </a>*@
+                                <button data-bs-toggle="modal" data-bs-target="#AddModal" class="btn shadow-none" onclick="GetCmsData(@user.CmsPageId)">
+                                    <i class="bi bi-pencil-square"></i>       
 
+                                </button>
+
+                            </span>
+                            <span>
+                                @*<a asp-action="CMSDelete" asp-controller="Admin" asp-area="Admin" asp-route-id="@cms.CmsPageId">*@
+                                <button class="btn shadow-none" onclick="DeleteCMS(@user.CmsPageId)">
+                                    <i class="bi bi-trash"></i>
+
+
+
+                                </button>
+                                @*</a>*@
+                            </span>
+                        </td>
                     </tr>
                 }
 

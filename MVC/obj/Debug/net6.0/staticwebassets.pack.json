@@ -597,6 +597,10 @@
       "PackagePath": "staticwebassets\\js\\StoryDetail.js"
     },
     {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\UserAdmin.js",
+      "PackagePath": "staticwebassets\\js\\UserAdmin.js"
+    },
+    {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\UserProfile.js",
       "PackagePath": "staticwebassets\\js\\UserProfile.js"
     },

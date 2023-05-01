@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qtvdnDaCasiyGMCcfTvoN87cjSaah+95COA3liU+coY=",
+  "Hash": "TU4d9ll3vKFvaqhiLlmmhqBAEUq7BaQatwrFx0C8Zx8=",
   "Source": "CI Project",
   "BasePath": "_content/CI Project",
   "Mode": "Default",
@@ -2616,6 +2616,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\StoryDetail.js"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\UserAdmin.js",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "js/UserAdmin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\UserAdmin.js"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\UserProfile.js",

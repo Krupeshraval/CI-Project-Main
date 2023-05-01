@@ -29,6 +29,75 @@ namespace CI_Project.Areas.Admin.Controllers
             return View(users);
         }
 
+        // =================================== Add Delete Edit User ===================================
+
+        [HttpPost]
+
+        public IActionResult adduser(long userID, int status, string proftxt, string email, string password, string department, string Fname, string Lname, string empID, int country, int city)
+        {
+
+
+            if (userID == 0)
+            {
+                User user = new User()
+                {
+                    FirstName = Fname,
+                    LastName = Lname,
+                    Email = email,
+                    Password = password,
+                    Department = department,
+                    Status = status,
+                    ProfileText = proftxt,
+                    EmployeeId = empID,
+                    CountryId = country,
+                    CityId = city,
+
+                };
+                _db.Users.Add(user);
+                _db.SaveChanges();
+            }
+            else
+            {
+                User user = _db.Users.FirstOrDefault(x => x.UserId == userID);
+                user.FirstName = Fname;
+                user.LastName = Lname;
+                user.Email = email;
+                user.Password = password;
+                user.Department = department;
+                user.CityId = city;
+                user.CountryId = country;
+                user.Department = department;
+                user.ProfileText = proftxt;
+                user.EmployeeId = empID;
+                user.Status = status;
+
+                _db.Update(user);
+                _db.SaveChanges();
+
+            }
+
+            return Json("user");
+        }
+
+        public IActionResult GetUser(long UserID)
+        {
+            var user = _db.Users.FirstOrDefault(x => x.UserId == UserID);
+            return Json(user);
+        }
+
+        public IActionResult deleteUser(long UserID)
+        {
+            var user = _db.Users.FirstOrDefault(x => x.UserId == UserID);
+            user.DeletedAt = DateTime.Now;
+
+            _db.Users.Update(user);
+            _db.SaveChanges();
+
+            return View("user");
+        }
+
+
+
         [HttpGet]
         public IActionResult CmsCrud()
         {
@@ -61,8 +130,12 @@ namespace CI_Project.Areas.Admin.Controllers
         {
             HttpContext.Session.SetInt32("Nav", 3);
             ViewBag.nav = HttpContext.Session.GetInt32("Nav");
-            var missions = new UserCrudViewModel();
-            missions.missions= _db.Missions.ToList();
+            var missions = new AdminMissionViewModel();
+            missions.Missions= _db.Missions.ToList();
+            missions.MissionThemes= _db.MissionThemes.ToList();
+            missions.Skills = _db.Skills.ToList();
+            missions.Cities= _db.Cities.ToList();
+            missions.Countries= _db.Countries.ToList();
             return View(missions);
         } 
         public IActionResult MissionApplication()

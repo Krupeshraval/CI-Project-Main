@@ -84,6 +84,8 @@ namespace CI_Project.Areas.Employee.Controllers
 
         }
 
+        // ==================================== Reset Password ==========================================
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult ResetPassword(string email, string token)
@@ -142,7 +144,7 @@ namespace CI_Project.Areas.Employee.Controllers
 
 
 
-
+        //==================================================== T e s t ==========================================================
 
 
 

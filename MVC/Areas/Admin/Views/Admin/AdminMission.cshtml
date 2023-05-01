@@ -4,7 +4,7 @@
 @{
     Layout = "_SideNavigation";
 }
-@model CI_Project.Models.UserCrudViewModel
+@model CI_Project.Models.AdminMissionViewModel
 
 <body>
     <div class="container-fluid">
@@ -18,95 +18,222 @@
         </div>
 
         <div class="button-row mb-3">
-            @*            <div class=" start-btn">
+                        <div class=" start-btn">
             <input class="form-control me-2" id="myInputTextField" type="search" placeholder="Search" aria-label="Search">
-            </div>*@
+            </div>
 
             <div class="end-btn">
                 <button type="button" class="btn btn-outline-warning rounded-pill px-3 py-0 me-2" data-bs-toggle="modal" data-bs-target="#AddModal">
                     <i class="bi bi-plus-lg "></i> <span class="btn-label">Add</span>
                 </button>
             </div>
+
             <!-- Modal -->
-            <form>
+
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-centered">
+
                         <div class="modal-content">
+
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+
                             <div class="modal-body">
                                 <div class="fs-5 bg-dark-subtle border p-3 col-12"> Add</div>
 
                                 <div class="border ps-4 pb-5">
 
-                                    <label class="mt-3">Title</label>
+                                    <label class="mt-3">Mission Title</label>
                                     <div>
-                                        <input class="col-12 " type="text" id="Title" />
+                                        <input class="col-12 " asp-for="Title" type="text" id="Title" />
+                                    </div>
+
+                                    <label class="mt-2">Short Description</label>
+                                    <div class="col-12 mt-2">
+                                        <textarea class="col-12" asp-for="ShortDescription" id="ShortDesc"></textarea>
                                     </div>
 
                                     <label class="mt-2">Description</label>
                                     <div class="col-12 mt-2">
-                                        <textarea class="col-12" @*name="editor1"*@ id="Desc"></textarea>
+                                        <textarea class="col-12" asp-for="Description" id="Desc"></textarea>
                                     </div>
 
-                                    <label class="mt-2">Slug</label>
-                                    <div>
-                                        <input class="col-12 " type="text" id="Slug" />
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label>City</label>
+                                            <select id="city" asp-for="Cities" class="form-select" aria-label="Default select example">
+                                                <option selected>Select your city</option>
+                                                @foreach (var item in Model.Cities)
+                                                {
+                                                    <option value="@item.CityId">@item.Name </option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label>Country</label>
+                                            <select id="country" asp-for="Countries" class="form-select" aria-label="Default select example">
+                                                <option selected>Select your country</option>
+                                                @foreach (var item in Model.Countries)
+                                                {
+                                                    <option value="@item.CountryId">@item.Name</option>
+                                                }
+                                            </select>
+
+                                        </div>
                                     </div>
 
-                                    <label class="mt-2">Status</label>
-                                    <div>
-                                        <input class="col-12 " type="text" id="Status" />
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="mt-2">Mission Organization Name</label>
+                                            <input type="text" asp-for="OrganizationName" class="form-control" id="Fname" placeholder="First name" aria-label="First name">
+                                        </div>
+                                        <div class="col">
+                                            <label class="mt-2">Mission Organization Detail</label>
+                                            <input type="text" asp-for="OrganizationDetail" class="form-control" id="Lname" placeholder="Last name" aria-label="Last name">
+                                        </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label class="mt-3">Mission Type</label>
+                                            <select asp-for="MissionType" id="misstype" class="col-11">
+                                                <option>Time</option>
+                                                <option>Goal</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-6 mb-3">
+                                            <label class="mt-3">Total Seats</label>
+                                            <div>
+                                                <input id="seats" asp-for="SeatsLeft" class="col-11 " placeholder="If Mission Type is Time" type="text" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label>Mission Start Date</label>
+                                            <div>
+                                                <input asp-for="StartDate" class="col-12 " type="date" id="dat" placeholder="dd-mm-yy" />
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label>Mission End Date</label>
+                                            <div>
+                                                <input asp-for="EndDate" class="col-12 " type="date" id="dat" placeholder="dd-mm-yy" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="mt-2">Mission Registration Deadline</label>
+                                            <input asp-for="Deadline" type="text" class="form-control" id="Fname" placeholder="First name" aria-label="First name">
+                                        </div>
+                                        <div class="col">
+                                            <label class="mt-2">Mission Availability</label>
+                                            <input asp-for="Availability" type="text" class="form-control" id="Lname" placeholder="Last name" aria-label="Last name">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="mt-2">Mission Theme</label>
+                                            <div>
+                                                <select asp-for="MissionThemes" id="themeid" class="col-11">
+                                                    @foreach (var item in Model.MissionThemes)
+                                                    {
+                                                        <option value="@item.MissionThemeId">
+                                                            @item.Title
+                                                        </option>
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="mt-2">Mission Skill</label>
+                                            <div>
+                                                <select asp-for="Skills" id="skill" class="col-11">
+                                                    @foreach (var skill in Model.Skills)
+                                                    {
+                                                        <option value="@skill.SkillId">@skill.SkillName</option>
+                                                    }
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="mt-2">Mission Images</label>
+                                            <input asp-for="ImageFiles" type="file" multiple name="file" id="my-dropzone" />
+                                        </div>
+                                        <div class="col">
+                                            <label class="mt-2">Mission Documents</label>
+                                            <input asp-for="docfiles" type="file" multiple name="file" id="my-dropzone" />
+                                        </div>
+                                    </div>
+
+
                                 </div>
-
-                                <input type="hidden" id="CMSId" value="0" name="CMSId" />
-
                             </div>
+                            <input type="hidden" id="CMSId" value="0" name="CMSId" />
+
                             <div class="modal-footer">
                                 <button type="button" class="btn border-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
                                 <button type="button" class="btn oran" onclick="AddEdit()" data-bs-dismiss="modal">Save</button>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
-                @*End of Modal*@
             </form>
         </div>
 
-        <table id="userTable" class="table">
-            <thead>
-                <tr>
-                    <th>Mission Title</th>
-                    <th>Mission Type</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var missions in Model.missions)
-                {
-                    <tr>
-                        <td>@missions.Title</td>
+        @*End of Modal*@
 
-                        <td>@missions.MissionType</td>
-
-                        <td>@missions.StartDate</td>
-
-                        <td>@missions.EndDate</td>
-
-                        <td><i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModal1" @*id="@fn.UserId"*@ onclick="editAdminUser(this.id)"></i> | <i class="bi bi-trash" style="color:red"></i></td>
-
-
-                    </tr>
-                }
-
-            </tbody>
-        </table>
     </div>
+
+    <table id="userTable" class="table">
+        <thead>
+            <tr>
+                <th>Mission Title</th>
+                <th>Mission Type</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var missions in Model.Missions                                                                                                                                                )
+            {
+                <tr>
+                    <td>@missions.Title</td>
+
+                    <td>@missions.MissionType</td>
+
+                    <td>@missions.StartDate</td>
+
+                    <td>@missions.EndDate</td>
+
+                    <td><i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser(this.id)"></i> | <i class="bi bi-trash" style="color:red"></i></td>
+
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
 </body>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <script>

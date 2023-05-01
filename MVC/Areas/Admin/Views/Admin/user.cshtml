@@ -31,28 +31,7 @@
         <div class="button-row mb-3">
             <div class=" start-btn">
 
-                <input class="form-control me-2" id="+
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" id="myInputTextField" type="search" placeholder="Search" aria-label="Search">
             </div>
 
             <div class="end-btn">
@@ -193,8 +172,19 @@
                             }
                         </td>
 
-                        <td><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1" @*id="@fn.UserId"*@ onclick="editAdminUser(this.id)"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                        <td>
+                            <span>
+                                <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="GetUser(@user.UserId)">
+                                    <i class="bi bi-pencil-square fs-5" style="color:green;"></i>
+                                </button>
+                            </span>
+                            <span>
+                                <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="deleteUser(@user.UserId)">
+                                    <i class="bi bi-trash fs-5" style="color:red;"></i>
+                                </button>
+                            </span>
 
+                        </td>
                     </tr>
                 }
 
@@ -203,16 +193,8 @@
     </div>
 </body>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-<script>
-    $(document).ready(function () {
 
-        $('#userTable').DataTable();
-    });
-
-
-
-</script>
-@*<script src="~/js/userCrud.js"></script>*@
+<script src="~/js/UserAdmin.js" asp-append-version="true"></script>
 
 @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 *@

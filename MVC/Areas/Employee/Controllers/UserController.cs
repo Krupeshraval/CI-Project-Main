@@ -648,6 +648,9 @@ namespace CI_Project.Areas.Employee.Controllers
             return RedirectToAction("Index", "User");
         }
 
+
+        // ================================== index =================================
+
         [HttpPost]
         public IActionResult Index(User user)
         {
@@ -690,6 +693,10 @@ namespace CI_Project.Areas.Employee.Controllers
            
         }
 
+
+        //  =================================== registration ===============================
+
+
         [HttpPost]
 
         public IActionResult Registration(RegistrationViewModel user)
@@ -719,6 +726,7 @@ namespace CI_Project.Areas.Employee.Controllers
             return View();
         }
 
+        // =============================== send Recommendation landing page =======================
 
         [HttpPost]
         public async Task<IActionResult> sendRecomlanding(long missionid, string[] Email)
