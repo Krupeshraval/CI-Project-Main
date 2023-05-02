@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TU4d9ll3vKFvaqhiLlmmhqBAEUq7BaQatwrFx0C8Zx8=",
+  "Hash": "o2Vp4oRkwDAgLFEg6765g7Ph6VG4CEf2Ilg0lXpvndk=",
   "Source": "CI Project",
   "BasePath": "_content/CI Project",
   "Mode": "Default",
@@ -321,6 +321,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\404-Page-image.png"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\9837c559-2c16-49c0-b25c-71fdfb302aa3.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/9837c559-2c16-49c0-b25c-71fdfb302aa3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\9837c559-2c16-49c0-b25c-71fdfb302aa3.jpg"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\achieved.png",

@@ -259,5 +259,44 @@ namespace CI_Project.Areas.Admin.Controllers
             missionskills.skills =_db.Skills.ToList();
             return View(missionskills);
         }
+
+        // ====================================== Admin Banner Management ===================================
+
+        public IActionResult AdminBannerManagement()
+        {
+            ViewData["banners"] = _db.Banners.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AdminBannerManagement(Banner b, IFormFileCollection? bannerPic)
+        {
+            ViewData["banners"] = _db.Banners.ToList();
+
+            Banner newBan = new Banner();
+            newBan.Text = b.Text;
+
+            foreach (IFormFile file in bannerPic)
+            {
+                if (file != null)
+                {
+                    //Set Key Name
+                    string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
+                    //Get url To Save
+                    string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Images", ImageName);
+
+                    using (var stream = new FileStream(SavePath, FileMode.Create))
+                    {
+                        newBan.Image = ImageName;
+                        file.CopyTo(stream);
+                    }
+                }
+            }
+            newBan.CreatedAt = DateTime.Now;
+            _db.Banners.Add(newBan);
+            _db.SaveChanges();
+            return View();
+        }
     }
 }

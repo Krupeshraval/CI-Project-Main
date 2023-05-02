@@ -35,6 +35,7 @@ namespace CI_Project.Areas.Employee.Controllers
 
         public IActionResult Index()
         {
+            ViewData["BannersShow"] = _db.Banners.ToList();
             return View();
         }
         public IActionResult NoMissionFound()

@@ -100,9 +100,9 @@ namespace CI_Entities.CIPlatformContext
                 entity.Property(e => e.BannerId).HasColumnName("banner_id");
 
                 entity.Property(e => e.CreatedAt)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("created_at");
+                    .HasColumnType("datetime")
+                    .HasColumnName("created_at")
+                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.DeletedAt)
                     .HasColumnType("datetime")

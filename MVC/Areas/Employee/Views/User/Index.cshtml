@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 @model CI_Entities.Models.User
+@using CI_Entities.Models
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,65 +44,28 @@
     <div class="container-fluid g-0">
         <div class="row ">
             <div class="custom-slider col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                <div class=" img-container  ">
-                    <img src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
-                         class="img-fluid">
+                @foreach (var ban in ViewData["BannersShow"] as IList<Banner>)
+                {
+                    <div class=" img-container  ">
+                        <img src="~/Images/@ban.Image"
+                         class="img-fluid w-100" style="height : 100vh" >
 
-                    <div class="linear-grad"></div>
-                    <div class="poster-content mb-5 ">
+                        <div class="linear-grad"></div>
+                        <div class="poster-content mb-5 ">
 
-                        <p class="title"> Sed ut perspiciatis unde omnis iste natus voluptatem.</p><br>
+                            <p class="title"> Sed ut perspiciatis unde omnis iste natus voluptatem.</p><br>
 
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut
-                            labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi
-                            ut
-                        </p>
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut
+                                labore
+                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                nisi
+                                ut
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class=" img-container  ">
-                    <img src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
-                         class="img-fluid">
-
-                    <div class="linear-grad"></div>
-                    <div class="poster-content mb-5 ">
-
-                        <p class="title"> Sed ut perspiciatis unde omnis iste natus voluptatem.</p><br>
-
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut
-                            labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi
-                            ut
-                        </p>
-                    </div>
-                </div>
-
-                <div class=" img-container  ">
-                    <img src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
-                         class="img-fluid">
-
-                    <div class="linear-grad"></div>
-                    <div class="poster-content mb-5 ">
-
-                        <p class="title"> Sed ut perspiciatis unde omnis iste natus voluptatem.</p><br>
-
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut
-                            labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi
-                            ut
-                        </p>
-                    </div>
-                </div>
+                }
             </div>
 
 

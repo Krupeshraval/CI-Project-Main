@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\CI Project main\MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/CI Project main/MVC/Areas/Admin/Views/Admin/AdminBannerManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRtaW5CYW5uZXJNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/CI Project main/MVC/Areas/Admin/Views/Admin/AdminMission.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRtaW5NaXNzaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
