@@ -6,13 +6,13 @@
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@using CI_Entities.Models;
+@*@using CI_Entities.Models;*@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor Accessor
 
-
+@*
 @using CI_Project.Models
-@model ShareStoryViewModel
+@model ShareStoryViewModel*@
 
 @{
     var id = Context.Session.GetString("userID");
@@ -63,41 +63,39 @@
 
     <div class="container grid-container mt-3">
         <div class="row">
-            @foreach (var obj in Model.story)
+            @foreach (var obj in Model)
             {
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card shadow">
                         <div class="card-img ">
                             <div class="containers">
-                                @{
-                                    var media = Model.storyMedia.FirstOrDefault(e => e.StoryId == obj.StoryId);
-                                }
-                                @*  @if (media!=null){
+                               @if (obj.storymediapath!=""){
 
-                            <img src="~/img/storyuserimg/" alt="Avatar" class="image" style="width:100%">
-                            }
-                            else{*@
-                                <img src="~/Images/404-Page-image.png" alt="Avatar" class="image" style="width:100%">
+                                    <img src="~/Images/StoryImages/@obj.storymediapath" alt="Avatar" class="image" style="width:100%">
+                                }
+                                else{
+                                    <img src="~/Images/404-Page-image.png" alt="Avatar" class="image" style="width:100%">
+                                }
 
                                 <div class="env align-items-center px-2 py-1 ">
                                     <p class="mb-0 info-txt-2">Enviroment</p>
                                 </div>
                                 <div class="middle">
-                                    <div class="text"> <a class="text-decoration-none" href="/StoryListing/ShareStory?storyId=@obj.StoryId"> Edit Details -></a></div>
+                                    <div class="text"> <a class="text-decoration-none" asp-action="ShareStory" asp-controller="StoryListing" asp-route-storyId="@obj.StoryId" > Edit Details -></a></div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body pt-4 px-0">
                             <div class="px-3">
-                                <h5 class="card-title">@obj.Title </h5>
+                                <h5 class="card-title">@obj.StoryTitle </h5>
                                 <p class="card-text info-txt">
-                                    @Html.Raw(obj.Description)
+                                    @Html.Raw(obj.StoryDescription)
                                 </p>
                             </div>
                             <div class="comment d-flex mt-3">
                                 <img src="~/Images/volunteer1.png" class="rounded-circle ms-3" height="42"
                                  width="42" alt="">
-                                <p class="mt-1" style="margin-left: 1rem;">@obj.User.FirstName @obj.User.LastName</p>
+                               @* <p class="mt-1" style="margin-left: 1rem;">@obj.User.FirstName @obj.User.LastName</p>*@
                             </div>
                         </div>
 

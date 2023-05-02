@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Reflection;
+using System.Web;
 
 namespace CI_Project.Areas.Employee.Controllers
 {
@@ -78,8 +79,10 @@ namespace CI_Project.Areas.Employee.Controllers
         }
 
         public IActionResult ShareStory(long storyID)
+        
         {
             IEnumerable<Mission> missions = _db.Missions.ToList();
+            IEnumerable<StoryMedium> ObjStoryMed = _db.StoryMedia.ToList();
             ViewData["mission"] = _db.MissionApplications.ToList();
 
             var UserId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
@@ -97,10 +100,12 @@ namespace CI_Project.Areas.Employee.Controllers
                 storyView.editor1 = story.Description;
                 storyView.CreatedAt = story.CreatedAt;
                 storyView.StoryId = storyID;
+               
+                
 
             }
 
-            return View();
+            return View(storyView);
         }
 
         [HttpPost]
@@ -227,16 +232,38 @@ namespace CI_Project.Areas.Employee.Controllers
 
         public IActionResult StoryDraft()
         {
-
+            
             var SessionUserId = HttpContext.Session.GetString("userID");
+            var stories = _db.Stories.Where(u => u.Status == "Draft" && u.UserId == Convert.ToUInt32(SessionUserId)).ToList();
+            
+            
+            List<ShareStoryViewModel> storyView = new List<ShareStoryViewModel>();
 
-            ShareStoryViewModel storyView = new ShareStoryViewModel();
-            storyView.story = _db.Stories.Where(u => u.Status == "Draft" && u.UserId == Convert.ToUInt32(SessionUserId)).ToList();
-            storyView.missions = _db.Missions.ToList();
-            storyView.missionthemes = _db.MissionThemes.ToList();
-            storyView.storyMedia = _db.StoryMedia.ToList();
-            storyView.users = _db.Users.ToList();
-            return View(storyView);
+            foreach (var story in stories)
+            {
+
+                var storyuser = _db.Users.FirstOrDefault(x => x.UserId == story.UserId);
+                var missiontheme = _db.Missions.FirstOrDefault(m => m.MissionId == story.MissionId).ThemeId;
+                var storytheme = _db.MissionThemes.FirstOrDefault(m => m.MissionThemeId == missiontheme).Title;
+                var storymedia = _db.StoryMedia.FirstOrDefault(m => m.StoryId == story.StoryId);
+                storyView.Add(new ShareStoryViewModel
+                {
+                    StoryId = story.StoryId,
+                    MissionId = story.MissionId,
+                    UserId = story.UserId,
+                    StoryTitle = story.Title,
+                    Themename = storytheme,
+                    StoryDescription = HttpUtility.HtmlDecode(story.Description),
+                    username = storyuser.FirstName,
+                    lastname = storyuser.LastName,
+                    //Useravtar = storyuser.Avatar != null ? storyuser.Avatar : "",
+                    storymediapath = storymedia != null ? storymedia.Path : "",
+
+                });
+            }
+            var Storys = storyView;
+            ViewBag.StoryList = storyView;
+            return View(Storys);
         }
     }
 }

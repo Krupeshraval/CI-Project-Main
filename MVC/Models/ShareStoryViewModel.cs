@@ -5,6 +5,22 @@ namespace CI_Project.Models
 {
     public class ShareStoryViewModel
     {
+        public string storymediapath { get; set; }
+
+        public string Useravtar { get; set; }
+
+        public string lastname { get; set; }
+
+        public string username { get; set; }
+
+        public string Themename { get; set; }
+
+        public string? StoryTitle { get; set; }
+        public string? StoryDescription { get; set; }
+
+
+
+    
         public List<IFormFile> attachment { get; set; }
         //public long StoryId { get; set; }
         public int? StoryViews { get; set; }
@@ -14,7 +30,10 @@ namespace CI_Project.Models
 
         public long StoryId { get; set; }
         public long UserId { get; set; }
+
         public long MissionId { get; set; }
+
+        [Required]
         public string? Title { get; set; }
         public string? editor1 { get; set; }
         public string Status { get; set; } = null!;

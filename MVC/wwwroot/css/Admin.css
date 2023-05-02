@@ -275,3 +275,23 @@ div.dataTables_wrapper div.dataTables_filter {
     display: none !important;
 }
 
+.nav-pills .nav-link.active {
+    display: flex !important;
+    flex-direction: row !important;
+    color: #F88634 !important;
+    background-color: white !important;
+}
+
+.nav-pills .nav-link {
+    display: flex !important;
+    flex-direction: row !important;
+    color: white !important;
+    background-color: #F88634 !important;
+}
+
+.nav-pills .nav-link:hover {
+    display: flex !important;
+    flex-direction: row !important;
+    color: white !important;
+    background-color: #F88634 !important;
+}
