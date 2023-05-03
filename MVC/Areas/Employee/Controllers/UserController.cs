@@ -59,6 +59,7 @@ namespace CI_Project.Areas.Employee.Controllers
             var isFav = _Iuser.favoriteMissions().FirstOrDefault(m => m.MissionId == missionid && m.UserId == id);
             if (isFav == null)
             {
+                id = Convert.ToInt64(HttpContext.Session.GetString("userID"));
                 _Iuser.Addfavorite(missionid, id);
             }
             else

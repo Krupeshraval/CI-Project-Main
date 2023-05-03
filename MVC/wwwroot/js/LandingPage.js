@@ -59,6 +59,22 @@ function coworker(Id, missionid)
 
 }
 
+function AddtoFav(Dil) {
+
+    const params = new URLSearchParams(window.location.search);
+    console.log(params)
+    const query = Dil.value;
+    const Uid = params.get('id');
+    alert(Uid);
+    $.ajax({
+        url: "/Employee/User/AddToFav",
+        data: { missionId: query , id : Uid },
+        success: function (result) {
+            alert("Success");
+            console.log(result)
+        }
+    });
+}
 //function pagination(jpg) {
 //    //var country = [];
 //    //$("input[type='checkbox'][name='country']:checked").each(function () {

@@ -108,9 +108,16 @@
 
                         @foreach (var data in ViewData["applicaions"] as IList<MissionApplication>)
                         {
-                            @if (id == data.UserId.ToString())
+                            @if (id == data.UserId.ToString() && data.MissionId == obj.MissionId)
                             {
-                                <p class="p-2 text-white applied" style="width:fit-content;">Applied</p>
+                                if (data.ApprovalStatus == "Approved")
+                                {
+                                    <p class="p-2 text-white applied" style="width:fit-content;">Applied</p>
+                                }
+                                else if (data.ApprovalStatus == "PENDING")
+                                {
+                                    <p class="p-2 text-white applied bg-warning" style="width:fit-content;">Pending</p>
+                                }
 
                             }
                         }
@@ -118,9 +125,9 @@
                         <div class="d-flex flex-column heartdiv">
                             @if (obj.isfav == true)
                             {
-                                <div onclick="AddtoFav()" class="heart align-items-center px-2 py-1">
-                                    <img src="~/Images/heart.png" alt="" style="color:darkorange" id="addtofav" class="heart-share-img">
-                                </div>
+                                <button value="@obj.MissionId" onclick="AddtoFav(this)" class="heart align-items-center px-2 py-1">
+                                    <img src="~/Images/heart.png"  alt="" style="color:darkorange; Background:blue;" id="addtofav" class="heart-share-img">
+                                </button>
                             }
                             else
                             {
@@ -128,10 +135,23 @@
                                     <img src="~/Images/heart.png" alt="" class="heart-share-img">
                                 </div>
                             }
-                            <div class="share align-items-center px-2 py-1" id="@obj.MissionId" data-bs-toggle="modal" data-bs-target="#landingrecomanded">
-                                <img src="~/Images/user.png" alt="">
-                            </div>
+
+                            @if (id != null)
+                            {
+                                <div class="share align-items-center px-2 py-1" id="@obj.MissionId" data-bs-toggle="modal" data-bs-target="#landingrecomanded">
+                                    <img src="~/Images/user.png" alt="">
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="share align-items-center px-2 py-1" id="@obj.MissionId" onclick="loginerr()">
+                                    <img src="~/Images/user.png" alt="">
+                                </div>
+                            }
                         </div>
+
+                        <!-- ================================================= MODAL ========================================================= -->
+
                         <div class="modal fade" id="landingrecomanded" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -262,7 +282,7 @@
                         {
                             <div class="d-flex justify-content-center w-100">
                                 <button class="apply px-3 py-2 m-0 mt-4 mb-2 " onclick="loginerr()">
-                                    <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
+                                    <a style="text-decoration: none" class="apply-text" >
                                         Apply &nbsp; <img src="~/Images/right-arrow.png"
                                                   alt="">
                                     </a>

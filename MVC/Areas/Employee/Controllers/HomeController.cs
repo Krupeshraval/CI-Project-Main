@@ -24,7 +24,7 @@ namespace CI_Project.Areas.Employee.Controllers
         {
             return View();
         }
-        public IActionResult ResetPassword()
+        public IActionResult ResetPassword() 
         {
             return View();
         }
@@ -36,3 +36,4 @@ namespace CI_Project.Areas.Employee.Controllers
         }
     }
 }
+
