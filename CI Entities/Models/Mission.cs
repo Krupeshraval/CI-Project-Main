@@ -37,6 +37,8 @@ namespace CI_Entities.Models
         public byte[] CreatedAt { get; set; } = null!;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
+        public long? SeatsLeft { get; set; }
+        public DateTime? Deadline { get; set; }
 
         public virtual City City { get; set; } = null!;
         public virtual Country Country { get; set; } = null!;

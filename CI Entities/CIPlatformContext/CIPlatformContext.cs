@@ -392,6 +392,10 @@ namespace CI_Entities.CIPlatformContext
                     .IsConcurrencyToken()
                     .HasColumnName("created_at");
 
+                entity.Property(e => e.Deadline)
+                    .HasColumnType("datetime")
+                    .HasColumnName("deadline");
+
                 entity.Property(e => e.DeletedAt)
                     .HasColumnType("datetime")
                     .HasColumnName("deleted_at");
@@ -417,6 +421,8 @@ namespace CI_Entities.CIPlatformContext
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("organization_name");
+
+                entity.Property(e => e.SeatsLeft).HasColumnName("seatsLeft");
 
                 entity.Property(e => e.ShortDescription)
                     .HasColumnType("text")
@@ -999,8 +1005,7 @@ namespace CI_Entities.CIPlatformContext
                 entity.Property(e => e.CountryId).HasColumnName("country_id");
 
                 entity.Property(e => e.CreatedAt)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime")
                     .HasColumnName("created_at");
 
                 entity.Property(e => e.DeletedAt)

@@ -31,59 +31,51 @@ namespace CI_Project.Areas.Admin.Controllers
 
         // =================================== Add Delete Edit User ===================================
 
-        [HttpPost]
-
-        public IActionResult adduser(long userID, int status, string proftxt, string email, string password, string department, string Fname, string Lname, string empID, int country, int city)
+        public IActionResult adduser(string avtar, string Fname, string Lname, string email, string password, string empID, string department, long city, long country, string proftxt, int status, long userID)
         {
-
-
-            if (userID == 0)
+            try
             {
-                User user = new User()
+                if (userID == 0 || userID == null)
                 {
-                    FirstName = Fname,
-                    LastName = Lname,
-                    Email = email,
-                    Password = password,
-                    Department = department,
-                    Status = status,
-                    ProfileText = proftxt,
-                    EmployeeId = empID,
-                    CountryId = country,
-                    CityId = city,
-
-                };
-                _db.Users.Add(user);
-                _db.SaveChanges();
+                    _Iuser.addUser(avtar,Fname, Lname, email, password, empID, department, city, country, proftxt, status);
+                }
+                else
+                {
+                    _Iuser.updateUser(avtar,Fname, Lname, email, password, empID, department, city, country, proftxt, status, userID);
+                }
+                return RedirectToAction("user");
             }
-            else
+            catch (Exception ex)
             {
-                User user = _db.Users.FirstOrDefault(x => x.UserId == userID);
-                user.FirstName = Fname;
-                user.LastName = Lname;
-                user.Email = email;
-                user.Password = password;
-                user.Department = department;
-                user.CityId = city;
-                user.CountryId = country;
-                user.Department = department;
-                user.ProfileText = proftxt;
-                user.EmployeeId = empID;
-                user.Status = status;
-
-                _db.Update(user);
-                _db.SaveChanges();
-
+                return RedirectToAction("Error", "User", new { area = "Employee" });
             }
 
-            return Json("user");
+
+
         }
 
-        public IActionResult GetUser(long UserID)
+        public IActionResult getUser(long UserID)
         {
-            var user = _db.Users.FirstOrDefault(x => x.UserId == UserID);
-            return Json(user);
+            var userlist = _db.Users.FirstOrDefault(x => x.UserId == UserID);
+            var user = new UserCrudViewModel();
+            user.avtar = userlist.Avatar;
+            user.FirstName = userlist.FirstName;
+            user.LastName = userlist.LastName;
+            user.Email = userlist.Email;
+            user.Password = userlist.Password;
+            user.Department = userlist.Department;
+            user.ProfileText = userlist.ProfileText;
+            user.Status = userlist.Status;
+            user.EmployeeId = userlist.EmployeeId;
+            user.CityId = userlist.CityId == null ? 0 : userlist.CityId;
+            user.CountryId = userlist.CountryId == null ? 0 : userlist.CountryId;
+            user.UserId = userlist.UserId;
+            user.users = _Iuser.users();
+            user.cities = _db.Cities.ToList();
+            user.country  = _db.Countries.ToList();
+            return View("User",user);
         }
+
 
         public IActionResult deleteUser(long UserID)
         {
@@ -137,7 +129,51 @@ namespace CI_Project.Areas.Admin.Controllers
             missions.Cities= _db.Cities.ToList();
             missions.Countries= _db.Countries.ToList();
             return View(missions);
-        } 
+        }
+
+
+        [HttpPost]
+        public IActionResult addMission(long missionId, string Title, string ShortDesc, string Desc, int city, int country, string OrgName, string OrgDetail, string misstype, int seats, DateTime startdate, DateTime endDate, DateTime RegDeadline, string availability, int themeid, int skill)
+        {
+            try
+            {
+                if (missionId == 0 || missionId == null)
+                {
+                    _Iuser.addMission(Title, ShortDesc, Desc, city, country, OrgName, OrgDetail, misstype, seats, startdate, endDate, RegDeadline, availability, themeid, skill);
+                }
+                else
+                {
+                    _Iuser.updateMission(missionId, Title, ShortDesc, Desc, city, country, OrgName, OrgDetail, misstype, seats, startdate, endDate, RegDeadline, availability, themeid, skill);
+                }
+                return RedirectToAction("AdminMission");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "User", new { area = "Employee" });
+            }
+
+        }
+
+        public IActionResult getMiss(long missionId)
+        {
+            var missionlist = _db.Missions.FirstOrDefault(x => x.MissionId == missionId);
+            var mission = new AdminMissionViewModel();
+            mission.Title = missionlist.Title;
+            mission.ShortDescription = missionlist.ShortDescription;
+            mission.Description = missionlist.Description;
+            mission.CityId = missionlist.CityId == null ? 0 : missionlist.CityId;
+            mission.CountryId = missionlist.CountryId == null ? 0 : missionlist.CountryId;
+            mission.OrganizationName = missionlist.OrganizationName;
+            mission.OrganizationDetail = missionlist.OrganizationDetail;
+            mission.MissionType = missionlist.MissionType;
+            mission.SeatsLeft = missionlist.SeatsLeft;
+            mission.Availability = missionlist.Availability;
+            mission.missionId = missionlist.MissionId;
+            mission.Missions = _Iuser.missionlist();
+
+            return RedirectToAction("AdminMission", mission);
+        }
+
         public IActionResult MissionApplication()
         {
             HttpContext.Session.SetInt32("Nav", 6);
@@ -264,6 +300,8 @@ namespace CI_Project.Areas.Admin.Controllers
 
         public IActionResult AdminBannerManagement()
         {
+            HttpContext.Session.SetInt32("Nav", 8);
+            ViewBag.nav = HttpContext.Session.GetInt32("Nav");
             ViewData["banners"] = _db.Banners.ToList();
             return View();
         }

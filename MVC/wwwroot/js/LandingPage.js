@@ -16,7 +16,7 @@ $(document).on('click', '.btn-list', showList);
 
 
 
-function apply() {
+function loginerr() {
     alert("Please Login First");
 }
 

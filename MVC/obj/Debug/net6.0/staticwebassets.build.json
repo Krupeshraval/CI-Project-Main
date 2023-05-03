@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o2Vp4oRkwDAgLFEg6765g7Ph6VG4CEf2Ilg0lXpvndk=",
+  "Hash": "GzpfY4mPc7OAO5TOKgJ3ZYlUyV1mJyTJksevwiCa7hI=",
   "Source": "CI Project",
   "BasePath": "_content/CI Project",
   "Mode": "Default",
@@ -304,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\2dc9fa94-7429-411f-aa83-7c12c780fd94.jpg",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "Images/2dc9fa94-7429-411f-aa83-7c12c780fd94.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\2dc9fa94-7429-411f-aa83-7c12c780fd94.jpg"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\Images\\404-Page-image.png",
@@ -2514,6 +2531,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Admin.js"
+    },
+    {
+      "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\AdminMission.js",
+      "SourceId": "CI Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CI Project main\\MVC\\wwwroot\\",
+      "BasePath": "_content/CI Project",
+      "RelativePath": "js/AdminMission.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\AdminMission.js"
     },
     {
       "Identity": "F:\\CI Project main\\MVC\\wwwroot\\js\\LandingPage.js",

@@ -48,17 +48,20 @@
 
                                     <label class="mt-3">Mission Title</label>
                                     <div>
-                                        <input class="col-12 " asp-for="Title" type="text" id="Title" />
+                                        <input class="col-12" asp-for="Title" type="text" id="Title" />
+                                        <span class="text-danger" id="reqFname" asp-validation-for="Title"> </span>
                                     </div>
 
                                     <label class="mt-2">Short Description</label>
                                     <div class="col-12 mt-2">
                                         <textarea class="col-12" asp-for="ShortDescription" id="ShortDesc"></textarea>
+                                        <span class="text-danger" id="reqFname" asp-validation-for="ShortDescription"> </span>
                                     </div>
 
                                     <label class="mt-2">Description</label>
                                     <div class="col-12 mt-2">
                                         <textarea class="col-12" asp-for="Description" id="Desc"></textarea>
+                                        <span class="text-danger" id="reqFname" asp-validation-for="Description"> </span>
                                     </div>
 
                                     <div class="row mb-3">
@@ -71,6 +74,7 @@
                                                     <option value="@item.CityId">@item.Name </option>
                                                 }
                                             </select>
+                                            <span class="text-danger" id="reqFname" asp-validation-for="Cities"> </span>
                                         </div>
                                         <div class="col">
                                             <label>Country</label>
@@ -81,7 +85,7 @@
                                                     <option value="@item.CountryId">@item.Name</option>
                                                 }
                                             </select>
-
+                                            <span class="text-danger" id="reqFname" asp-validation-for="Countries"> </span>
                                         </div>
                                     </div>
 
@@ -89,10 +93,12 @@
                                         <div class="col">
                                             <label class="mt-2">Mission Organization Name</label>
                                             <input type="text" asp-for="OrganizationName" class="form-control" id="Fname" placeholder="First name" aria-label="First name">
+                                            <span class="text-danger" id="reqFname" asp-validation-for="OrganizationName"> </span>
                                         </div>
                                         <div class="col">
                                             <label class="mt-2">Mission Organization Detail</label>
                                             <input type="text" asp-for="OrganizationDetail" class="form-control" id="Lname" placeholder="Last name" aria-label="Last name">
+                                            <span class="text-danger" id="reqFname" asp-validation-for="OrganizationDetail"> </span>
                                         </div>
                                     </div>
 
@@ -103,12 +109,14 @@
                                                 <option>Time</option>
                                                 <option>Goal</option>
                                             </select>
+                                            <span class="text-danger" id="reqFname" asp-validation-for="MissionType"> </span>
                                         </div>
 
                                         <div class="col-6 mb-3">
                                             <label class="mt-3">Total Seats</label>
                                             <div>
                                                 <input id="seats" asp-for="SeatsLeft" class="col-11 " placeholder="If Mission Type is Time" type="text" />
+                                                <span class="text-danger" id="reqFname" asp-validation-for="SeatsLeft"> </span>
                                             </div>
                                         </div>
 
@@ -118,13 +126,15 @@
                                         <div class="col">
                                             <label>Mission Start Date</label>
                                             <div>
-                                                <input asp-for="StartDate" class="col-12 " type="date" id="dat" placeholder="dd-mm-yy" />
+                                                <input asp-for="StartDate" class="col-12 " type="date" id="StartDate" placeholder="dd-mm-yy" />
+                                                <span class="text-danger" id="reqFname" asp-validation-for="StartDate"> </span>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <label>Mission End Date</label>
                                             <div>
-                                                <input asp-for="EndDate" class="col-12 " type="date" id="dat" placeholder="dd-mm-yy" />
+                                                <input asp-for="EndDate" class="col-12 " type="date" id="EndDate" placeholder="dd-mm-yy" />
+                                                <span class="text-danger" id="reqFname" asp-validation-for="EndDate"> </span>
                                             </div>
                                         </div>
                                     </div>
@@ -134,10 +144,12 @@
                                         <div class="col">
                                             <label class="mt-2">Mission Registration Deadline</label>
                                             <input asp-for="Deadline" type="text" class="form-control" id="Fname" placeholder="First name" aria-label="First name">
+                                            <span class="text-danger" id="reqFname" asp-validation-for="Deadline"> </span>
                                         </div>
                                         <div class="col">
                                             <label class="mt-2">Mission Availability</label>
                                             <input asp-for="Availability" type="text" class="form-control" id="Lname" placeholder="Last name" aria-label="Last name">
+                                            <span class="text-danger" id="reqFname" asp-validation-for="Availability"> </span>
                                         </div>
                                     </div>
 
@@ -155,6 +167,7 @@
                                                     }
 
                                                 </select>
+                                                <span class="text-danger" id="reqFname" asp-validation-for="MissionThemes"> </span>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -167,6 +180,7 @@
                                                     }
 
                                                 </select>
+                                                <span class="text-danger" id="reqFname" asp-validation-for="Skills"> </span>
                                             </div>
                                         </div>
                                     </div>
@@ -175,21 +189,23 @@
                                         <div class="col">
                                             <label class="mt-2">Mission Images</label>
                                             <input asp-for="ImageFiles" type="file" multiple name="file" id="my-dropzone" />
+                                            <span class="text-danger" id="reqFname" asp-validation-for="ImageFiles"> </span>
                                         </div>
                                         <div class="col">
                                             <label class="mt-2">Mission Documents</label>
                                             <input asp-for="docfiles" type="file" multiple name="file" id="my-dropzone" />
+                                            <span class="text-danger" id="reqFname" asp-validation-for="docfiles"> </span>
                                         </div>
                                     </div>
 
 
                                 </div>
                             </div>
-                            <input type="hidden" id="CMSId" value="0" name="CMSId" />
+                            <input type="hidden" asp-for="missionId" id="missionId" value="0" name="missionId" />
 
                             <div class="modal-footer">
                                 <button type="button" class="btn border-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn oran" onclick="AddEdit()" data-bs-dismiss="modal">Save</button>
+                                <button type="button" class="btn oran" onclick="missionadd()" data-bs-dismiss="modal">Save</button>
                             </div>
                         </div>
 
@@ -225,8 +241,20 @@
 
                     <td>@missions.EndDate</td>
 
-                    <td><i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="editAdminUser(this.id)"></i> | <i class="bi bi-trash" style="color:red"></i></td>
+                    <td>
 
+                        <span>
+                            <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="getMission(@missions.MissionId)">
+                                <i class="bi bi-pencil-square fs-5" style="color:green;"></i>
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="missiondelete(@missions.MissionId)">
+                                <i class="bi bi-trash fs-5" style="color:red;"></i>
+                            </button>
+                        </span>
+
+                    </td>
 
                 </tr>
             }
@@ -245,3 +273,8 @@
 
 
 </script>
+<script src="~/js/AdminMission.js" asp-append-version="true"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+

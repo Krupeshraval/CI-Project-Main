@@ -175,9 +175,94 @@ namespace CI_Project.Repository.Repository
             return cmsPage;
         }
 
+        public User addUser(string avtar,string firstName, string lastName, string email, string password, string empid, string department, long cityId, long countryId, string ProfileText, int status)
+        {
+            User user = new User();
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.Email = email;
+            user.Password = password;
+            user.EmployeeId = empid;
+            user.Department = department;
+            user.CityId = cityId;
+            user.CountryId = countryId;
+            user.ProfileText = ProfileText;
+            user.Status = status;
+            user.Avatar = avtar;
+
+            user.CreatedAt = DateTime.Now;
+
+            _db.Add(user);
+            _db.SaveChanges();
+            return user;
+        }
+
+        public User updateUser(string avtar,string firstName, string lastName, string email, string password, string empid, string department, long cityId, long countryId, string ProfileText, int status, long userId)
+        {
+            User user = _db.Users.FirstOrDefault(u => u.UserId == userId);
+            user.UserId = userId;
+            user.Avatar= avtar;
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.Email = email;
+            user.Password = password;
+            user.EmployeeId = empid;
+            user.Department = department;
+            user.CityId = cityId;
+            user.CountryId = countryId;
+            user.ProfileText = ProfileText;
+            user.Status = status;
+            user.UpdatedAt = DateTime.Now;
+
+            _db.Update(user);
+            _db.SaveChanges();
+            return user;
+        }
         public User UserExist(string Email)
         {
             return _db.Users.FirstOrDefault(u => u.Email == Email);
+        }
+
+        public Mission addMission(string Title, string ShortDesc, string Desc, int city, int country, string OrgName, string OrgDetail, string misstype, int seats, DateTime startdate, DateTime endDate, DateTime RegDeadline, string availability, int themeid, int skill)
+        {
+            var mission = new Mission();
+            mission.Title = Title;
+            mission.ShortDescription = ShortDesc;
+            mission.Description = Desc;
+            mission.CityId = city;
+            mission.CountryId = country;
+            mission.OrganizationName = OrgName;
+            mission.OrganizationDetail = OrgDetail;
+            mission.MissionType = misstype;
+            mission.Availability = availability;
+            mission.SeatsLeft = seats;
+            mission.Availability = availability;
+            mission.Deadline = DateTime.Now;
+            mission.StartDate = DateTime.Now;
+            mission.EndDate = DateTime.Now;
+
+            _db.Add(mission);
+            _db.SaveChanges();
+            return mission;
+        }
+
+        public Mission updateMission(long missionId, string Title, string ShortDesc, string Desc, int city, int country, string OrgName, string OrgDetail, string misstype, int seats, DateTime startdate, DateTime endDate, DateTime RegDeadline, string availability, int themeid, int skill)
+        {
+            Mission mission = _db.Missions.FirstOrDefault(m => m.MissionId == missionId);
+            mission.Title = Title;
+            mission.ShortDescription = ShortDesc;
+            mission.Description = Desc;
+            mission.CityId = city;
+            mission.CountryId = country;
+            mission.OrganizationName = OrgName;
+            mission.OrganizationDetail = OrgDetail;
+            mission.MissionType = misstype;
+            mission.Availability = availability;
+            mission.UpdatedAt = DateTime.Now;
+
+            _db.Update(mission);
+            _db.SaveChanges();
+            return mission;
         }
     }
 }

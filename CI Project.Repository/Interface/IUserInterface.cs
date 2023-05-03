@@ -44,6 +44,14 @@ namespace CI_Project.Repository.Interface
         public ContactU addContactUs(string subject, string message, string username, string email);
 
         public User UserExist(string Email);
+
+        public User addUser(string avtar, string firstName, string lastName, string email, string password, string empid, string department, long cityId, long countryId, string ProfileText, int status);
+        public User updateUser(string avtar,string firstName, string lastName, string email, string password, string empid, string department, long cityId, long countryId, string ProfileText, int status, long userId);
+
+        public Mission addMission(string Title, string ShortDesc, string Desc, int city, int country, string OrgName, string OrgDetail, string misstype, int seats, DateTime startdate, DateTime endDate, DateTime RegDeadline, string availability, int themeid, int skill);
+
+        public Mission updateMission(long missionId, string Title, string ShortDesc, string Desc, int city, int country, string OrgName, string OrgDetail, string misstype, int seats, DateTime startdate, DateTime endDate, DateTime RegDeadline, string availability, int themeid, int skill);
+
         //public List<PasswordReset> passwordreset();
         //public List<User> Users();
     }

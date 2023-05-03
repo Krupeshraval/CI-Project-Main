@@ -141,9 +141,6 @@ namespace CI_Project.Areas.Employee.Controllers
         {
             var userId = HttpContext.Session.GetString("userID");
 
-
-
-
             ViewBag.UserId = Convert.ToInt64(userId);
 
             List<Mission> missions = _Iuser.missionlist();
