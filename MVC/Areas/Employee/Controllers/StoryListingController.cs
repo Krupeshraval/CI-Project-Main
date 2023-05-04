@@ -21,13 +21,14 @@ namespace CI_Project.Areas.Employee.Controllers
 
         public IActionResult StoryDetail(long id, long storyid)
         {
+            IList<User> users = _db.Users.ToList();
             var userId = HttpContext.Session.GetString("userID");
-
+            var story = _db.Stories.Find(storyid);
             ViewBag.UserId = Convert.ToInt64(userId);
 
 
 
-            return View();
+            return View(story);
         }
 
 

@@ -71,7 +71,7 @@ namespace CI_Project.Repository.Repository
         } 
         public List<User> users()
         {
-            return _db.Users.ToList();
+            return _db.Users.Where( u => u.DeletedAt == null).ToList();
         }
 
         public List<FavoriteMission> favoriteMissions()
@@ -240,9 +240,19 @@ namespace CI_Project.Repository.Repository
             mission.Deadline = DateTime.Now;
             mission.StartDate = DateTime.Now;
             mission.EndDate = DateTime.Now;
+            mission.ThemeId = themeid;
 
             _db.Add(mission);
             _db.SaveChanges();
+
+            MissionSkill missionSkill = new MissionSkill()
+            {
+                SkillId = skill,
+                MissionId = mission.MissionId,
+            };
+            _db.MissionSkills.Add(missionSkill);
+            _db.SaveChanges();
+
             return mission;
         }
 

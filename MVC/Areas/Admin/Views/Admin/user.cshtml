@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="mt-2">Password</label>
-                                            <input asp-for="Password" type="text" class="form-control" id="password" placeholder="Enter Password">
+                                            <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Enter Password">
                                             <span class="text-danger" id="reqFname" asp-validation-for="Password"> </span>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                         </div>
                                         <div class="col">
                                             <label class="mt-2">Status</label>
-                                            <input asp-for="Status" type="number" class="form-control" id="status" placeholder="Enter Status">
+                                            <input asp-for="Status" type="text" class="form-control" id="status" placeholder="Enter Status">
                                             <span class="text-danger" id="reqFname" asp-validation-for="Status"> </span>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@
 
                                 </div>
 
-                                <input type="hidden" id="userID" value="0" name="userID" />
+                                <input type="hidden" id="userID" asp-for="UserId" name="userID" />
 
                             </div>
                             <div class="modal-footer">
@@ -190,7 +190,7 @@
                         <td>@user.EmployeeId</td>
                         <td>@user.Department</td>
                         <td>
-                            @if (@user.Status == 1)
+                            @if (user.Status == 1)
                             {
                                 <span style="color:green">Active</span>
                             }
@@ -207,7 +207,7 @@
                                 </button>
                             </span>
                             <span>
-                                <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="deleteUser(@user.UserId)">
+                                <button class="btn shadow-none" data-bs-toggle="modal" onclick="delUser(@user.UserId)">
                                     <i class="bi bi-trash fs-5" style="color:red;"></i>
                                 </button>
                             </span>
@@ -221,7 +221,7 @@
     </div>
 </body>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="~/js/UserAdmin.js" asp-append-version="true"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

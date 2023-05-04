@@ -8,6 +8,10 @@
     int sum = 0;
     int count = 0;
 }
+@{
+    var id = @Accessor.HttpContext.Session.GetString("userID");
+
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +54,8 @@
 <body>
 
     <partial name="_Navbar1" />
-    <partial name="_Navbar2" />
+   
+    @*<partial name="_Navbar2" />*@
 
     <!-- Container for the image gallery -->
     <div class="container ">
@@ -111,7 +116,7 @@
                 <div class="col-12 mt-3 d-flex justify-content-lg-between">
                     <a class=" ms-4 me-2 text-decoration-none text-black justify-content-center ">
                         <img src="~/Images/volunteer1.png" class="involveduserprofile rounded-circle" height="62" width="62" /><br>
-                        <label id="" class="text-center">Ama teki</label>
+                        <label id="" class="text-center">@Model.User.FirstName @Model.User.LastName</label>
                     </a>
 
                     <div class="views d-flex justify-content-center align-content-center me-1 mt-5 px-2 py-0 ">
@@ -123,23 +128,10 @@
 
                 <div class="text mt-4 ms-4">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit assumenda ad eaque
-                        facere voluptatem explicabo voluptas commodi repellendus sint?
+                        @Html.Raw(@Model.Description)
                     </p>
 
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus beatae inventore labore
-                        possimus earum, id explicabo nostrum dolorem sint quaerat quod unde dignissimos facilis
-                        eaque?
-                    </p>
-
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam similique enim maiores
-                        vitae ad, temporibus quis libero. Non laborum dolore eligendi unde dolorem iste, voluptate
-                        ipsa repellendus molestiae sed enim recusandae facere nam aliquid autem tempora. Vel
-                        consequatur expedita porro, fuga in inventore, numquam, assumenda quibusdam ipsa iusto
-                        possimus ducimus!
-                    </p>
+                    
 
                 </div>
 
@@ -187,7 +179,7 @@
 
                     <div class="m-auto text-center mt-2 ">
                         <button class="apply px-3 py-2 my-3">
-                            <a style="text-decoration:none; color:#F88634;">
+                            <a style="text-decoration:none; color:#F88634;" href="/Employee/User/Volunteeringmission/@id?missionid=@Model.MissionId">
                                 Open Mission &nbsp; <img src="~/Images/right-arrow.png" alt="">
                             </a>
                         </button>
@@ -211,7 +203,7 @@
                     <div class="w3-bar country tab-color">
                         <button class="w3-bar-item w3-button tablink active-tab"
                                 onclick="openCity(event,'London')">
-                            Grow Trees - On the Path to environment sustainability
+                            @Model.Title
                         </button>
 
                     </div>

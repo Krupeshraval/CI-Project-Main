@@ -23,7 +23,7 @@ namespace CI_Project.Areas.Admin.Controllers
             HttpContext.Session.SetInt32("Nav", 1);
             ViewBag.nav = HttpContext.Session.GetInt32("Nav");
             var users = new UserCrudViewModel();
-            users.users = _db.Users.ToList();
+            users.users = _db.Users.Where(u=>u.DeletedAt==null).ToList();
             users.cities = _db.Cities.ToList();
             users.country = _db.Countries.ToList();
             return View(users);
@@ -73,6 +73,7 @@ namespace CI_Project.Areas.Admin.Controllers
             user.users = _Iuser.users();
             user.cities = _db.Cities.ToList();
             user.country  = _db.Countries.ToList();
+
             return View("User",user);
         }
 
@@ -85,7 +86,7 @@ namespace CI_Project.Areas.Admin.Controllers
             _db.Users.Update(user);
             _db.SaveChanges();
 
-            return View("user");
+            return RedirectToAction("user", new { UserID = UserID});
         }
 
 
@@ -336,5 +337,13 @@ namespace CI_Project.Areas.Admin.Controllers
             _db.SaveChanges();
             return View();
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            TempData["bye"] = "logged out successfully";
+            TempData["okay"] = null;
+            return RedirectToAction("LandingPage", "User", new { area = "Employee" });
+        }
+
     }
 }

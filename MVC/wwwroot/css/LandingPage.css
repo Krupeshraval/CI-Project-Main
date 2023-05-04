@@ -126,8 +126,13 @@
         background-color: #F88634;
         color:white!important;
     }
+
+        .apply:hover .apply-arrow {
+            filter: brightness(0) invert(1);
+        }
+
 .apply-text {
-    color: #F88634!important;
+    color: #F88634 !important ;
 }
     .apply-text:hover{
         color:white!important;
@@ -138,7 +143,9 @@
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
     }
-
+.apply:hover .apply-text {
+    color:white !important;
+}
 .demo-2 {
     overflow: hidden;
     display: -webkit-box;

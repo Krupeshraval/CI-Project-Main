@@ -35,6 +35,7 @@
 </div>*@
 
 @*<div class="container">*@
+    <body>
 <div class="explore row me-5">
     <div class="col-lg-6 d-inline">
         <p class="fs-4 ms-5 mt-2"> Explore <strong class="fs-3">@ViewBag.TotalMission missions</strong> </p>
@@ -125,15 +126,15 @@
                         <div class="d-flex flex-column heartdiv">
                             @if (obj.isfav == true)
                             {
-                                <button value="@obj.MissionId" onclick="AddtoFav(this)" class="heart align-items-center px-2 py-1">
-                                    <img src="~/Images/heart.png"  alt="" style="color:darkorange; Background:blue;" id="addtofav" class="heart-share-img">
+                                <button value="@obj.MissionId" @*onclick="AddtoFav(this)"*@ class="heart align-items-center px-2 py-1">
+                                    <img src="~/Images/heart.png"  alt="" style="color:darkorangessss;" id="addtofav" class="heart-share-img">
                                 </button>
                             }
                             else
                             {
-                                <div class="heart align-items-center px-2 py-1">
+                                <button class="heart align-items-center px-2 py-1">
                                     <img src="~/Images/heart.png" alt="" class="heart-share-img">
-                                </div>
+                                </button>
                             }
 
                             @if (id != null)
@@ -283,7 +284,7 @@
                             <div class="d-flex justify-content-center w-100">
                                 <button class="apply px-3 py-2 m-0 mt-4 mb-2 " onclick="loginerr()">
                                     <a style="text-decoration: none" class="apply-text" >
-                                        Apply &nbsp; <img src="~/Images/right-arrow.png"
+                                        Apply &nbsp; <img class="apply-arrow" src="~/Images/right-arrow.png"
                                                   alt="">
                                     </a>
                                 </button>
@@ -296,7 +297,7 @@
                             <div class="d-flex justify-content-center w-100">
                                 <button class="apply px-3 py-2 m-0 mt-4 mb-2 ">
                                     <a style="text-decoration: none" class="apply-text" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId">
-                                        Apply &nbsp; <img src="~/Images/right-arrow.png"
+                                        Apply &nbsp; <img class="apply-arrow" src="~/Images/right-arrow.png"
                                                   alt="">
                                     </a>
                                 </button>
@@ -349,6 +350,7 @@
 
     </ul>
 }
+</body>
 
 <script>
 

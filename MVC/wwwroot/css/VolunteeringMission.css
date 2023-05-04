@@ -419,6 +419,25 @@ a {
     background-color: lightgray;
 }
 
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: black !important;
+}
+
+.btn {
+    box-shadow: none !important;
+}
+
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: black !important;
+}
+
+.form-check-input {
+    box-shadow: none !important;
+    border-color: black !important;
+}
 
 @media (max-width: 575.98px) {
     .list-view .card {

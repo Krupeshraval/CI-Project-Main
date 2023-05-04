@@ -515,7 +515,7 @@ namespace CI_Project.Areas.Employee.Controllers
 
 
 
-                    mission.Add(new VolunteeringViewModel
+                     mission.Add(new VolunteeringViewModel
                     {
                         MissionId = item.MissionId,
                         Cityname = City.Name,
@@ -575,7 +575,7 @@ namespace CI_Project.Areas.Employee.Controllers
                     case "My favourites":
                         Missions = Missions.Where(m => m.isfav == true).ToList();
                         break;
-                    case "Registration deadline":
+                    case "Registration deadline":  
                         Missions = Missions.OrderBy(m => m.EndDate).ToList();
                         break;
                 }
@@ -644,7 +644,7 @@ namespace CI_Project.Areas.Employee.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("username");
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("LamdingPage", "User");
         }
 
 

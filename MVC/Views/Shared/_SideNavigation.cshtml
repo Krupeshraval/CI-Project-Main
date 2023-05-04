@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "_SideNavigation";
 }
-
+@inject IHttpContextAccessor Accessor
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,9 +124,10 @@
                                     Dropdown button
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    
                                     <li><a class="dropdown-item" href="#">Another action</a></li>
                                     <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" asp-action="Logout" asp-controller="Admin" asp-area="Admin">Logout</a></li>
                                 </ul>
                             </div>
                         </div>

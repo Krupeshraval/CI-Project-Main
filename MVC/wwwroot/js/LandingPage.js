@@ -72,9 +72,55 @@ function AddtoFav(Dil) {
         success: function (result) {
             alert("Success");
             console.log(result)
+            var $response = $(result);
+            //query the jq object for the values
+            var FilteredData = $response.find('#Dill').html();
+            $('#Dill').html(FilteredData);
         }
     });
 }
+
+
+function coworker2(missionid) {
+
+    var Email = Array.from(document.querySelectorAll('input[name="email"]:checked')).map(e => e.id);
+    //var sendbtn = document.getElementById("sendbutton");
+    //sendbtn.innerHTML = "Sending...";
+    $.ajax
+        ({
+
+
+
+            url: '/Employee/User/sendRecomlanding',
+            type: 'POST',
+            data: { missionid: missionid, Email: Email },
+
+
+            success: function (result) {
+
+                const checkboxes = document.querySelectorAll('input[name="email"]:checked');
+                checkboxes.forEach((checkbox) => {
+                    checkbox.checked = false;
+
+                });
+                //sendbtn.innerHTML = "Send successfully";
+                //setTimeout(() => {
+
+
+                //    //sendbtn.innerHTML = "Send Recommandation";
+
+                //}, 2000);
+
+            },
+            error: function () {
+                // Handle error response from the server, e.g. show an error message to the user
+                alert('Error: Could not recommend mission.');
+            }
+        });
+
+}
+
+
 //function pagination(jpg) {
 //    //var country = [];
 //    //$("input[type='checkbox'][name='country']:checked").each(function () {
