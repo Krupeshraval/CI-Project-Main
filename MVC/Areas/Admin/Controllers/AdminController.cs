@@ -4,6 +4,7 @@ using CI_Project.Models;
 using CI_Project.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Reflection;
 
 namespace CI_Project.Areas.Admin.Controllers
 {
@@ -104,31 +105,26 @@ namespace CI_Project.Areas.Admin.Controllers
              
         }
 
-        //[HttpPost]
-        //public IActionResult CmsCrud(CmsPageViewModel)
-        //{
-        //    if (model.CmsPageId == 0 || model.CmsPageId == null)
-        //    {
-        //        _Idb.AddCms(model);
-
-        //    }
-        //    else
-        //    {
-        //        _Idb.UpdateCms(model);
-        //    }
-        //    return RedirectToAction("CmsCrud");
-        //}
-
-        public IActionResult AdminMission()
+        public IActionResult AdminMission(AdminMissionViewModel mission)
         {
             HttpContext.Session.SetInt32("Nav", 3);
             ViewBag.nav = HttpContext.Session.GetInt32("Nav");
-            var missions = new AdminMissionViewModel();
-            missions.Missions= _db.Missions.ToList();
-            missions.MissionThemes= _db.MissionThemes.ToList();
+            AdminMissionViewModel missions;
+            if (mission.missionId != 0)
+            {
+                missions = mission;
+            }
+            else
+            {
+                missions = new AdminMissionViewModel();
+            }
+
+            missions.Missions = _db.Missions.Where(m => m.DeletedAt == null).ToList();
+            missions.Cities = _db.Cities.ToList();
+            missions.Countries = _db.Countries.ToList();
+            missions.MissionThemes = _db.MissionThemes.ToList();
             missions.Skills = _db.Skills.ToList();
-            missions.Cities= _db.Cities.ToList();
-            missions.Countries= _db.Countries.ToList();
+
             return View(missions);
         }
 
@@ -174,6 +170,16 @@ namespace CI_Project.Areas.Admin.Controllers
 
             return RedirectToAction("AdminMission", mission);
         }
+        public IActionResult delmiss(long missionId)
+        {
+            var mission = _db.Missions.FirstOrDefault(x => x.MissionId == missionId);
+            mission.DeletedAt = DateTime.Now;
+
+            _db.Missions.Update(mission);
+            _db.SaveChanges();
+
+            return RedirectToAction("AdminMission", new { missionId = missionId });
+        }
 
         public IActionResult MissionApplication()
         {
@@ -216,7 +222,7 @@ namespace CI_Project.Areas.Admin.Controllers
                     Description = Desc,
                     Slug = Slug,
                     Status = Status,
-                    //CreatedAt = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                 };
 
                 _db.Add(cms);
@@ -235,7 +241,7 @@ namespace CI_Project.Areas.Admin.Controllers
                 _db.SaveChanges();
             }
 
-            return Json("_CMSAdmin");
+            return Json("CmsCrud");
         }
 
         /*CMS Get Data*/
@@ -252,7 +258,7 @@ namespace CI_Project.Areas.Admin.Controllers
             _db.CmsPages.Remove(cms);
             _db.SaveChanges();
 
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("CmsCrud", "Admin");
         }
 
 
@@ -261,7 +267,7 @@ namespace CI_Project.Areas.Admin.Controllers
         {
             var missionapp = _db.MissionApplications.FirstOrDefault(m => m.MissionApplicationId == missionApplicationId);
             missionapp.ApprovalStatus = "Approved";
-
+             
             _db.MissionApplications.Update(missionapp);
             _db.SaveChanges();
 

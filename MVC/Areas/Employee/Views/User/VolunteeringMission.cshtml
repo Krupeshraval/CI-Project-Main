@@ -425,7 +425,11 @@
                                          width="52" alt="">
                                     </div>
                                     <div class="ms-3">
-                                        <p style="margin-left: 1rem;">@i.User.FirstName @i.User.LastName</p>
+                                        @if(i.User != null)
+                                        {
+                                            <p style="margin-left: 1rem;">@i.User.FirstName @i.User.LastName</p>
+                                        }
+                                       
                                         <p style="margin: 0.5rem 0 0 1rem;">@i.CreatedAt.ToString("dddd, dd MMMM yyyy , hh:mm tt")</p>
                                         <p style="margin: 0 0 0 1rem;">
                                             @i.CommentText
@@ -765,7 +769,7 @@
                                     <div class="d-flex align-items-start ms-2">
                                         <img src="~/Images/deadline.png" alt="">
                                         <div class="ms-2">
-                                            <p class="mb-0">@obj.EndDate</p>
+                                            <p class="mb-0">@obj.EndDate.ToString().Split(" ")[0]</p>
                                             <p class="info-txt">Deadline</p>
                                         </div>
                                     </div>
@@ -776,11 +780,11 @@
                                         <div class="d-flex">
                                             <img src="~/Images/achieved.png" alt="">
                                             <div class="progress ms-2" role="progressbar" aria-label="Basic example"
-                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                <div class="progress-bar" style="width:100px; background-color: #F88634;"></div>
+                                         aria-valuenow="@obj.progress" aria-valuemin="0" aria-valuemax="@obj.goal">
+                                                <div class="progress-bar" style="width:@obj.progressInPerc%; background-color: #F88634;"></div>
                                             </div>
                                         </div>
-                                        <p class="info-txt">8000 achieved</p>
+                                        <p class="info-txt">@obj.progress achieved</p>
                                     </div>
                                 }
                             </div>
@@ -788,8 +792,8 @@
                             <div class="d-flex justify-content-center w-100">
 
                                 <button class="apply px-3 py-2 m-0 mt-4 mb-2 ">
-                                    <a style="text-decoration: none" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId"s">
-                                        Apply &nbsp; <img src="~/Images/right-arrow.png"
+                                    <a class="apply-text" style="text-decoration: none" href="/Employee/User/Volunteeringmission/@id?missionid=@obj.MissionId"s">
+                                        Apply &nbsp; <img class="apply-arrow" src="~/Images/right-arrow.png"
                                                       alt="">
                                     </a>
                                 </button>

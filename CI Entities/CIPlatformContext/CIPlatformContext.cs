@@ -166,8 +166,7 @@ namespace CI_Entities.CIPlatformContext
                 entity.Property(e => e.CmsPageId).HasColumnName("cms_page_id");
 
                 entity.Property(e => e.CreatedAt)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime")
                     .HasColumnName("created_at");
 
                 entity.Property(e => e.DeletedAt)
@@ -722,8 +721,7 @@ namespace CI_Entities.CIPlatformContext
                 entity.Property(e => e.MissionThemeId).HasColumnName("mission_theme_id");
 
                 entity.Property(e => e.CreatedAt)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime")
                     .HasColumnName("created_at");
 
                 entity.Property(e => e.DeletedAt)

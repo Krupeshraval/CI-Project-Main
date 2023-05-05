@@ -89,7 +89,7 @@ namespace CI_Project.Repository.Repository
         }
         public List<Comment> comments()
         {
-            return _db.Comments.ToList();
+            return _db.Comments.OrderByDescending(u => u.CreatedAt).ToList();
         } 
         public void adduser (User user) 
         {

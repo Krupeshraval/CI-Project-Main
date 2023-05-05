@@ -21,8 +21,25 @@ namespace CI_Project.Areas.Employee.Controllers
 
         public IActionResult StoryDetail(long id, long storyid)
         {
-            IList<User> users = _db.Users.ToList();
+            List<User> alluser = _db.Users.ToList();
+            List<VolunteeringViewModel> allavailuser = new List<VolunteeringViewModel>();
+            foreach (var all in alluser)
+            {
+                allavailuser.Add(new VolunteeringViewModel
+                {
+                    username = all.FirstName,
+                    lastname = all.LastName,
+                    userEmail = all.Email,
+                    UserId = all.UserId,
+                });
+
+            }
             var userId = HttpContext.Session.GetString("userID");
+
+            ViewBag.UserId = Convert.ToInt64(userId);
+            ViewBag.allavailuser = allavailuser;
+            IList<User> users = _db.Users.ToList();
+            //var userId = HttpContext.Session.GetString("userID");
             var story = _db.Stories.Find(storyid);
             ViewBag.UserId = Convert.ToInt64(userId);
 

@@ -139,23 +139,18 @@
 
                 <div class="d-flex">
                     <div class="">
-                        <button class="apply px-3 py-2 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button class="apply px-3 py-2 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal-story">
                             <img src="~/Images/add1.png" alt="">&nbsp;
                             Recommend to a Co-Worker &nbsp;
                         </button>
-                        
-                       @* <!-- ===================================== Recomend to Co-Worker MODAL ======================================= -->
-
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <!-- ================== Recomend to Co-Worker Modal ================================== -->
+                        <div class="modal fade" id="exampleModal-story" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
                                     </div>
-
                                     <div class="modal-body overflow-y-auto " style="height:200px;">
                                         @foreach (var user in ViewBag.allavailuser)
                                         {
@@ -166,15 +161,15 @@
                                             </div>
                                         }
                                     </div>
-
+                                                                                                                                                                                                                           
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" onclick="coworker(@ViewBag.UserId, @ViewBag.Missiondetail.MissionId)">Send E-mail</button>
+                                        <button type="button" class="btn btn-primary" onclick="coworker(@ViewBag.UserId, @Model.StoryId)">Send E-mail</button>
                                     </div>
-
                                 </div>
                             </div>
-                        </div>*@
+                        </div>
+                      
                     </div>
 
                     <div class="m-auto text-center mt-2 ">
@@ -210,11 +205,10 @@
 
                     <div id="London" class="w3-container mt-4 city">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit assumenda ad eaque
-                            facere voluptatem explicabo voluptas commodi repellendus sint?
+                            @Html.Raw(@Model.Description)
                         </p>
 
-                        <p>
+                       @* <p>
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam veritatis, temporibus debitis fugit modi commodi!
 
                         </p>
@@ -236,7 +230,7 @@
 
                         <p>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis vero unde deleniti repudiandae iste dignissimos debitis. Ex esse consectetur minima illum debitis nam qui laborum nesciunt explicabo cum soluta asperiores perferendis sed voluptatem, minus ad amet eius tempora in rerum recusandae! A id et quam officiis veritatis consectetur nam suscipit unde iste alias perferendis, consequuntur reprehenderit dignissimos, harum hic doloribus ducimus optio, velit sit? Iste.
-                        </p>
+                        </p>*@
 
 
 
@@ -251,6 +245,7 @@
 <script src="~/js/StoryDetail.js" asp-append-version="true"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src="~/js/StoryDetail.js" asp-append-version="true"></script>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

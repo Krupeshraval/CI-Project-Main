@@ -244,12 +244,12 @@
                     <td>
 
                         <span>
-                            <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="getMission(@missions.MissionId)">
+                            <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#missionModal" onclick="getMission(@missions.MissionId)">
                                 <i class="bi bi-pencil-square fs-5" style="color:green;"></i>
                             </button>
                         </span>
                         <span>
-                            <button class="btn shadow-none" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="missiondelete(@missions.MissionId)">
+                            <button class="btn shadow-none" data-bs-toggle="modal" onclick="missiondelete(@missions.MissionId)">
                                 <i class="bi bi-trash fs-5" style="color:red;"></i>
                             </button>
                         </span>
@@ -264,15 +264,7 @@
 
 </body>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-<script>
-    $(document).ready(function () {
-
-        $('#userTable').DataTable();
-    });
-
-
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="~/js/AdminMission.js" asp-append-version="true"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

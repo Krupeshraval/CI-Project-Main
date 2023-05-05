@@ -277,11 +277,10 @@ namespace CI_Project.Areas.Employee.Controllers
             objComment.MissionId = missionId;
             objComment.CommentText = commentText;
             objComment.CreatedAt = DateTime.Now;
-            //_db.Comments.Add(objComment);
-            //_db.SaveChanges();
+          
             _Iuser.comment(objComment);
             return RedirectToAction("VolunteeringMission", new { id = Convert.ToInt64(HttpContext.Session.GetString("userID")), missionid = missionId });
-            //return Json(objComment);
+            
         }
 
 
@@ -637,6 +636,7 @@ namespace CI_Project.Areas.Employee.Controllers
         #endregion
 
         #endregion
+
 
 
 

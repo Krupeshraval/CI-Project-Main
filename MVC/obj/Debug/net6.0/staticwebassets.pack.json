@@ -593,6 +593,10 @@
       "PackagePath": "staticwebassets\\js\\AdminMission.js"
     },
     {
+      "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\CmsPage.js",
+      "PackagePath": "staticwebassets\\js\\CmsPage.js"
+    },
+    {
       "Id": "F:\\CI Project main\\MVC\\wwwroot\\js\\LandingPage.js",
       "PackagePath": "staticwebassets\\js\\LandingPage.js"
     },

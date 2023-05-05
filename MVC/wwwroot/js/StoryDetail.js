@@ -103,6 +103,6 @@ function updateVisitCount() {
     fetch('https://api.countapi.xyz/update/megs/count/?amount=1')
         .then(res => res.json())
         .then(res => {
-            countEl.innerHTML = res.value;
+            countEl.innerHTML = res.value + "  Views";
         })
 }
