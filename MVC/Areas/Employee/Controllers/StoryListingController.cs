@@ -43,6 +43,10 @@ namespace CI_Project.Areas.Employee.Controllers
             var story = _db.Stories.Find(storyid);
             ViewBag.UserId = Convert.ToInt64(userId);
 
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }
 
 
             return View(story);
@@ -92,6 +96,12 @@ namespace CI_Project.Areas.Employee.Controllers
             ViewBag.TotalPages = (int)Math.Ceiling((double)total / pageSize);
             ViewData["mission"] = items.ToList();
 
+
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }
+
             return View(items);
 
         }
@@ -122,6 +132,12 @@ namespace CI_Project.Areas.Employee.Controllers
                 
 
             }
+
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }
+
 
             return View(storyView);
         }
@@ -245,6 +261,9 @@ namespace CI_Project.Areas.Employee.Controllers
 
                 }
             }
+
+
+
             else { return View(); }
         }
 
@@ -266,7 +285,7 @@ namespace CI_Project.Areas.Employee.Controllers
                 var storymedia = _db.StoryMedia.FirstOrDefault(m => m.StoryId == story.StoryId);
                 storyView.Add(new ShareStoryViewModel
                 {
-                    StoryId = story.StoryId,
+                    StoryId = story.StoryId, 
                     MissionId = story.MissionId,
                     UserId = story.UserId,
                     StoryTitle = story.Title,
@@ -274,14 +293,28 @@ namespace CI_Project.Areas.Employee.Controllers
                     StoryDescription = HttpUtility.HtmlDecode(story.Description),
                     username = storyuser.FirstName,
                     lastname = storyuser.LastName,
-                    //Useravtar = storyuser.Avatar != null ? storyuser.Avatar : "",
+                    Useravtar = storyuser.Avatar != null ? storyuser.Avatar : "",
                     storymediapath = storymedia != null ? storymedia.Path : "",
 
                 });
             }
             var Storys = storyView;
             ViewBag.StoryList = storyView;
+
+
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            } 
+
             return View(Storys);
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("username");
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("LandingPage", "User");
         }
     }
 }

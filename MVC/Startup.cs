@@ -50,7 +50,7 @@ namespace CI_Project
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{area=Employee}/{controller=User}/{action=LandingPage}/{id?}");
             });
         }
     }

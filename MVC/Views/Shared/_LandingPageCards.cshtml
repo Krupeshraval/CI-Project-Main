@@ -37,9 +37,11 @@
 @*<div class="container">*@
     <body>
 <div class="explore row me-5">
+
     <div class="col-lg-6 d-inline">
         <p class="fs-4 ms-5 mt-2"> Explore <strong class="fs-3">@ViewBag.TotalMission missions</strong> </p>
     </div>
+  
 
 
     <div class="col-lg-6 d-flex mt-3 sortby">
@@ -88,6 +90,15 @@
 <!-- ==================================================================== -->
 <!----------------------------------- CARD --------------------------------->
 <!-- ==================================================================== -->
+
+  @if(@ViewBag.TotalMission == 0){
+            <h1 class="d-flex justify-content-center shadow-lg " style="color:#f88634;">No Mission Found</h1>
+
+        }
+        else
+        {
+        
+        
 
 <div class="container grid-container">
     <div class="row">
@@ -349,6 +360,7 @@
         }
 
     </ul>
+}
 }
 </body>
 

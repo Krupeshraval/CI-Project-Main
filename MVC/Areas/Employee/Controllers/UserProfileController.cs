@@ -24,6 +24,7 @@ namespace CI_Project.Areas.Employee.Controllers
         {
             var userId = Convert.ToInt64(HttpContext.Session.GetString("userID"));
 
+
             var user = _Iuser.users().FirstOrDefault(u => u.UserId == userId);
             UserProfileViewModel userProfile = new UserProfileViewModel();
 
@@ -72,11 +73,23 @@ namespace CI_Project.Areas.Employee.Controllers
                     select row1;
 
             userProfile.RemainingSkill = r.ToList();
+
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }
+
             return View(userProfile);
         }
 
-        [HttpPost]
+        //Cascading for city and country 
+        public JsonResult filterCity(long missionCountry)
+        {
+            IList<City> cities = _db.Cities.Where(m => m.CountryId == missionCountry).ToList();
+            return Json(cities);
+        }
 
+        [HttpPost]
         public async Task<IActionResult> userProfile(UserProfileViewModel model, IFormFileCollection files)
         {
 
@@ -142,7 +155,7 @@ namespace CI_Project.Areas.Employee.Controllers
 
             _db.Users.Update(userdetail);
             _db.SaveChanges();
-            return RedirectToAction("userProfile", "UserProfile");
+            return RedirectToAction("UserProfile", "UserProfile", new { area = "Employee" });
         }
 
 
@@ -159,7 +172,7 @@ namespace CI_Project.Areas.Employee.Controllers
             {
                 _Iuser.AddUserSkills(skills, Convert.ToInt32(userid));
             }
-            return RedirectToAction("UserProfile", "UserProfile");
+            return RedirectToAction("UserProfile", "UserProfile", new { area = "Employee" });
         }
 
         [HttpPost]
@@ -198,6 +211,11 @@ namespace CI_Project.Areas.Employee.Controllers
             {
                 return RedirectToAction("Error", "Home");
             }
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("username");
+            return RedirectToAction("LandingPage", "User");
         }
 
     }

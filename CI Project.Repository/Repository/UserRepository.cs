@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Reflection;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,8 @@ namespace CI_Project.Repository.Repository
 
         public List<Mission> missionlist()
         {
-            return _db.Missions.ToList();
+
+            return _db.Missions.Where(m => m.DeletedAt == null).ToList();
         }
 
         public List<MissionRating> missionratingslist()
@@ -52,6 +54,10 @@ namespace CI_Project.Repository.Repository
         public List<City> cities()
         {
             return _db.Cities.ToList();
+        }
+        public List<MissionTheme> themeList()
+        {
+            return _db.MissionThemes.Where(t => t.DeletedAt == null).ToList();
         }
         public List<Country> countries()
         {
@@ -273,6 +279,58 @@ namespace CI_Project.Repository.Repository
             _db.Update(mission);
             _db.SaveChanges();
             return mission;
+        }
+
+        public MissionTheme addtheme(string themeName, int Status)
+        {
+            var theme = new MissionTheme();
+            theme.Title = themeName;
+            theme.Status= Status;
+            theme.CreatedAt= DateTime.Now;
+
+            _db.Add(theme);
+            _db.SaveChanges();
+
+            return theme;
+        }
+
+        public MissionTheme updateTheme(string themeName, int Status, long MissionThemeId)
+        {
+            MissionTheme themes = _db.MissionThemes.FirstOrDefault(m => m.MissionThemeId == MissionThemeId);
+            themes.Title = themeName;
+            themes.Status = Status;
+            themes.MissionThemeId = MissionThemeId;
+            themes.UpdatedAt = DateTime.Now;
+
+            _db.Update(themes);
+            _db.SaveChanges();
+            return themes;
+        }
+
+        public Skill addSkill(string skillName, int Status)
+        {
+            var skill = new Skill();
+            skill.SkillName = skillName;
+            skill.Status = Status;
+            skill.CreatedAt= DateTime.Now;
+
+            _db.Add(skill);
+            _db.SaveChanges();
+
+            return skill;
+        }
+
+        public Skill updateSkill(string skillName, int Status, long skillId)
+        {
+            Skill skills = _db.Skills.FirstOrDefault(m => m.SkillId == skillId);
+            skills.SkillName = skillName;
+            skills.Status= Status;
+            skills.SkillId = skillId;
+            skills.UpdatedAt= DateTime.Now;
+
+            _db.Update(skills);
+            _db.SaveChanges();
+            return skills;
         }
     }
 }

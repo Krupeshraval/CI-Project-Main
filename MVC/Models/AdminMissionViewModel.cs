@@ -65,7 +65,9 @@ namespace CI_Project.Models
         public string url { get; set; }
 
 
+        public long MissionThemeId { get; set; }
 
+        public int Status { get; set; }
 
     }
 }

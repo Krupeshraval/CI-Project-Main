@@ -14,7 +14,7 @@ namespace CI_Project.Areas.Admin.Controllers
         private readonly CIPlatformContext _db;
         private readonly IUserInterface _Iuser;
 
-        public AdminController(CIPlatformContext db, IUserInterface Iuser)
+        public AdminController(CIPlatformContext db, IUserInterface Iuser)   
         {
             _Iuser = Iuser;
             _db = db; //underscore db ma baddho database store thai jase
@@ -28,6 +28,12 @@ namespace CI_Project.Areas.Admin.Controllers
             users.cities = _db.Cities.ToList();
             users.country = _db.Countries.ToList();
             return View(users);
+        }
+        // ========================================== Cascading for city and country =================================================
+        public JsonResult filterCity(long missionCountry)
+        {
+            IList<City> cities = _db.Cities.Where(m => m.CountryId == missionCountry).ToList();
+            return Json(cities);
         }
 
         // =================================== Add Delete Edit User ===================================
@@ -90,7 +96,7 @@ namespace CI_Project.Areas.Admin.Controllers
             return RedirectToAction("user", new { UserID = UserID});
         }
 
-
+        // ================================================= CMS CRUD ==========================================
 
         [HttpGet]
         public IActionResult CmsCrud()
@@ -105,6 +111,8 @@ namespace CI_Project.Areas.Admin.Controllers
              
         }
 
+
+        // =========================================== ADMIN MISSION ========================================
         public IActionResult AdminMission(AdminMissionViewModel mission)
         {
             HttpContext.Session.SetInt32("Nav", 3);
@@ -181,6 +189,8 @@ namespace CI_Project.Areas.Admin.Controllers
             return RedirectToAction("AdminMission", new { missionId = missionId });
         }
 
+
+        // ======================================================= MISSION APPLICATION ==================================================
         public IActionResult MissionApplication()
         {
             HttpContext.Session.SetInt32("Nav", 6);
@@ -191,7 +201,8 @@ namespace CI_Project.Areas.Admin.Controllers
             missions.missions= _db.Missions.ToList();
             return View(missions);
         }
-        
+
+        // ================================================ ADMIN STORY =======================================================================
         public IActionResult AdminStory()
         {
             HttpContext.Session.SetInt32("Nav", 7);
@@ -203,8 +214,29 @@ namespace CI_Project.Areas.Admin.Controllers
            return View(storys);
         }
 
+        [HttpGet]
+        public IActionResult approveStory(long StoryId)
+        {
+            var story = _db.Stories.FirstOrDefault(s => s.StoryId == StoryId);
+            story.Status = "Approved";
 
-        // ============================================ CMS =========================================
+            _db.Stories.Update(story);
+            _db.SaveChanges();
+            return RedirectToAction("AdminStory", "Admin");
+        }
+
+        [HttpGet]
+        public IActionResult rejectStory(long StoryId)
+        {
+            var storyReject = _db.Stories.FirstOrDefault(s => s.StoryId == StoryId);
+            storyReject.Status = "Rejected";
+
+            _db.Stories.Update(storyReject);
+            _db.SaveChanges();
+            return RedirectToAction("AdminStory", "Admin");
+        }
+
+        // ==================================================== C M S ========================================================
 
         public IActionResult CMSAdd()
         {
@@ -244,7 +276,7 @@ namespace CI_Project.Areas.Admin.Controllers
             return Json("CmsCrud");
         }
 
-        /*CMS Get Data*/
+        /* ========================================= CMS Get Data ===============================================*/
         public IActionResult GetCMSData(long CMSId)
         {
             var Data = _db.CmsPages.FirstOrDefault(x => x.CmsPageId == CMSId);
@@ -266,8 +298,14 @@ namespace CI_Project.Areas.Admin.Controllers
         public IActionResult approveMission(long missionApplicationId)
         {
             var missionapp = _db.MissionApplications.FirstOrDefault(m => m.MissionApplicationId == missionApplicationId);
-            missionapp.ApprovalStatus = "Approved";
-             
+            var targetMission = _db.Missions.ToList().Where(m => m.MissionId == missionapp.MissionId).FirstOrDefault();
+            if (targetMission.Availability != null)
+            {
+                targetMission.Availability = Convert.ToString(Convert.ToInt32 (targetMission.Availability) - 1);
+                missionapp.ApprovalStatus = "Approved";
+            }
+
+            _db.Missions.Update(targetMission);
             _db.MissionApplications.Update(missionapp);
             _db.SaveChanges();
 
@@ -288,20 +326,149 @@ namespace CI_Project.Areas.Admin.Controllers
 
 
         }
-
-        public IActionResult MissionTheme()
+        // ============================================= MISSION THEME ====================================================
+        [HttpGet]
+        public IActionResult MissionTheme(MissionThemeViewModel theme)
         {
-            var theme = new MissionThemeViewModel();
-                theme.MissionThemes = _db.MissionThemes.ToList();
-            return View(theme);
+            HttpContext.Session.SetInt32("Nav", 4);
+            ViewBag.nav = HttpContext.Session.GetInt32("Nav");
+            MissionThemeViewModel themes;
+            if (theme.MissionThemeId != 0)
+            {
+                themes = theme;
+            }
+            else
+            {
+                themes = new MissionThemeViewModel();
+            }
+
+            themes.MissionThemes = _db.MissionThemes.Where(t => t.DeletedAt == null).ToList();
+
+            return View(themes);
         }
 
-        public IActionResult MissionSkill()
+        [HttpPost]
+        
+        public IActionResult addTheme(string themeName, int Status, long missionThemeId)
         {
-            var missionskills = new MissionThemeViewModel();
+            try
+            {
+                if (missionThemeId == 0 || missionThemeId == null)
+                {
+                    _Iuser.addtheme(themeName, Status);
+                }
+                else
+                {
+                    _Iuser.updateTheme(themeName, Status, missionThemeId);
+                }
+                return RedirectToAction("MissionTheme");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "User", new { area = "Employee" });
+            }
+        }
+
+
+        public IActionResult Themeget(long missionThemeId)
+        {
+            var themeList = _db.MissionThemes.FirstOrDefault(x => x.MissionThemeId == missionThemeId);
+            var theme = new MissionThemeViewModel();
+
+            theme.Title = themeList.Title;
+            theme.MissionThemeId = themeList.MissionThemeId;
+            theme.Status = themeList.Status;
+
+            return RedirectToAction("MissionTheme", theme);
+        }
+        public IActionResult deltheme(long missionThemeId)
+        {
+            var theme = _db.MissionThemes.FirstOrDefault(x => x.MissionThemeId == missionThemeId);
+            theme.DeletedAt = DateTime.Now;
+
+            _db.MissionThemes.Update(theme);
+            _db.SaveChanges();
+
+            return RedirectToAction("MissionTheme", new { missionThemeId = missionThemeId });
+        }
+
+
+
+
+
+
+
+
+        // =================================== MISSION SKILL ===================================================
+
+
+        public IActionResult MissionSkill(AdminSkillViewModel skill)
+        {
+            var missionskills = new AdminSkillViewModel();
             missionskills.skills =_db.Skills.ToList();
+
+            AdminSkillViewModel skills;
+            if (skill.SkillId != 0)
+            {
+                skills = skill;
+            }
+            else
+            {
+                skills = new AdminSkillViewModel();
+            }
+
+            skills.skills = _db.Skills.ToList();
+
+
             return View(missionskills);
         }
+
+        [HttpPost]
+        public IActionResult addskill(string skillName, int Status, long skillId) 
+         { 
+            try
+            {
+                if (skillId == 0 || skillId == null)
+                {
+                    _Iuser.addSkill(skillName,Status);
+                }
+                else
+                {
+                    _Iuser.updateSkill(skillName,Status, skillId);
+                }
+                return RedirectToAction("MissionSkill");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "User", new { area = "Employee" });
+            }
+
+        }
+
+        public IActionResult skillget(long skillId)
+        {
+            var skillList = _db.Skills.FirstOrDefault(x => x.SkillId == skillId);
+            var skill = new AdminSkillViewModel();
+
+            skill.SkillName = skillList.SkillName;
+            skill.SkillId = skillList.SkillId;
+            skill.Status = skillList.Status;
+
+            return RedirectToAction("MissionSkill", skill);
+        }
+        public IActionResult delskill(long skillId)
+        {
+            var skill = _db.Skills.FirstOrDefault(x => x.SkillId == skillId);
+            skill.DeletedAt = DateTime.Now;
+
+            _db.Skills.Update(skill);
+            _db.SaveChanges();
+
+            return RedirectToAction("MissionSkill", new { skillId = skillId });
+        }
+
+
+
 
         // ====================================== Admin Banner Management ===================================
 

@@ -225,7 +225,12 @@ namespace CI_Project.Areas.Employee.Controllers
                 return View();
             }
         }
-
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("username");
+            HttpContext.Session.Clear();
+            return RedirectToAction("LandingPage", "User");
+        }
 
     }
 }

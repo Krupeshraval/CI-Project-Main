@@ -22,7 +22,7 @@ function showSlides(n) {
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
-    }  
+    }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
@@ -43,7 +43,7 @@ function coworker(Id, missionid) {
             type: 'POST',
             data: { missionid: missionid, Id: Id, Email: Email, currentURL },
             success: function (result) {
-               /* alert("Recomendations sent successfully!");*/
+                /* alert("Recomendations sent successfully!");*/
                 const checkboxes = document.querySelectorAll('input[name="email"]:checked');
                 checkboxes.forEach((checkbox) => {
                     checkbox.checked = false;
@@ -66,13 +66,13 @@ function coworker(Id, missionid) {
 
 
 
-function checkFav(missionid,id) {
-  //  alert("Hello");
+function checkFav(missionid, id) {
+    //  alert("Hello");
     const params = new URLSearchParams(window.location.search);
     const query = params.get('missionid');
     $.ajax({
         url: "/Employee/User/AddToFav",
-        data: { missionid: missionid,id:id },
+        data: { missionid: missionid, id: id },
         success: function (response) {
             console.log(response)
             //if (response.isFav) {
@@ -161,24 +161,37 @@ function AddComment() {
     var commentVal = textBox.value;
     const params = new URLSearchParams(window.location.search);
     const query = params.get('missionid');
-    $.ajax({
-        url: "/Employee/User/AddComment",
-        data: { missionId: query, commenttext: commentVal },
-        success: function (result)
-        {
-            $('.commentdiv').html($(result).find('.commentdiv').html());
-            /*window.location.reload();*/
-        },
-        error: function () {
-            alert("Error : Mission has not been liked");
-        }
-    });
+
+    if (commentVal == "" || commentVal == null) {
+        $("#comment-validatoin").removeClass("d-none");
+    }
+    else
+    {
+        $.ajax({
+            url: "/Employee/User/AddComment",
+            data: { missionId: query, commenttext: commentVal },
+            success: function (result) {
+                $('.commentdiv').html($(result).find('.commentdiv').html());
+                /*window.location.reload();*/
+            },
+            error: function () {
+                alert("Error : Mission has not been liked");
+            }
+        });
+
+    }
+
+
+
+}
+function cmt(){
+    $("#comment-validatoin").addClass("d-none");
 }
 
 
 
 //function AddtoFav() {
-   
+
 //    const params = new URLSearchParams(window.location.search);
 //    const query = params.get('missionid');
 //    $.ajax({

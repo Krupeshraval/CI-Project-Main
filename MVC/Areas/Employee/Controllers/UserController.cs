@@ -44,6 +44,10 @@ namespace CI_Project.Areas.Employee.Controllers
         }
         public IActionResult PrivacyPolicy()
         {
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }
             return View();
         }
 
@@ -266,6 +270,12 @@ namespace CI_Project.Areas.Employee.Controllers
             }
             ViewBag.recentvolunteered = recentvolunteredlist;
 
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }
+
+
             return View(selected);
         }
 
@@ -294,6 +304,11 @@ namespace CI_Project.Areas.Employee.Controllers
             ViewBag.themelist = _Iuser.themes();
             ViewBag.citylist = _Iuser.cities();
             ViewBag.sklilllist = _Iuser.skills();
+
+            if(SessionUserId != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }           
             return View();
 
         }
@@ -644,7 +659,8 @@ namespace CI_Project.Areas.Employee.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("username");
-            return RedirectToAction("LamdingPage", "User");
+            HttpContext.Session.Clear();
+            return RedirectToAction("LandingPage", "User");
         }
 
 
@@ -653,8 +669,8 @@ namespace CI_Project.Areas.Employee.Controllers
         [HttpPost]
         public IActionResult Index(User user)
         {
-            
 
+            ViewData["BannersShow"] = _db.Banners.ToList();
             var status = _Iuser.UserByEmail_Password(user.Email, user.Password);
             //var admin = _db.Admins.FirstOrDefault(x => x.Email == user.Email);
             var Admin= _db.Admins.FirstOrDefault(U=> U.Email== user.Email);

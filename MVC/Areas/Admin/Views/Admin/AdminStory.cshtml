@@ -23,60 +23,59 @@
 
 
 
-    <table id="userTable">
-        <thead>
-            <tr>
-                <th>Story Title</th>
-                <th>Full Name</th>
-                <th>Mission Title</th>
-                <th>Action</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var story in Model.stories)
-            {
+        <table id="userTable">
+            <thead>
                 <tr>
-                    <td>@story.Title</td>
-
-                    <td>@story.User.FirstName  @story.User.LastName</td>
-
-                    <td>@story.Mission.Title</td>
-
-                    <td>
-                        <span>
-                            <button class="btn shadow-none oran">
-                                Edit
-                            </button>
-                        </span>
-                        <span>
-                            <button class="btn shadow-none" onclick="Approve(@story.StoryId)">
-                                <i class="bi bi-check-circle fs-5" style="color:green;"></i>
-                            </button>
-                        </span>
-                        <span>
-                            <button class="btn shadow-none" onclick="Reject(@story.StoryId)">
-                                <i class="bi bi-x-circle fs-5" style="color:red;"></i>
-                            </button>
-                        </span>
-                        <span>
-                            <button class="btn shadow-none">
-                                <i class="bi bi-trash fs-5"></i>
-                            </button>
-                        </span>
-                    </td>
+                    <th>Story Title</th>
+                    <th>Full Name</th>
+                    <th>Mission Title</th>
+                    <th>Action</th>
 
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var story in Model.stories)
+                {
+                    <tr>
+                        <td>@story.Title</td>
 
-        </tbody>
-    </table>
+                        <td>@story.User.FirstName  @story.User.LastName</td>
+
+                        <td>@story.Mission.Title</td>
+
+                        <td>
+                            <span>
+                                <a target="_blank" style="text-decoration:none" asp-area="Employee" asp-controller="StoryListing" asp-action="StoryDetail" asp-route-storyid="@story.StoryId">
+                                    <button class="btn shadow-none oran">
+                                        View
+                                    </button>
+                                </a>
+                            </span>
+                            <span>
+                                <button class="btn shadow-none" onclick="approve(@story.StoryId)">
+                                    <i class="bi bi-check-circle fs-5" style="color:green;"></i>
+                                </button>
+                            </span>
+                            <span>
+                                <button class="btn shadow-none" onclick="reject(@story.StoryId)">
+                                    <i class="bi bi-x-circle fs-5" style="color:red;"></i>
+                                </button>
+                            </span>
+                            <span>
+                                <button class="btn shadow-none">
+                                    <i class="bi bi-trash fs-5"></i>
+                                </button>
+                            </span>
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
 
 </body>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-<script>
+<script src="~/js/AdminStory.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-
-
-</script>

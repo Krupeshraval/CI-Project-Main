@@ -29,6 +29,13 @@ namespace CI_Project.Areas.Employee.Controllers
             ss.MissionApplications = _db.MissionApplications.Where(e => e.UserId == Convert.ToInt64(userid)).ToList();
             ss.timesheets = _db.Timesheets.ToList();
 
+            if (HttpContext.Session.GetString("userID") != null)
+            {
+                ViewData["userImg"] = _db.Users.ToList().Where(m => m.UserId == Convert.ToInt64(HttpContext.Session.GetString("userID"))).Select(m => m.Avatar).FirstOrDefault();
+            }
+
+
+
             return View(ss);
         }
 
@@ -145,6 +152,11 @@ namespace CI_Project.Areas.Employee.Controllers
             _db.SaveChanges();
 
             return View();
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("username");
+            return RedirectToAction("LandingPage", "User");
         }
 
     }
