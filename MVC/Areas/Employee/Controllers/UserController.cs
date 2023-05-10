@@ -57,6 +57,8 @@ namespace CI_Project.Areas.Employee.Controllers
 
             return Json(new { success = true });
         }
+
+        // ============================================ add to favourite ============================================
         public IActionResult AddToFav(long missionid, long id)
         {
 
@@ -75,7 +77,7 @@ namespace CI_Project.Areas.Employee.Controllers
             //return re(new {success = true, isFav});
         }
 
-
+        // ========================================= to add ratings =============================================
 
         [HttpPost]
         public async Task<IActionResult> AddRating(string rating, long id, long missionId)
@@ -141,6 +143,10 @@ namespace CI_Project.Areas.Employee.Controllers
             }
             return Json(new { success = true });
         }
+
+        // ============================================================================================================= 
+        // ======================================= Volunteering Mission Page ===========================================
+        // ============================================================================================================= 
 
         public IActionResult VolunteeringMission(long id, long missionid, VolunteeringViewModel volunteeringViewModel)
         {
@@ -295,6 +301,9 @@ namespace CI_Project.Areas.Employee.Controllers
 
 
 
+        // ============================================================================================================= 
+        // ============================================== Landing Page =================================================
+        // ============================================================================================================= 
         public IActionResult landingPage(long userId, int id, int missionid, string? search, int? pageIndex, string? sortValue, string[] country, string[] city, string[] theme)
         {
             var SessionUserId = HttpContext.Session.GetString("userID");
