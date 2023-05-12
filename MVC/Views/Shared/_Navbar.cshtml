@@ -85,10 +85,23 @@
                     }
 
 
+                    <li class="nav-item dropdown">
 
-
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                           aria-expanded="false">Explore</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Missions</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">volunteers around globe</a></li>
+                        </ul>
+                    </li>
+                     
                     <li class="nav-item mt-3 ms-3">
                         <a class="nav-link active" aria-current="page" asp-action="StoryListing" asp-controller="StoryListing">Story</a>
+                    </li>
+
+                    <li class="nav-item mt-3 ms-3">
+                        <a class="nav-link active" aria-current="page" asp-action="StoryListing" asp-controller="StoryListing">News</a>
                     </li>
 
                     <li class="nav-item dropdown ms-3">
@@ -102,11 +115,33 @@
                     </li>
                 </div>
             </div>
+
+
             <h2 class="nav-brand ms-3 me-auto"><img src="~/Images/logo.png" alt=""></h2>
             <ul class="navbar-nav  navbar1  me-auto mb-2 mb-lg-0 ">
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                       aria-expanded="false">Explore</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Missions</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">volunteers around globe</a></li>
+                    </ul>
+                </li>
+
+                 
+                <!-- main page -->
+                
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" asp-action="StoryListing" asp-controller="StoryListing">Stories</a>
                 </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" asp-action="StoryListing" asp-controller="StoryListing">News</a>
+                </li>
+
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
@@ -141,7 +176,11 @@
                         <li><a class="dropdown-item" asp-action="StoryDraft" asp-controller="StoryListing">Draft</a></li>
                         <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">Logout</a></li>
                     </ul>
+
+                    
                 </div>
+
+                <i class="bi bi-bell ms-3"> </i>
             }
 
 
@@ -356,18 +395,18 @@
                     </a>
                     <ul class="dropdown-menu" style="height:150px; width:max-content; overflow-y:auto">
 
-                            @if (ViewBag.sklilllist != null)
+                        @if (ViewBag.sklilllist != null)
+                        {
+                            @foreach (var obj in ViewBag.sklilllist)
                             {
-                                @foreach (var obj in ViewBag.sklilllist)
-                                {
-                                    <li class="ps-2">
-                                        <input class="form-check-input  tick mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.SkillName" id="1" />
-                                        <label class="form-check-label " for="1"> @obj.SkillName</label>
-                                    </li>
-                                }
-
+                                <li class="ps-2">
+                                    <input class="form-check-input  tick mt-1 ms-2" name="theme" onchange="filters()" type="checkbox" value="@obj.SkillName" id="1" />
+                                    <label class="form-check-label " for="1"> @obj.SkillName</label>
+                                </li>
                             }
-                        </ul>
+
+                        }
+                    </ul>
                 </li>
             </ul>
         </div>
